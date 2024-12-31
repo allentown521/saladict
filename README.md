@@ -1,8 +1,8 @@
 <img width="200px" src="public/icon.svg" align="left"/>
 
-# Pot (派了个萌的翻译器)
+# 沙拉翻译
 
-> 🌈 一个跨平台的划词翻译软件 ([QQ 频道](https://pd.qq.com/s/akns94e1r))
+> 🌈 一个跨平台的划词翻译软件
 
 ![License](https://img.shields.io/github/license/pot-app/pot-desktop.svg)
 ![Tauri](https://img.shields.io/badge/Tauri-1.6.8-blue?logo=tauri)
@@ -38,7 +38,6 @@
 -   [Wayland 支持](#wayland-支持)
 -   [国际化](#国际化weblate)
 -   [贡献者](#贡献者)
--   [感谢](#感谢)
 
 <div align="center">
 
@@ -151,7 +150,7 @@
 
 你可以在 [Plugin List](https://pot-app.com/plugin.html) 查找你需要的插件，然后前往插件仓库下载插件。
 
-pot 插件的扩展名为 `.potext`, 下载得到`.potext`文件之后， 在 偏好设置-服务设置-添加外部插件-安装外部插件 选择对应的 `.potext` 即可安装成功，添加到服务列表中即可像内置服务一样正常使用了。
+沙拉翻译 插件的扩展名为 `.potext`, 下载得到`.potext`文件之后， 在 偏好设置-服务设置-添加外部插件-安装外部插件 选择对应的 `.potext` 即可安装成功，添加到服务列表中即可像内置服务一样正常使用了。
 
 ### 故障排除
 
@@ -175,19 +174,13 @@ pot 插件的扩展名为 `.potext`, 下载得到`.potext`文件之后， 在 �
 
 ## Windows
 
-### 通过 Winget 安装
-
-```powershell
-winget install Pylogmon.pot
-```
-
 ### 手动安装
 
-1. 在 [Release](https://github.com/pot-app/pot-desktop/releases/latest) 页面下载最新 `exe` 安装包。
+1. 在 [Release](https://github.com/allentown521/saladict/releases/latest) 页面下载最新 `exe` 安装包。
 
-    - 64 位机器下载 `pot_{version}_x64-setup.exe`
-    - 32 位机器下载 `pot_{version}_x86-setup.exe`
-    - arm64 机器下载 `pot_{version}_arm64-setup.exe`
+    - 64 位机器下载 `saladict_{version}_x64-setup.exe`
+    - 32 位机器下载 `saladict_{version}_x86-setup.exe`
+    - arm64 机器下载 `saladict_{version}_arm64-setup.exe`
 
 2. 双击安装包进行安装。
 
@@ -197,101 +190,45 @@ winget install Pylogmon.pot
 
     检查是否卸载/禁用了 WebView2，如果卸载/禁用了 WebView2，请手动安装 WebView2 或将其恢复。
 
-    如果是企业版系统不方便安装或无法安装 WebView2，请尝试在 [Release](https://github.com/pot-app/pot-desktop/releases/latest) 下载内置 WebView2 的版本 `pot_{version}_{arch}_fix_webview2_runtime-setup.exe`
+    如果是企业版系统不方便安装或无法安装 WebView2，请尝试在 [Release](https://github.com/allentown521/saladict/releases/latest) 下载内置 WebView2 的版本 `saladict_{version}_{arch}_fix_webview2_runtime-setup.exe`
 
     若问题仍然存在请尝试使用 Windows7 兼容模式启动。
 
 ## MacOS
 
-### 通过 Brew 安装
+### 通过 Mac App Store 安装
 
-1. 添加我们的 tap:
-
-```bash
-brew tap pot-app/homebrew-tap
-```
-
-2. 安装 pot:
-
-```bash
-brew install --cask pot
-```
-
-3. 更新 pot
-
-```bash
-brew upgrade --cask pot
-```
 
 ### 手动安装
 
-1. 从 [Release](https://github.com/pot-app/pot-desktop/releases/latest) 页面下载最新的 `dmg` 安装包。（如果您使用的是 M1 芯片，请下载名为`pot_{version}_aarch64.dmg`的安装包，否则请下载名为`pot_{version}_x64.dmg`的安装包）
-2. 双击下载的文件后将 pot 拖入 Applications 文件夹即可完成安装。
+1. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 页面下载最新的 `dmg` 安装包。（如果您使用的是 M1 芯片，请下载名为`saladict_{version}_aarch64.dmg`的安装包，否则请下载名为`saladict_{version}_x64.dmg`的安装包）
+2. 双击下载的文件后将 沙拉翻译 拖入 Applications 文件夹即可完成安装。
 
 ### 故障排除
 
--   由于开发者无法验证，“pot”无法打开。
+-   由于开发者无法验证，“沙拉翻译”无法打开。
 
-    点击 取消 按钮，然后去 设置 -> 隐私与安全性 页面，点击 仍要打开 按钮，然后在弹出窗口里点击 打开 按钮即可，以后打开 pot 就再也不会有任何弹窗告警了
+    点击 取消 按钮，然后去 设置 -> 隐私与安全性 页面，点击 仍要打开 按钮，然后在弹出窗口里点击 打开 按钮即可，以后打开 沙拉翻译 就再也不会有任何弹窗告警了
 
-    如果在 隐私与安全性 中找不到以上选项，或启动时提示文件损坏。打开 Terminal.app，并输入以下命令，然后重启 pot 即可：
+    如果在 隐私与安全性 中找不到以上选项，或启动时提示文件损坏。打开 Terminal.app，并输入以下命令，然后重启 沙拉翻译 即可：
 
     ```bash
-    sudo xattr -d com.apple.quarantine /Applications/pot.app
+    sudo xattr -d com.apple.quarantine /Applications/saladict.app
     ```
 
--   如果每次打开时都遇到辅助功能权限提示，或者无法进行划词翻译，请前往设置 -> 隐私与安全 -> 辅助功能，移除 “pot”，并重新添加 “pot”。
+-   如果每次打开时都遇到辅助功能权限提示，或者无法进行划词翻译，请前往设置 -> 隐私与安全 -> 辅助功能，移除 “沙拉翻译”，并重新添加 “沙拉翻译”。
 
 ## Linux
 
 ### Debian/Ubuntu
 
-1. 从 [Release](https://github.com/pot-app/pot-desktop/releases/latest) 页面下载最新的对应架构的 `deb` 安装包。
-
-2. 使用 `apt-get` 进行安装
-
-    ```bash
-    sudo apt-get install ./pot_{version}_amd64.deb
-    ```
-
-### Arch/Manjaro
-
-> [!WARNING]
-> 在最新版本的 [Webkit2Gtk](https://archlinux.org/packages/extra/x86_64/webkit2gtk) (2.42.0) 中，由于 Nvidia 专有驱动未完全实现 DMABUF，将导致无法启动和崩溃的情况发生。<br>
-> 请降级或在 `/etc/environment` （或者其他设置环境变量的地方）中加入 `WEBKIT_DISABLE_DMABUF_RENDERER=1` 环境变量关闭 DMABUF 的使用。
-
-1. 在 [AUR](https://aur.archlinux.org/packages?O=0&K=pot-translation) 查看
-
-使用 `AUR helper` 安装：
-
-```bash
-yay -S pot-translation # 或 pot-translation-bin
-
-# paru -S pot-translation # 或 pot-translation-bin
-```
-
-2. 如果你使用 `archlinuxcn` 源，可以直接使用 pacman 安装
-
-```bash
-sudo pacman -S pot-translation
-```
-
-### Flatpak
-
-> [!WARNING]
-> Flatpak 版本缺失托盘图标。
-
-<a href='https://flathub.org/apps/com.pot_app.pot'>
-    <img width='240' alt='Download on Flathub' src='https://flathub.org/api/badge?locale=zh-Hans'/>
-</a>
-
-<div align="center">
+1. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 页面下载最新的对应架构的 `deb` 安装包。
 
 # 外部调用
 
 </div>
 
-Pot 提供了完整的 HTTP 接口，以便可以被其他软件调用。您可以通过向 `127.0.0.1:port` 发送 HTTP 请求来调用 pot，其中的`port`是 pot 监听的端口号，默认为`60828`,可以在软件设置中进行更改。
+沙拉翻译 提供了完整的 HTTP 接口，以便可以被其他软件调用。您可以通过向 `127.0.0.1:port` 发送 HTTP 请求来调用 沙拉翻译，其中的`port`是 沙拉翻译 监听的端口号，默认为`60828`,可以在软件设置中进行更改。
 
 ## API 文档:
 
@@ -313,7 +250,7 @@ GET "/ocr_translate?screenshot=true" => 截图翻译,
 
 -   调用划词翻译：
 
-    如果想要调用 pot 划词翻译，只需向`127.0.0.1:port`发送请求即可。
+    如果想要调用 沙拉翻译 划词翻译，只需向`127.0.0.1:port`发送请求即可。
 
     例如通过 curl 发送请求：
 
@@ -323,22 +260,22 @@ GET "/ocr_translate?screenshot=true" => 截图翻译,
 
 ## 不使用软件内截图
 
-这一功能可以让您在不使用软件内截图的情况下调用截图 OCR/截图翻译功能，这样您就可以使用您喜欢的截图工具来截图了，也可以解决在某些平台下 pot 自带的截图无法使用的问题。
+这一功能可以让您在不使用软件内截图的情况下调用截图 OCR/截图翻译功能，这样您就可以使用您喜欢的截图工具来截图了，也可以解决在某些平台下 沙拉翻译 自带的截图无法使用的问题。
 
 ### 调用流程
 
 1. 使用其他截图工具截图
-2. 将截图保存在 `$CACHE/com.pot-app.desktop/pot_screenshot_cut.png`
+2. 将截图保存在 `$CACHE/allen.town.focus.saladict/pot_screenshot_cut.png`
 3. 向`127.0.0.1:port/ocr_recognize?screenshot=false`发送请求即可调用成功
 
-> `$CACHE`为系统缓存目录，例如在 Windows 上为`C:\Users\{用户名}\AppData\Local\com.pot-app.desktop\pot_screenshot_cut.png`
+> `$CACHE`为系统缓存目录，例如在 Windows 上为`C:\Users\{用户名}\AppData\Local\allen.town.focus.saladict\pot_screenshot_cut.png`
 
 ### 示例
 
 在 Linux 下调用 Flameshot 进行截图 OCR:
 
 ```bash
-rm ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
+rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
 ```
 
 ## 现有用法 (快捷划词翻译)
@@ -346,16 +283,16 @@ rm ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && flameshot gui -s -p ~/
 ### SnipDo (Windows)
 
 1. 从 [Microsoft Store](https://apps.microsoft.com/store/detail/snipdo/9NPZ2TVKJVT7) 下载安装 SnipDo。
-2. 从 [Release](https://github.com/pot-app/pot-desktop/releases/latest) 下载 pot 的 SnipDo 扩展 (pot.pbar)
+2. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 下载 沙拉翻译 的 SnipDo 扩展 (saladict.pbar)
 3. 双击下载的扩展文件完成安装。
 4. 选中文字，可以看到弹出的 SnipDo 工具条，点击翻译按钮即可翻译。
 
 ### PopClip (MacOS)
 
 1. 从 [App Store](https://apps.apple.com/us/app/popclip/id445189367?mt=12) 下载安装 PopClip
-2. 从 [Release](https://github.com/pot-app/pot-desktop/releases/latest) 下载 pot 的 PopClip 扩展 (pot.popclipextz)
+2. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 下载 沙拉翻译 的 PopClip 扩展 (saladict.popclipextz)
 3. 双击下载的扩展文件完成安装。
-4. 在 PopClip 的扩展中启用 pot 扩展，选中文本即可点击翻译。
+4. 在 PopClip 的扩展中启用 沙拉翻译 扩展，选中文本即可点击翻译。
 
 ### Starry (Linux)
 
@@ -369,28 +306,28 @@ Github: [ccslykx/Starry](https://github.com/ccslykx/Starry)
 
 </div>
 
-由于各大发行版对于 Wayland 的支持程度不同，所以 pot 本身没法做到特别完美的支持，这里可以提供一些常见问题的解决方案，通过合理的设置之后，pot 也可以在 Wayland 下完美运行。
+由于各大发行版对于 Wayland 的支持程度不同，所以 沙拉翻译 本身没法做到特别完美的支持，这里可以提供一些常见问题的解决方案，通过合理的设置之后，沙拉翻译 也可以在 Wayland 下完美运行。
 
 ## 快捷键无法使用
 
-由于 Tauri 的快捷键方案并没有支持 Wayland，所以 pot 应用内的快捷键设置在 Wayland 下无法使用。 您可以设置系统快捷用 curl 发送请求来触发 pot，详见[外部调用](#外部调用)
+由于 Tauri 的快捷键方案并没有支持 Wayland，所以 沙拉翻译 应用内的快捷键设置在 Wayland 下无法使用。 您可以设置系统快捷用 curl 发送请求来触发 沙拉翻译，详见[外部调用](#外部调用)
 
 ## 截图无法使用
 
-在一些纯 Wayland 桌面环境/窗口管理器(如 Hyprland)上，pot 内置的截图无法使用，这时可以通过使用其他截图工具代替，详见 [不使用软件内截图](#不使用软件内截图)
+在一些纯 Wayland 桌面环境/窗口管理器(如 Hyprland)上，沙拉翻译 内置的截图无法使用，这时可以通过使用其他截图工具代替，详见 [不使用软件内截图](#不使用软件内截图)
 
 下面给出在 Hyprland 下的配置示例(通过 grim 和 slurp 实现截图)：
 
 ```conf
-bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
-bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_translate?screenshot=false"
+bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
+bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_translate?screenshot=false"
 ```
 
 其他桌面环境/窗口管理器也是类似的操作
 
 ## 划词翻译窗口跟随鼠标位置
 
-由于目前 pot 在 Wayland 下还无法获取到正确的鼠标坐标，所以内部的实现无法工作。 对于某些桌面环境/窗口管理器，可以通过设置窗口规则来实现窗口跟随鼠标位置，这里以 Hyprland 为例：
+由于目前 沙拉翻译 在 Wayland 下还无法获取到正确的鼠标坐标，所以内部的实现无法工作。 对于某些桌面环境/窗口管理器，可以通过设置窗口规则来实现窗口跟随鼠标位置，这里以 Hyprland 为例：
 
 ```conf
 windowrulev2 = float, class:(pot), title:(Translator|OCR|PopClip|Screenshot Translate) # Translation window floating
@@ -430,13 +367,13 @@ Rust >= 1.80.0
 1. Clone 仓库
 
     ```bash
-    git clone https://github.com/pot-app/pot-desktop.git
+    git clone https://github.com/allentown521/saladict.git
     ```
 
 2. 安装依赖
 
     ```bash
-    cd pot-desktop
+    cd saladict
     pnpm install
     ```
 
@@ -458,15 +395,5 @@ Rust >= 1.80.0
     ```
 
 <div align="center">
-
-# 感谢
-
-</div>
-
--   [Bob](https://github.com/ripperhe/Bob) 灵感来源
--   [bob-plugin-openai-translator](https://github.com/yetone/bob-plugin-openai-translator) OpenAI 接口参考
--   [@uiYzzi](https://github.com/uiYzzi) 实现思路
--   [@Lichenkass](https://github.com/Lichenkass) 维护 Deepin 应用商店中的 pot
--   [Tauri](https://github.com/tauri-apps/tauri) 好用的 GUI 框架
 
 <div align="center">
