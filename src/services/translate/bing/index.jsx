@@ -1,4 +1,5 @@
 import { fetch } from '@tauri-apps/api/http';
+import { DEFAULT_EDGE_USER_AGENT } from '../../../utils/http';
 
 export async function translate(text, from, to) {
     const token_url = 'https://edge.microsoft.com/translate/auth';
@@ -6,8 +7,7 @@ export async function translate(text, from, to) {
     let token = await fetch(token_url, {
         method: 'GET',
         headers: {
-            'User-Agent':
-                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42',
+            'User-Agent': DEFAULT_EDGE_USER_AGENT,
         },
         responseType: 2,
     });
@@ -32,8 +32,7 @@ export async function translate(text, from, to) {
                 'sec-fetch-site': 'cross-site',
                 Referer: 'https://appsumo.com/',
                 'Referrer-Policy': 'strict-origin-when-cross-origin',
-                'User-Agent':
-                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42',
+                'User-Agent': DEFAULT_EDGE_USER_AGENT,
             },
             query: {
                 from: from,

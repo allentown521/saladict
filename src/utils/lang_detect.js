@@ -1,7 +1,9 @@
+// @ts-nocheck
 import { fetch, Body } from '@tauri-apps/api/http';
 import { invoke } from '@tauri-apps/api';
 import { store } from './store';
 import { v4 as uuidv4 } from 'uuid';
+import { fetchWithUA, DEFAULT_EDGE_USER_AGENT } from './http';
 
 // https://fanyi-api.baidu.com/product/113
 async function baidu_detect(text) {
@@ -212,7 +214,7 @@ async function yandex_detect(text) {
         uk: 'uk'
     };
 
-    let res = await fetch('https://translate.yandex.net/api/v1/tr.json/detect', {
+    let res = await fetchWithUA('https://translate.yandex.net/api/v1/tr.json/detect', {
         method: 'GET',
         query: {
             id: uuidv4().replaceAll('-', '') + '-0-0',
@@ -262,8 +264,7 @@ async function bing_detect(text) {
     let token = await fetch(token_url, {
         method: 'GET',
         headers: {
-            'User-Agent':
-                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42',
+            'User-Agent': DEFAULT_EDGE_USER_AGENT,
         },
         responseType: 2,
     });
@@ -287,8 +288,7 @@ async function bing_detect(text) {
                 'sec-fetch-site': 'cross-site',
                 Referer: 'https://appsumo.com/',
                 'Referrer-Policy': 'strict-origin-when-cross-origin',
-                'User-Agent':
-                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42',
+                'User-Agent': DEFAULT_EDGE_USER_AGENT,
             },
             query: {
                 'api-version': '3.0',

@@ -9,7 +9,9 @@
         "preview": "vite preview",
         "tauri": "tauri",
         "updater": "node updater/updater.mjs",
-        "updater:fixRuntime": "node updater/updater-for-fix-runtime.mjs"
+        "updater:fixRuntime": "node updater/updater-for-fix-runtime.mjs",
+        "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+        "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix"
     },
     "dependencies": {
         "@nextui-org/react": "^2.4.8",
@@ -47,8 +49,16 @@
     },
     "devDependencies": {
         "@tauri-apps/cli": "^1.6.3",
+        "@types/node": "^22.10.2",
+        "@typescript-eslint/eslint-plugin": "^8.19.0",
+        "@typescript-eslint/parser": "^8.19.0",
         "@vitejs/plugin-react": "^4.3.3",
         "autoprefixer": "^10.4.20",
+        "eslint": "^9.17.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-react": "^7.37.3",
+        "eslint-plugin-react-hooks": "^5.1.0",
         "node-fetch": "^3.3.2",
         "postcss": "^8.4.47",
         "prettier": "3.3.2",
