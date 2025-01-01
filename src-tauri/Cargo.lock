@@ -4652,42 +4652,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "pot"
-version = "0.0.0"
-dependencies = [
- "arboard",
- "base64 0.22.1",
- "dirs 5.0.1",
- "font-kit",
- "image 0.25.4",
- "lingua",
- "log",
- "macos-accessibility-client",
- "mouse_position",
- "once_cell",
- "reqwest 0.12.9",
- "reqwest_dav",
- "screenshots",
- "selection",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-autostart",
- "tauri-plugin-fs-watch",
- "tauri-plugin-log",
- "tauri-plugin-single-instance",
- "tauri-plugin-sql",
- "tauri-plugin-store",
- "thiserror",
- "tiny_http",
- "walkdir",
- "window-shadows",
- "windows 0.58.0",
- "zip 2.2.0",
-]
-
-[[package]]
 name = "powerfmt"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5416,6 +5380,42 @@ name = "ryu"
 version = "1.0.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f3cb5ba0dc43242ce17de99c180e96db90b235b8a9fdc9543c96d2209116bd9f"
+
+[[package]]
+name = "saladict"
+version = "0.0.0"
+dependencies = [
+ "arboard",
+ "base64 0.22.1",
+ "dirs 5.0.1",
+ "font-kit",
+ "image 0.25.4",
+ "lingua",
+ "log",
+ "macos-accessibility-client",
+ "mouse_position",
+ "once_cell",
+ "reqwest 0.12.9",
+ "reqwest_dav",
+ "screenshots",
+ "selection",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-autostart",
+ "tauri-plugin-fs-watch",
+ "tauri-plugin-log",
+ "tauri-plugin-single-instance",
+ "tauri-plugin-sql",
+ "tauri-plugin-store",
+ "thiserror",
+ "tiny_http",
+ "walkdir",
+ "window-shadows",
+ "windows 0.58.0",
+ "zip 2.2.0",
+]
 
 [[package]]
 name = "same-file"

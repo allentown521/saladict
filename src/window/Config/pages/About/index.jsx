@@ -8,7 +8,7 @@ import { BsGithub } from 'react-icons/bs';
 import { invoke } from '@tauri-apps/api';
 import React from 'react';
 
-import { appVersion } from '../../../../utils/env';
+import { appVersion, appName } from '../../../../utils/env';
 
 export default function About() {
     const { t } = useTranslation();
@@ -21,7 +21,7 @@ export default function About() {
                 draggable={false}
             />
             <div className='content-center'>
-                <h1 className='font-bold text-2xl text-center'>Pot</h1>
+                <h1 className='font-bold text-2xl text-center'>{appName}</h1>
                 <p className='text-center text-sm text-gray-500 mb-[5px]'>{appVersion}</p>
                 <Divider />
                 <div className='flex justify-between'>

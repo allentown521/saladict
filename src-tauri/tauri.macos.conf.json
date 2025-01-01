@@ -5,7 +5,10 @@
             "iconAsTemplate": true
         },
         "bundle": {
-            "resources": ["resources/*"],
+            "resources": [
+                "resources/*",
+                "infoplist/**/*"
+            ],
             "icon": [
                 "icons_mac/32x32.png",
                 "icons_mac/128x128.png",

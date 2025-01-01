@@ -1,7 +1,7 @@
 [package]
-name = "pot"
+name = "saladict"
 version = "0.0.0"
-description = "Pot App"
+description = "Saladict App"
 authors = ["pot-app"]
 license = "GPL-3.0-only"
 repository = "https://github.com/pot-app/pot-desktop"
