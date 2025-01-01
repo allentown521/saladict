@@ -5,10 +5,11 @@
             "iconAsTemplate": true
         },
         "bundle": {
-            "resources": [
-                "resources/*",
-                "infoplist/**/*"
-            ],
+            "resources": {
+                "resources/*": "resources",
+                "infoplist/zh-Hans.lproj/*": "zh-Hans.lproj",
+                "infoplist/zh-Hant.lproj/*": "zh-Hant.lproj"
+            },
             "icon": [
                 "icons_mac/32x32.png",
                 "icons_mac/128x128.png",
