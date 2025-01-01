@@ -22,5 +22,5 @@ dist-ssr
 *.sw?
 settings.json
 .env
-.publish.readme.md
+publish.readme.md
 

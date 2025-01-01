@@ -196,6 +196,7 @@
                 "logout": "登出"
             },
             "about": {
+                "app_name": "沙拉翻譯",
                 "label": "關於",
                 "title": "關於應用程式",
                 "website": "官方網站",

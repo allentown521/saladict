@@ -197,6 +197,7 @@
                 "empty": "您还没有备份"
             },
             "about": {
+                "app_name": "沙拉翻译",
                 "label": "关于应用",
                 "title": "关于应用",
                 "website": "官网",

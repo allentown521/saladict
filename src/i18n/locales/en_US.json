@@ -197,6 +197,7 @@
                 "empty": "You have not backed up yet"
             },
             "about": {
+                "app_name": "Saladict",
                 "label": "About",
                 "title": "About Application",
                 "website": "Website",
