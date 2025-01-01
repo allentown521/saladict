@@ -45,7 +45,7 @@ async function resolveUpdater() {
 }
 
 async function getVersion(token) {
-    const res = await fetch('https://api.github.com/repos/pot-app/pot-desktop/releases/latest', {
+    const res = await fetch('https://api.github.com/repos/allentown521/saladict/releases/latest', {
         method: 'GET',
         headers: {
             Authorization: `Bearer ${token}`,
@@ -61,7 +61,7 @@ async function getVersion(token) {
 }
 
 async function getChangeLog(token) {
-    const res = await fetch('https://api.github.com/repos/pot-app/pot-desktop/releases/latest', {
+    const res = await fetch('https://api.github.com/repos/allentown521/saladict/releases/latest', {
         method: 'GET',
         headers: {
             Authorization: `Bearer ${token}`,

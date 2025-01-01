@@ -4,7 +4,7 @@
 
 > 🌈 一个跨平台的划词翻译软件
 
-![License](https://img.shields.io/github/license/pot-app/pot-desktop.svg)
+![License](https://img.shields.io/github/license/allentown521/saladict.svg)
 ![Tauri](https://img.shields.io/badge/Tauri-1.6.8-blue?logo=tauri)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow?logo=javascript&logoColor=white)
 ![Rust](https://img.shields.io/badge/-Rust-orange?logo=rust&logoColor=white)
@@ -338,9 +338,9 @@ windowrulev2 = move cursor 0 0, class:(pot), title:(Translator|PopClip|Screensho
 
 # 国际化([Weblate](https://hosted.weblate.org/engage/pot-app/))
 
-[![](https://hosted.weblate.org/widget/pot-app/pot-desktop/svg-badge.svg)](https://hosted.weblate.org/engage/pot-app/)
+[![](https://hosted.weblate.org/widget/allentown521/saladict/svg-badge.svg)](https://hosted.weblate.org/engage/pot-app/)
 
-[![](https://hosted.weblate.org/widget/pot-app/pot-desktop/zh_Hans/multi-auto.svg)](https://hosted.weblate.org/engage/pot-app/)
+[![](https://hosted.weblate.org/widget/allentown521/saladict/zh_Hans/multi-auto.svg)](https://hosted.weblate.org/engage/pot-app/)
 
 </div>
 
