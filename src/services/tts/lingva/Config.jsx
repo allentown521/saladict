@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import { useConfig } from '../../../hooks/useConfig';
 import { useToastStyle } from '../../../hooks';
 import { Language } from './index';
+import { info } from './info';
 import { tts } from './index';
 
 export function Config(props) {
@@ -18,7 +19,7 @@ export function Config(props) {
         instanceKey,
         {
             [INSTANCE_NAME_CONFIG_KEY]: t('services.tts.lingva_tts.title'),
-            requestPath: 'lingva.pot-app.com',
+            requestPath: info.defaultEndpoint,
         },
         { sync: false }
     );

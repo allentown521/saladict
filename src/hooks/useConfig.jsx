@@ -25,7 +25,7 @@ export const useConfig = (key, defaultValue, options = {}) => {
             setPropertyState(v);
         } else {
             store.get(key).then((v) => {
-                if (v === null) {
+                if (v === null || v === undefined || (typeof v === 'object' && Object.keys(v).length === 0)) {
                     setPropertyState(defaultValue);
                     store.set(key, defaultValue);
                     store.save();

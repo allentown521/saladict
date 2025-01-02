@@ -1,12 +1,12 @@
 import { fetch } from '@tauri-apps/api/http';
-
+import { info } from './info';
 export async function tts(text, lang, options = {}) {
     const { config } = options;
 
-    let { requestPath = 'lingva.thedaviddelta.com' } = config;
+    let { requestPath = info.defaultEndpoint } = config;
 
     if (requestPath.length === 0) {
-        requestPath = 'lingva.thedaviddelta.com';
+        requestPath = info.defaultEndpoint;
     }
 
     if (!requestPath.startsWith('http')) {

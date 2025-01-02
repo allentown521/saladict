@@ -1,6 +1,7 @@
 export const info = {
     name: 'lingva_tts',
     icon: 'logo/lingva.svg',
+    defaultEndpoint: 'lingva.thedaviddelta.com',
 };
 
 export enum Language {
