@@ -3,10 +3,10 @@ import { fetch } from '@tauri-apps/api/http';
 export async function tts(text, lang, options = {}) {
     const { config } = options;
 
-    let { requestPath = 'lingva.pot-app.com' } = config;
+    let { requestPath = 'lingva.thedaviddelta.com' } = config;
 
     if (requestPath.length === 0) {
-        requestPath = 'lingva.pot-app.com';
+        requestPath = 'lingva.thedaviddelta.com';
     }
 
     if (!requestPath.startsWith('http')) {
@@ -16,6 +16,8 @@ export async function tts(text, lang, options = {}) {
 
     if (res.ok) {
         return res.data['audio'];
+    } else {
+        return Promise.reject(new Error(`\nFailed to fetch TTS audio: ${res.status} \n${res.data}`));
     }
 }
 
