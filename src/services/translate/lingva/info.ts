@@ -1,6 +1,7 @@
 export const info = {
     name: 'lingva',
     icon: 'logo/lingva.svg',
+    defaultEndpoint: 'lingva.thedaviddelta.com',
 };
 
 // https://cloud.google.com/translate/docs/languages?hl=zh-cn

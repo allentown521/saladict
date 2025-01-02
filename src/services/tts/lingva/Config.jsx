@@ -62,7 +62,7 @@ export function Config(props) {
                 <div className={'config-item'}>
                     <h3 className='my-auto'>{t('services.tts.lingva_tts.request_path')}</h3>
                     <Input
-                        value={lingvaConfig['requestPath']}
+                        value={lingvaConfig.requestPath}
                         variant='bordered'
                         className='max-w-[50%]'
                         onValueChange={(value) => {

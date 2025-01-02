@@ -1,9 +1,21 @@
 import { fetch, Body } from '@tauri-apps/api/http';
+import { info } from './info';
 
-export async function translate(text, from, to) {
+export async function translate(text, from, to, options = {}) {
+    const { config } = options;
+
+    let { requestPath = info.defaultEndpoint } = config;
+
+    if (requestPath.length === 0) {
+        requestPath = info.defaultEndpoint;
+    }
+    if (!requestPath.startsWith('http')) {
+        requestPath = 'https://' + requestPath;
+    }
+
     let plain_text = text.replaceAll('/', '@@');
     let encode_text = encodeURIComponent(plain_text);
-    const res = await fetch(`https://lingva.pot-app.com/api/v1/${from}/${to}/${encode_text}`, {
+    const res = await fetch(`${requestPath}/api/v1/${from}/${to}/${encode_text}`, {
         method: 'GET',
     });
 
