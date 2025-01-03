@@ -471,7 +471,7 @@ jobs:
               if: startsWith(github.ref, 'refs/tags')
               uses: vedantmgoyal2009/winget-releaser@v2
               with:
-                  identifier: Pylogmon.pot
+                  identifier: Saladict.app
                   version: ${{env.VERSION}}
                   installers-regex: '\.exe$'
                   token: ${{ secrets.TOKEN }}

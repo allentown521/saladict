@@ -178,7 +178,7 @@ The [Template](https://saladict-app.aichatone.com/en/plugin.html#template) secti
 ### Install via Winget
 
 ```powershell
-winget install Pylogmon.pot
+winget install Saladict.app
 ```
 
 ### Install Manually

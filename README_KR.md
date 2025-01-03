@@ -178,7 +178,7 @@
 ### Winget 을 이용한 설치
 
 ```powershell
-winget install Pylogmon.pot
+winget install Saladict.app
 ```
 
 ### 수동 설치
