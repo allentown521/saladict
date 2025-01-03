@@ -431,8 +431,15 @@
             },
             "tts": {
                 "lingva_tts": {
-                    "title": "Lingva",
+                    "title": "Lingva 语音合成",
                     "request_path": "請求路徑"
+                },
+                "baidu_tts": {
+                    "title": "百度语音合成"
+                },
+                "google_tts": {
+                    "title": "谷歌语音合成",
+                    "custom_url": "請求路徑"
                 }
             },
             "collection": {

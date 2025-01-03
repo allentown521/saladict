@@ -435,8 +435,15 @@
             },
             "tts": {
                 "lingva_tts": {
-                    "title": "Lingva",
+                    "title": "Lingva TTS",
                     "request_path": "Request Path"
+                },
+                "baidu_tts": {
+                    "title": "Baidu TTS"
+                },
+                "google_tts": {
+                    "title": "Google TTS",
+                    "custom_url": "Custom URL"
                 }
             },
             "collection": {

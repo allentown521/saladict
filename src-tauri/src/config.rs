@@ -91,7 +91,7 @@ pub fn check_service_available() -> Result<(), Error> {
         "yandex",
         "youdao",
     ];
-    let builtin_tts_list: Vec<&str> = vec!["lingva_tts"];
+    let builtin_tts_list: Vec<&str> = vec!["lingva_tts", "baidu_tts", "google_tts"];
     let builtin_collection_list: Vec<&str> = vec!["anki", "eudic"];
 
     let plugin_recognize_list: Vec<String> = get_plugin_list("recognize").unwrap_or_default();

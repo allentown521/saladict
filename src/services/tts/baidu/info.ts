@@ -1,0 +1,37 @@
+export const info = {
+    name: 'baidu_tts',
+    icon: 'logo/baidu.svg'
+};
+
+export enum Language {
+    auto = 'auto',
+    zh_cn = 'zh',
+    zh_tw = 'cht',
+    ja = 'jp',
+    en = 'en',
+    ko = 'kor',
+    fr = 'fra',
+    es = 'es',
+    ru = 'ru',
+    de = 'de',
+    it = 'it',
+    tr = 'tr',
+    pt_pt = 'pt',
+    pt_br = 'pt',
+    vi = 'vie',
+    id = 'id',
+    th = 'th',
+    ms = 'ms',
+    ar = 'ar',
+    hi = 'hi',
+    mn_cy = 'mn',
+    km = 'km',
+    nb_no = 'no',
+    nn_no = 'no',
+    fa = 'fa',
+    sv = 'sv',
+    pl = 'pl',
+    nl = 'nl',
+    uk = 'uk',
+    he = 'he',
+}
