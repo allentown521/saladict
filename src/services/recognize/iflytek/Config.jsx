@@ -75,7 +75,7 @@ export function Config(props) {
                     <h3 className='my-auto'>{t('services.help')}</h3>
                     <Button
                         onPress={() => {
-                            open('https://pot-app.com/docs/api/recognize/iflytek.html');
+                            open('https://saladict-app.aichatone.com/docs/api/recognize/iflytek.html');
                         }}
                     >
                         {t('services.help')}

@@ -161,7 +161,7 @@ export async function userInfo(token) {
 }
 
 export async function accessToken(code) {
-    const res = await fetch('https://pot-app.com/api/ali_access_token', {
+    const res = await fetch('https://saladict-app.aichatone.com/api/ali_access_token', {
         method: 'POST',
         body: Body.json({
             code,

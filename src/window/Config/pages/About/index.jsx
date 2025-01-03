@@ -30,7 +30,7 @@ export default function About() {
                         className='my-[5px]'
                         size='sm'
                         onPress={() => {
-                            open('https://pot-app.com');
+                            open('https://saladict-app.aichatone.com');
                         }}
                     >
                         {t('config.about.website')}
@@ -75,7 +75,7 @@ export default function About() {
                                     className='my-[5px]'
                                     size='sm'
                                     onPress={() => {
-                                        open('mailto:support@pot-app.com');
+                                        open('mailto:support@saladict-app.aichatone.com');
                                     }}
                                 >
                                     {t('config.about.email')}
@@ -119,7 +119,7 @@ export default function About() {
                                         className='my-[5px]'
                                         size='lg'
                                         onPress={() => {
-                                            open('https://pot-app.com/img/qq_group.png');
+                                            open('https://saladict-app.aichatone.com/img/qq_group.png');
                                         }}
                                     >
                                         <BsTencentQq />

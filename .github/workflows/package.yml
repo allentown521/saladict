@@ -376,7 +376,7 @@ jobs:
         steps:
             - name: Trigger update
               run: |
-                  curl -X POST https://api.github.com/repos/pot-app/pot-docs/dispatches \
+                  curl -X POST https://api.github.com/repos/allentown521/saladict-desktop-docs/dispatches \
                     -H "Accept: application/vnd.github.everest-preview+json" \
                     -H "Authorization: token ${{ secrets.TOKEN }}" \
                     -d '{"event_type": "plugins-updated"}'
@@ -439,7 +439,7 @@ jobs:
             - name: Set up Git
               run: |
                   # sudo apt-get install git -y
-                  git config --global user.email support@pot-app.com
+                  git config --global user.email support@saladict-app.aichatone.com
                   git config --global user.name pot-app
             - name: Update Homebrew cask
               env:

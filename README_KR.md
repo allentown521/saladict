@@ -149,7 +149,7 @@
 
 ## -플러그인-의 설치
 
-설치가능한 플러그인 항목은 다음을 참고하세요 [Plugin List](https://pot-app.com/plugin.html). 그리고 필요한 항목을 다운받으십시오.
+설치가능한 플러그인 항목은 다음을 참고하세요 [Plugin List](https://saladict-app.aichatone.com/plugin.html). 그리고 필요한 항목을 다운받으십시오.
 
 플러그인의 확장자는 `.potext` 입니다. 다운받은 `.potext` 확장자 파일을 프로그램 설정메뉴 - 서비스 - Add External Plugin - Install External Plugin 메뉴에서 등록하여 설치합니다. 파일을 등록하면 해당 항목을 프로그램의 사용목록에 표시가 되어 사용이 가능해 집니다.
 
@@ -165,7 +165,7 @@
 
 ## -플러그인-의 개발
 
-템플릿 [Template](https://pot-app.com/en/plugin.html#template) 항목에서 다양한 항목을 플러그인들을 찾을 수 있습니다 [Plugin List](https://pot-app.com/en/plugin.html). 이 곳에서 필요한 문서를 참고하십시오.
+템플릿 [Template](https://saladict-app.aichatone.com/en/plugin.html#template) 항목에서 다양한 항목을 플러그인들을 찾을 수 있습니다 [Plugin List](https://saladict-app.aichatone.com/en/plugin.html). 이 곳에서 필요한 문서를 참고하십시오.
 
 <div align="center">
 
