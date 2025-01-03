@@ -61,14 +61,14 @@ jobs:
             - name: Upload Artifacts
               uses: actions/upload-artifact@v4
               with:
-                  name: Pot.popclipextz
-                  path: .scripts/popclip/Pot.popclipextz
+                  name: Saladict.popclipextz
+                  path: .scripts/popclip/Saladict.popclipextz
                   if-no-files-found: error
             - name: Upload Artifacts
               uses: actions/upload-artifact@v4
               with:
-                  name: pot.pbar
-                  path: .scripts/snipdo/pot.pbar
+                  name: Saladict.pbar
+                  path: .scripts/snipdo/Saladict.pbar
                   if-no-files-found: error
             - name: Upload Release
               if: startsWith(github.ref, 'refs/tags')
@@ -76,14 +76,14 @@ jobs:
               with:
                   body_path: CHANGELOG
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  files: .scripts/popclip/Pot.popclipextz
+                  files: .scripts/popclip/Saladict.popclipextz
             - name: Upload Release
               if: startsWith(github.ref, 'refs/tags')
               uses: softprops/action-gh-release@v1
               with:
                   body_path: CHANGELOG
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  files: .scripts/snipdo/pot.pbar
+                  files: .scripts/snipdo/Saladict.pbar
 
     build-for-macos:
         needs: change-version
@@ -125,13 +125,13 @@ jobs:
             - name: Change File Name
               if: matrix.target == 'aarch64-apple-darwin'
               run: |
-                  sudo mv src-tauri/target/aarch64-apple-darwin/release/bundle/macos/pot.app.tar.gz src-tauri/target/aarch64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz
-                  sudo mv src-tauri/target/aarch64-apple-darwin/release/bundle/macos/pot.app.tar.gz.sig src-tauri/target/aarch64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz.sig
+                  sudo mv src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz src-tauri/target/aarch64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz
+                  sudo mv src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz.sig src-tauri/target/aarch64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz.sig
             - name: Change File Name
               if: matrix.target == 'x86_64-apple-darwin'
               run: |
-                  sudo mv src-tauri/target/x86_64-apple-darwin/release/bundle/macos/pot.app.tar.gz src-tauri/target/x86_64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_x64.app.tar.gz
-                  sudo mv src-tauri/target/x86_64-apple-darwin/release/bundle/macos/pot.app.tar.gz.sig src-tauri/target/x86_64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_x64.app.tar.gz.sig
+                  sudo mv src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz src-tauri/target/x86_64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_x64.app.tar.gz
+                  sudo mv src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz.sig src-tauri/target/x86_64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_x64.app.tar.gz.sig
             - name: Upload Artifacts
               uses: actions/upload-artifact@v4
               with:

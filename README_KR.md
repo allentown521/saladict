@@ -238,7 +238,7 @@ brew upgrade --cask pot
     개인정보 및 보안에서 위의 옵션을 찾을 수 없거나 Apple Silicon 컴퓨터에서 파일 손상과 같은 오류 메시지가 표시되는 경우. Terminal.app을 열고 다음 명령을 입력한 다음(중간에 비밀번호를 입력해야 할 수도 있음), pot을 다시 시작합니다:
 
     ```bash
-    sudo xattr -d com.apple.quarantine /Applications/pot.app
+    sudo xattr -d com.apple.quarantine /Applications/Saladict.app
     ```
 
 -   열 때마다 권한 프롬프트가 나타나거나 바로 가기 번역을 수행할 수 없는 경우 설정 -> 개인정보 및 보안 -> 지원 기능으로 이동하여 Pot을 제거한 다음 Pot을 다시 추가하세요..
@@ -343,14 +343,14 @@ rm ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && flameshot gui -s -p ~/
 ### SnipDo (Windows)
 
 1. SnipDo를 [Microsoft Store](https://apps.microsoft.com/store/detail/snipdo/9NPZ2TVKJVT7) 에서 다운받아 설치합니다.
-2. DSnipDo 확장팩을 최신버전 다운 경로에서 [Release](https://github.com/allentown521/saladict/releases/latest) (pot.pbar) 다운받습니다.
+2. DSnipDo 확장팩을 최신버전 다운 경로에서 [Release](https://github.com/allentown521/saladict/releases/latest) (Saladict.pbar) 다운받습니다.
 3. 더블클릭하여 설치합니다.
 4. 특정단어를 선택하게 되면, 선택영역의 오른쪽 윗 부분에 번역아이콘이 보이게 됩니다. 클릭하여 번역을 진행합니다.
 
 ### PopClip (MacOS)
 
 1. PopClip를 [App Store](https://apps.apple.com/us/app/popclip/id445189367?mt=12) 에서 다운받아 설치합니다.
-2. PopClip 확장팩을 최신버전 다운 경로에서 [Release](https://github.com/allentown521/saladict/releases/latest) (pot.popclipextz) 다운받습니다.
+2. PopClip 확장팩을 최신버전 다운 경로에서 [Release](https://github.com/allentown521/saladict/releases/latest) (Saladict.popclipextz) 다운받습니다.
 3. 더블클릭하여 설치합니다.
 4. PopClip settings에서 기능을 활성화 하면 선택영역의 번역을 할 수 있습니다.
 

@@ -1,1 +1,1 @@
-zip pot.pbar pot.json pot.png pot.ps1
+zip Saladict.pbar pot.json pot.png pot.ps1
