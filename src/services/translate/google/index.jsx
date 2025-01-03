@@ -51,9 +51,11 @@ export async function translate(text, from, to, options = {}) {
                 });
             }
             // 例句
-            if (result[13]) {
-                for (let i of result[13][0]) {
-                    target.sentence.push({ source: i[0] });
+            if (result[12]) {
+                for (let i of result[12]) {
+                    if (i[1][0][2]) {
+                        target.sentence.push({ source: i[1][0][2] });
+                    }
                 }
             }
             return target;
