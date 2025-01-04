@@ -324,17 +324,17 @@ This allows you to perform OCR/translation without using pot's internal screensh
 ### Workflow:
 
 1. Take screenshot using other tool
-2. Save screenshot to `$CACHE/com.pot-app.desktop/pot_screenshot_cut.png`
+2. Save screenshot to `$CACHE/allen.town.focus.saladict/pot_screenshot_cut.png`
 3. Send request to `127.0.0.1:port/ocr_recognize?screenshot=false` to call
 
-> `$CACHE` is the system cache dir, e.g. `C:\Users\{username}\AppData\Local\com.pot-app.desktop\pot_screenshot_cut.png` on Windows.
+> `$CACHE` is the system cache dir, e.g. `C:\Users\{username}\AppData\Local\allen.town.focus.saladict\pot_screenshot_cut.png` on Windows.
 
 ### Example
 
 OCR using Flameshot on Linux:
 
 ```bash
-rm ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
+rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
 ```
 
 ## Existing Usages (Quick selection translation)
@@ -379,8 +379,8 @@ In some pure Wayland desktop environments/window managers (such as Hyprland), th
 Below is a configuration example for Hyprland using `grim` and `slurp` to achieve screenshot functionality:
 
 ```conf
-bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
-bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_translate?screenshot=false"
+bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
+bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_translate?screenshot=false"
 ```
 
 Other desktop environments/window managers also have similar operations.

@@ -325,17 +325,17 @@ OCR 및 번역을 위해서 pot은 자체 스크린샷(화면캡쳐)기능을 �
 ### Workflow:
 
 1. 타 스크린샷 프로그램을 사용하여 화면을 캡쳐합니다
-2. 캡쳐한 화면을 다음 위치에 저장합니다. `$CACHE/com.pot-app.desktop/pot_screenshot_cut.png`
+2. 캡쳐한 화면을 다음 위치에 저장합니다. `$CACHE/allen.town.focus.saladict/pot_screenshot_cut.png`
 3. 외부호출을 통해 번역요청을 요청합니다. `127.0.0.1:port/ocr_recognize?screenshot=false`
 
-> `$CACHE` 는 시스템 캐시 폴더입니다. e.g. 윈도우는 다음경로를 확인하세요 `C:\Users\{username}\AppData\Local\com.pot-app.desktop\pot_screenshot_cut.png` .
+> `$CACHE` 는 시스템 캐시 폴더입니다. e.g. 윈도우는 다음경로를 확인하세요 `C:\Users\{username}\AppData\Local\allen.town.focus.saladict\pot_screenshot_cut.png` .
 
 ### 예제
 
 리눅스에서 Flameshot을 활용한 OCR:
 
 ```bash
-rm ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
+rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
 ```
 
 ## Existing Usages (Quick selection translation)
@@ -380,8 +380,8 @@ Github: [ccslykx/Starry](https://github.com/ccslykx/Starry)
 아래는 스크린샷 기능을 구현하기 위해 `grim`과 `slurp`를 사용하는 Hyprland의 구성 예시입니다:
 
 ```conf
-bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
-bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/com.pot-app.desktop/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_translate?screenshot=false"
+bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
+bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_translate?screenshot=false"
 ```
 
 다른 데스크톱 환경/창 관리자도 비슷한 작업을 수행합니다.

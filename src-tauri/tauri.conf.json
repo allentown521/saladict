@@ -67,7 +67,7 @@
             "category": "Utility",
             "copyright": "GPLv3",
             "targets": "all",
-            "identifier": "com.pot-app.desktop",
+            "identifier": "allen.town.focus.saladict",
             "longDescription": "A cross-platform text translation and ocr software",
             "shortDescription": "Saladict App",
             "externalBin": [],
