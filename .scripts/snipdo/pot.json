@@ -1,10 +1,10 @@
 {
-    "name": "Pot Translation",
-    "identifier": "com.pot-app.snipdoext.desktop",
+    "name": "Saladict Translation",
+    "identifier": "com.saladict-app.snipdoext.desktop",
     "icon": "pot.png",
     "actions": [
         {
-            "title": "Pot Translation",
+            "title": "Saladict Translation",
             "icon": "pot.png",
             "powershellFile": "pot.ps1"
         }

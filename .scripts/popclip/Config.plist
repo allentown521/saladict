@@ -10,7 +10,7 @@
                 <key>Image File</key>
                 <string>Pot.png</string>
                 <key>Title</key>
-                <string>Pot Translate</string>
+                <string>Saladict Translate</string>
             </dict>
         </array>
         <key>Credits</key>
@@ -19,17 +19,17 @@
                 <key>Link</key>
                 <string>https://saladict-app.aichatone.com/</string>
                 <key>Name</key>
-                <string>pot-app</string>
+                <string>saladict-app</string>
             </dict>
         </array>
         <key>Extension Description</key>
-        <string>Translate text with Pot.</string>
+        <string>Translate text with Saladict.</string>
         <key>Extension Identifier</key>
-        <string>com.pot-app.popclip.extension.desktop</string>
+        <string>com.saladict-app.popclip.extension.desktop</string>
         <key>Extension Image File</key>
         <string>Pot.png</string>
         <key>Extension Name</key>
-        <string>Pot</string>
+        <string>Saladict</string>
         <key>Required OS Version</key>
         <string>10.13</string>
     </dict>
