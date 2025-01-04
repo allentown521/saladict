@@ -1,7 +1,7 @@
 rm Saladict.popclipextz
-mkdir Saladict.popclipext.folder
-cp Config.plist Saladict.popclipext.folder
-cp Pot.png Saladict.popclipext.folder
-cp Pot.sh Saladict.popclipext.folder
-zip -r Saladict.popclipextz Saladict.popclipext.folder
-rm -r Saladict.popclipext.folder
+mkdir Saladict.popclipext
+cp Config.plist Saladict.popclipext
+cp Pot.png Saladict.popclipext
+cp Pot.sh Saladict.popclipext
+zip -r Saladict.popclipextz Saladict.popclipext
+rm -r Saladict.popclipext
