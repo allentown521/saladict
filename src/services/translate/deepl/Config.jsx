@@ -17,30 +17,34 @@ import { Language } from './index';
 export function Config(props) {
     const { instanceKey, updateServiceList, onClose } = props;
     const { t } = useTranslation();
+    const defaultConfig = {
+        [INSTANCE_NAME_CONFIG_KEY]: t('services.translate.deepl.title'),
+        type: 'free',
+        authKey: '',
+        customUrl: '',
+    };
+
     const [deeplConfig, setDeeplConfig] = useConfig(
         instanceKey,
-        {
-            [INSTANCE_NAME_CONFIG_KEY]: t('services.translate.deepl.title'),
-            type: 'free',
-            authKey: '',
-            customUrl: '',
-        },
+        defaultConfig,
         { sync: false }
     );
+
+    // when disable deepl before user set config, then config is not null, but other fields are empty
+    const config = deeplConfig ? { ...defaultConfig, ...deeplConfig } : defaultConfig;
     const [isLoading, setIsLoading] = useState(false);
 
     const toastStyle = useToastStyle();
-
     return (
-        deeplConfig !== null && (
+        config !== null && (
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
                     setIsLoading(true);
-                    translate('hello', Language.auto, Language.zh_cn, { config: deeplConfig }).then(
+                    translate('hello', Language.auto, Language.zh_cn, { config }).then(
                         () => {
                             setIsLoading(false);
-                            setDeeplConfig(deeplConfig, true);
+                            setDeeplConfig(config, true);
                             updateServiceList(instanceKey);
                             onClose();
                         },
@@ -56,7 +60,7 @@ export function Config(props) {
                     <Input
                         label={t('services.instance_name')}
                         labelPlacement='outside-left'
-                        value={deeplConfig[INSTANCE_NAME_CONFIG_KEY]}
+                        value={config[INSTANCE_NAME_CONFIG_KEY]}
                         variant='bordered'
                         classNames={{
                             base: 'justify-between',
@@ -65,18 +69,18 @@ export function Config(props) {
                         }}
                         onValueChange={(value) => {
                             setDeeplConfig({
-                                ...deeplConfig,
+                                ...config,
                                 [INSTANCE_NAME_CONFIG_KEY]: value,
                             });
                         }}
                     />
                 </div>
-                <div className={`config-item ${deeplConfig.type === 'free' && 'hidden'}`}>
+                <div className={`config-item ${config.type === 'free' && 'hidden'}`}>
                     <h3 className='my-auto'>{t('services.help')}</h3>
                     <Button
                         onPress={() => {
                             const url =
-                                deeplConfig.type === 'api'
+                                config.type === 'api'
                                     ? 'https://saladict-app.aichatone.com/docs/api/translate/deepl.html'
                                     : 'https://github.com/OwO-Network/DeepLX';
                             open(url);
@@ -89,14 +93,14 @@ export function Config(props) {
                     <h3 className='my-auto'>{t('services.translate.deepl.type')}</h3>
                     <Dropdown>
                         <DropdownTrigger>
-                            <Button variant='bordered'>{t(`services.translate.deepl.${deeplConfig.type}`)}</Button>
+                            <Button variant='bordered'>{t(`services.translate.deepl.${config.type}`)}</Button>
                         </DropdownTrigger>
                         <DropdownMenu
                             autoFocus='first'
                             aria-label='app language'
                             onAction={(key) => {
                                 setDeeplConfig({
-                                    ...deeplConfig,
+                                    ...config,
                                     type: key,
                                 });
                             }}
@@ -107,12 +111,12 @@ export function Config(props) {
                         </DropdownMenu>
                     </Dropdown>
                 </div>
-                <div className={`config-item ${deeplConfig.type !== 'api' && 'hidden'}`}>
+                <div className={`config-item ${config.type !== 'api' && 'hidden'}`}>
                     <Input
                         label={t('services.translate.deepl.auth_key')}
                         labelPlacement='outside-left'
                         type='password'
-                        value={deeplConfig['authKey']}
+                        value={config['authKey']}
                         variant='bordered'
                         classNames={{
                             base: 'justify-between',
@@ -121,17 +125,17 @@ export function Config(props) {
                         }}
                         onValueChange={(value) => {
                             setDeeplConfig({
-                                ...deeplConfig,
+                                ...config,
                                 authKey: value,
                             });
                         }}
                     />
                 </div>
-                <div className={`config-item ${deeplConfig.type !== 'deeplx' && 'hidden'}`}>
+                <div className={`config-item ${config.type !== 'deeplx' && 'hidden'}`}>
                     <Input
                         label={t('services.translate.deepl.custom_url')}
                         labelPlacement='outside-left'
-                        value={deeplConfig.customUrl}
+                        value={config.customUrl}
                         variant='bordered'
                         classNames={{
                             base: 'justify-between',
@@ -140,7 +144,7 @@ export function Config(props) {
                         }}
                         onValueChange={(value) => {
                             setDeeplConfig({
-                                ...deeplConfig,
+                                ...config,
                                 customUrl: value,
                             });
                         }}
