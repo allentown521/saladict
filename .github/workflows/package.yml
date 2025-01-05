@@ -439,7 +439,7 @@ jobs:
             - name: Set up Git
               run: |
                   # sudo apt-get install git -y
-                  git config --global user.email support@saladict-app.aichatone.com
+                  git config --global user.email product@aichatone.com
                   git config --global user.name pot-app
             - name: Update Homebrew cask
               env:

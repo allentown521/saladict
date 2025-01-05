@@ -75,7 +75,7 @@ export default function About() {
                                     className='my-[5px]'
                                     size='sm'
                                     onPress={() => {
-                                        open('mailto:support@saladict-app.aichatone.com');
+                                        open('mailto:product@aichatone.com');
                                     }}
                                 >
                                     {t('config.about.email')}
@@ -99,45 +99,6 @@ export default function About() {
                         </PopoverTrigger>
                         <PopoverContent>
                             <div className='flex justify-between'>
-                                <Tooltip content={t('config.about.qq_channel')}>
-                                    <Button
-                                        isIconOnly
-                                        variant='light'
-                                        className='my-[5px]'
-                                        size='lg'
-                                        onPress={() => {
-                                            open('https://pd.qq.com/s/akns94e1r');
-                                        }}
-                                    >
-                                        <BsTencentQq />
-                                    </Button>
-                                </Tooltip>
-                                <Tooltip content={t('config.about.qq_group')}>
-                                    <Button
-                                        isIconOnly
-                                        variant='light'
-                                        className='my-[5px]'
-                                        size='lg'
-                                        onPress={() => {
-                                            open('https://saladict-app.aichatone.com/img/qq_group.png');
-                                        }}
-                                    >
-                                        <BsTencentQq />
-                                    </Button>
-                                </Tooltip>
-                                <Tooltip content={t('config.about.telegram')}>
-                                    <Button
-                                        isIconOnly
-                                        variant='light'
-                                        className='my-[5px]'
-                                        size='lg'
-                                        onPress={() => {
-                                            open('https://t.me/pot_app');
-                                        }}
-                                    >
-                                        <BsTelegram />
-                                    </Button>
-                                </Tooltip>
                                 <Tooltip content={t('config.about.discussion')}>
                                     <Button
                                         isIconOnly
