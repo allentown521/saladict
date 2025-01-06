@@ -14,6 +14,15 @@
         <script>
             var Module;
         </script>
+        <script type="module">
+            const websiteId = import.meta.env.VITE_UMAMI_DATA_WEBSITE_ID;
+            const scriptUrl = import.meta.env.VITE_UMAMI_SCRIPT_URL;
+            const script = document.createElement('script');
+            script.defer = true;
+            script.src = scriptUrl;
+            script.setAttribute('data-website-id', websiteId);
+            document.head.appendChild(script);
+        </script>
         <title>Saladict</title>
     </head>
 
