@@ -475,5 +475,4 @@ jobs:
                   version: ${{env.VERSION}}
                   installers-regex: '\.exe$'
                   token: ${{ secrets.TOKEN }}
-                  fork-user: Pylogmon
               continue-on-error: true
