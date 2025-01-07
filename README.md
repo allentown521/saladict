@@ -213,7 +213,7 @@
     如果在 隐私与安全性 中找不到以上选项，或启动时提示文件损坏。打开 Terminal.app，并输入以下命令，然后重启 沙拉翻译 即可：
 
     ```bash
-    sudo xattr -d com.apple.quarantine /Applications/saladict.app
+    sudo xattr -d com.apple.quarantine /Applications/Saladict.app
     ```
 
 -   如果每次打开时都遇到辅助功能权限提示，或者无法进行划词翻译，请前往设置 -> 隐私与安全 -> 辅助功能，移除 “沙拉翻译”，并重新添加 “沙拉翻译”。
@@ -289,7 +289,10 @@ rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s
 
 ### PopClip (MacOS)
 
-1. 从 [App Store](https://apps.apple.com/us/app/popclip/id445189367?mt=12) 下载安装 PopClip
+1. 从 [官网](https://www.popclip.app/) 下载安装 PopClip
+
+- 软件是收费的，国内用户可以从 [Mac应用软件分享](https://xclient.info/s/popclip.html) 下载免费版，有能力还是请支持正版。
+
 2. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 下载 沙拉翻译 的 PopClip 扩展 (saladict.popclipextz)
 3. 双击下载的扩展文件完成安装。
 4. 在 PopClip 的扩展中启用 沙拉翻译 扩展，选中文本即可点击翻译。

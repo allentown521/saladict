@@ -349,7 +349,7 @@ rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s
 
 ### PopClip (MacOS)
 
-1. PopClip를 [App Store](https://apps.apple.com/us/app/popclip/id445189367?mt=12) 에서 다운받아 설치합니다.
+1. PopClip를 [Official Website](https://www.popclip.app/) 에서 다운받아 설치합니다.
 2. PopClip 확장팩을 최신버전 다운 경로에서 [Release](https://github.com/allentown521/saladict/releases/latest) (Saladict.popclipextz) 다운받습니다.
 3. 더블클릭하여 설치합니다.
 4. PopClip settings에서 기능을 활성화 하면 선택영역의 번역을 할 수 있습니다.
