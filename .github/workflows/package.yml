@@ -125,13 +125,13 @@ jobs:
             - name: Change File Name
               if: matrix.target == 'aarch64-apple-darwin'
               run: |
-                  sudo mv src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz src-tauri/target/aarch64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz
-                  sudo mv src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz.sig src-tauri/target/aarch64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz.sig
+                  sudo mv src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz
+                  sudo mv src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz.sig src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz.sig
             - name: Change File Name
               if: matrix.target == 'x86_64-apple-darwin'
               run: |
-                  sudo mv src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz src-tauri/target/x86_64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_x64.app.tar.gz
-                  sudo mv src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz.sig src-tauri/target/x86_64-apple-darwin/release/bundle/macos/pot_${{needs.change-version.outputs.version}}_x64.app.tar.gz.sig
+                  sudo mv src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict_${{needs.change-version.outputs.version}}_x64.app.tar.gz
+                  sudo mv src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz.sig src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict_${{needs.change-version.outputs.version}}_x64.app.tar.gz.sig
             - name: Upload Artifacts
               uses: actions/upload-artifact@v4
               with:
@@ -272,9 +272,9 @@ jobs:
                   $env:TAURI_PRIVATE_KEY="${{ secrets.TAURI_PRIVATE_KEY }}"
                   $env:TAURI_KEY_PASSWORD="${{ secrets.TAURI_KEY_PASSWORD }}"
                   pnpm tauri build -b nsis,updater --target ${{ matrix.target }}
-                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\pot_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.exe pot_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.exe
-                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\pot_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.nsis.zip pot_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.nsis.zip
-                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\pot_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.nsis.zip.sig pot_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.nsis.zip.sig
+                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.exe Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.exe
+                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.nsis.zip Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.nsis.zip
+                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.nsis.zip.sig Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.nsis.zip.sig
             - name: Upload Artifacts
               uses: actions/upload-artifact@v4
               with:
