@@ -1,86 +1,299 @@
 {
     "translation": {
         "common": {
-            "ok": "Ok"
+            "ok": "OK",
+            "cancel": "Avbryt",
+            "save": "Lagre",
+            "write_clipboard": "Kopier til utklippstavlen",
+            "plugin": "Programtillegg",
+            "coming": "Kommer snart...",
+            "clear": "Tøm"
+        },
+        "languages": {
+            "auto": "Automatisk gjenkjenning",
+            "zh_cn": "Forenklet kinesisk",
+            "zh_tw": "Tradisjonell kinesisk",
+            "ja": "Japansk",
+            "en": "Engelsk",
+            "ko": "Koreansk",
+            "fr": "Fransk",
+            "es": "Spansk",
+            "ru": "Russisk",
+            "de": "Tysk",
+            "it": "Italiensk",
+            "tr": "Tyrkisk",
+            "pt_pt": "Portugisisk",
+            "pt_br": "Portugisisk (Brasil)",
+            "vi": "Vietnamesisk",
+            "id": "Indonesisk",
+            "th": "Thai",
+            "ms": "Malayisk",
+            "ar": "Arabisk",
+            "hi": "Hindi",
+            "mn_mo": "Mongolsk",
+            "mn_cy": "Mongolsk (kyrillisk)",
+            "km": "Khmer",
+            "nb_no": "Bokmål",
+            "nn_no": "Nynorsk",
+            "fa": "Persisk",
+            "sv": "Svensk",
+            "pl": "Polsk",
+            "nl": "Nederlandsk",
+            "uk": "Ukrainsk",
+            "he": "Hebraisk"
+        },
+        "config": {
+            "general": {
+                "label": "Generelt",
+                "title": "Generelle innstillinger",
+                "auto_start": "Start automatisk",
+                "check_update": "Se etter oppdateringer",
+                "server_port": "Lytteport",
+                "server_port_change": "Lytteporten er endret. Start programmet på nytt for at endringene skal tre i kraft",
+                "app_language": "Visningsspråk",
+                "app_theme": "Tema",
+                "app_font": "Skrifttype",
+                "app_fallback_font": "Alternativ skrifttype",
+                "font_size": {
+                    "title": "Skriftstørrelse",
+                    "10": "Ekstra liten (10px)",
+                    "12": "Veldig liten (12px)",
+                    "14": "Liten (14px)",
+                    "16": "Standard (16px)",
+                    "18": "Stor (18px)",
+                    "20": "Veldig stor (20px)",
+                    "24": "Ekstra stor (24px)"
+                },
+                "default_font": "Standard",
+                "theme": {
+                    "light": "Lys",
+                    "dark": "Mørk",
+                    "system": "System"
+                },
+                "transparent": "Gjennomsiktighet",
+                "dev_mode": "Utviklermodus",
+                "proxy": {
+                    "title": "Proxy",
+                    "host": "Vert",
+                    "port": "Port",
+                    "username": "Brukernavn",
+                    "password": "Passord",
+                    "no_proxy": "Ingen proxy"
+                },
+                "proxy_change": "Proxy-innstillingene er endret. Start programmet på nytt for at endringene skal tre i kraft",
+                "proxy_error": "Vennligst fyll inn vert og port",
+                "tray_click_event": "Handling ved klikk i systemkurv",
+                "event": {
+                    "config": "Innstillinger",
+                    "translate": "Oversett",
+                    "disable": "Deaktiver",
+                    "ocr_recognize": "Tekstgjenkjenning",
+                    "ocr_translate": "Skjermbildeoversettelse"
+                }
+            },
+            "translate": {
+                "label": "Oversettelse",
+                "title": "Oversettelsesinnstillinger",
+                "source_language": "Kildespråk",
+                "target_language": "Målspråk",
+                "second_language": "Sekundært målspråk",
+                "auto_copy": "Automatisk kopiering",
+                "source": "Kilde",
+                "target": "Mål",
+                "source_target": "Kilde+Mål",
+                "disable": "Deaktiver",
+                "history_disable": "Deaktiver historikk",
+                "incremental_translate": "Fortløpende oversettelse",
+                "dynamic_translate": "Dynamisk oversettelse",
+                "delete_newline": "Fjern linjeskift",
+                "remember_language": "Husk målspråk",
+                "font_size": {
+                    "title": "Skriftstørrelse",
+                    "10": "Ekstra ekstra liten (10px)",
+                    "12": "Veldig liten (12px)",
+                    "14": "Liten (14px)",
+                    "16": "Standard (16px)",
+                    "18": "Stor (18px)",
+                    "20": "Veldig stor (20px)",
+                    "24": "Ekstra ekstra stor (24px)"
+                },
+                "window_position": "Vindusposisjon",
+                "mouse": "Følg musepekeren",
+                "pre_state": "Husk posisjon",
+                "remember_window_size": "Husk vindusstørrelse",
+                "close_on_blur": "Lukk vinduet når fokus mistes",
+                "always_on_top": "Alltid øverst",
+                "hide_source": "Skjul kildeområde",
+                "hide_language": "Skjul språkområde",
+                "hide_window": "Skjul oversettelsesvindu",
+                "detect_engine": "Språkgjenkjenningsmotor",
+                "baidu": "Baidu",
+                "tencent": "Tencent",
+                "niutrans": "NiuTrans",
+                "google": "Google",
+                "bing": "Bing",
+                "yandex": "Yandex",
+                "local": "Lokal"
+            },
+            "recognize": {
+                "label": "Gjenkjenning",
+                "title": "Gjenkjenningsinnstillinger",
+                "language": "Gjenkjenningsspråk",
+                "delete_newline": "Fjern linjeskift automatisk",
+                "auto_copy": "Automatisk kopiering",
+                "close_on_blur": "Lukk vinduet når fokus mistes",
+                "hide_window": "Skjul gjenkjenningsvindu"
+            },
+            "hotkey": {
+                "label": "Hurtigtaster",
+                "title": "Hurtigtastinnstillinger",
+                "selection_translate": "Oversett markering",
+                "input_translate": "Tekstoversettelse",
+                "ocr_recognize": "Tekstgjenkjenning",
+                "ocr_translate": "Skjermbildeoversettelse",
+                "is_register": "Hurtigtasten er allerede registrert",
+                "success": "Hurtigtast registrert",
+                "set_hotkey": "Trykk for å angi hurtigtast"
+            },
+            "service": {
+                "label": "Tjenester",
+                "title": "Tjenesteinnstillinger",
+                "translate": "Oversettelse",
+                "tts": "Tekst-til-tale",
+                "recognize": "Gjenkjenning",
+                "collection": "Samling",
+                "least": "Behold minst én",
+                "add_builtin_service": "Legg til innebygd tjeneste",
+                "add_external_service": "Legg til utvidelse",
+                "add_service": "Legg til tjeneste",
+                "test_failed": "Test mislyktes",
+                "install_plugin": "Installer programtillegg",
+                "view_plugin_list": "Vis liste over programtillegg",
+                "uninstall_success": "Programtillegg avinstallert",
+                "homepage": "Hjemmeside"
+            },
+            "history": {
+                "label": "Historikk",
+                "title": "Historikk"
+            },
+            "backup": {
+                "label": "Sikkerhetskopi",
+                "title": "Sikkerhetskopiinnstillinger",
+                "type": "Tjenestetype",
+                "webdav": "WebDAV",
+                "aliyun": "Aliyun Drive",
+                "local": "Lokal",
+                "webdav_url": "WebDAV-URL",
+                "username": "Brukernavn",
+                "password": "Passord",
+                "logout": "Logg ut",
+                "aliyun_login_first": "Skann koden for å logge inn først",
+                "login_success": "Innlogging vellykket",
+                "backup": "Sikkerhetskopier",
+                "restore": "Gjenopprett",
+                "list": "Liste over sikkerhetskopier",
+                "load_success": "Vellykket innlasting av sikkerhetskopi",
+                "backup_success": "Vellykket sikkerhetskopiering",
+                "empty": "Du har ikke tatt noen sikkerhetskopi ennå"
+            },
+            "about": {
+                "app_name": "Saladict",
+                "label": "Om",
+                "title": "Om programmet",
+                "website": "Nettsted",
+                "github": "GitHub",
+                "feedback": "Tilbakemelding",
+                "issue": "Problem",
+                "email": "E-post",
+                "community": "Fellesskap",
+                "check_update": "Se etter oppdateringer",
+                "view_log": "Vis logg",
+                "view_config": "Vis konfigurasjon",
+                "qq_channel": "QQ-kanal",
+                "qq_group": "QQ-gruppe",
+                "telegram": "Telegram",
+                "discussion": "GitHub-diskusjon"
+            }
+        },
+        "updater": {
+            "title": "Se etter oppdateringer",
+            "latest": "## Nyeste versjon er installert",
+            "progress": "Nedlastingsfremdrift",
+            "update": "Oppdater",
+            "downloading": "Laster ned...",
+            "installing": "Installerer...",
+            "cancel": "Avbryt",
+            "installed": "Installasjon fullført. Start programmet på nytt for at endringene skal tre i kraft"
         },
         "services": {
+            "help": "Konfigurasjonsveiledning",
+            "no_need": "Ingen konfigurasjon nødvendig",
+            "instance_name": "Konfigurasjonsnavn",
             "translate": {
-                "youdao": {},
-                "deepl": {},
-                "openai": {},
-                "alibaba": {},
-                "chatglm": {},
-                "geminipro_polish": {},
-                "transmart": {},
-                "caiyun": {},
-                "baidu_field": {},
-                "cambridge_dict": {},
-                "geminipro": {},
-                "openai_custom": {},
-                "baidu": {},
-                "niutrans": {},
-                "tencent": {},
-                "geminipro_custom": {},
-                "volcengine": {},
-                "google": {},
-                "yandex": {},
-                "bing_dict": {},
-                "chatglm_custom": {},
-                "chatglm_polish": {},
-                "chatglm_summary": {},
-                "openai_polish": {},
-                "geminipro_summary": {},
+                "deepl": {
+                    "title": "DeepL",
+                    "custom_url": "DeepLX-URL",
+                    "auth_key": "Autentiseringsnøkkel",
+                    "type": "Tjenestetype",
+                    "free": "Gratis",
+                    "api": "Autentiseringsnøkkel",
+                    "deeplx": "DeepLX"
+                },
+                "google": {
+                    "title": "Google",
+                    "custom_url": "Tilpasset URL"
+                },
                 "lingva": {
                     "title": "Lingva"
                 },
-                "bing": {},
-                "openai_summary": {}
-            },
-            "recognize": {
-                "iflytek_latex_ocr": {},
-                "baidu_ocr": {},
-                "simple_latex_ocr": {},
-                "volcengine_ocr": {},
-                "iflytek_intsig_ocr": {},
-                "baidu_accurate_ocr": {},
-                "baidu_img_ocr": {},
-                "volcengine_multi_lang_ocr": {},
-                "tencent_ocr": {},
-                "tencent_accurate_ocr": {},
-                "iflytek_ocr": {},
-                "qrcode": {},
-                "tesseract": {},
-                "tencent_img_ocr": {},
-                "system": {}
-            },
-            "collection": {
-                "anki": {},
-                "eudic": {}
-            },
-            "tts": {
-                "lingva_tts": {}
+                "bing": {
+                    "title": "Bing"
+                },
+                "ollama": {
+                    "title": "Ollama",
+                    "install_ollama": "Kan ikke koble til lokal Ollama. Last ned, installer og start Ollama først. Hvis du bruker Ollama på en annen maskin, endre forespørselsadressen.",
+                    "install_ollama_link": "Last ned Ollama",
+                    "request_path": "Forespørselssti",
+                    "stream": "Strømmemodus",
+                    "model": "Modell",
+                    "install_model": "Installer",
+                    "ready": "Klar",
+                    "not_installed": "Denne modellen er ikke installert ennå. Klikk for å laste ned og installere nå",
+                    "supported_models": "Klikk for å se en liste over tilgjengelige Ollama-modeller",
+                    "prompt_description": "Ved å tilpasse prompten kan du tilpasse AI-ens oppførsel. $text $from $to $detect vil bli erstattet med teksten som skal oversettes, kildespråk, målspråk og oppdaget språk.",
+                    "add": "Legg til prompt"
+                },
+                "openai": {
+                    "title": "OpenAI",
+                    "service": "Tjenesteleverandør",
+                    "openai": "OpenAI",
+                    "azure": "Azure",
+                    "request_path": "Forespørselssti",
+                    "api_key": "API-nøkkel",
+                    "model": "Modell",
+                    "stream": "Strømmemodus",
+                    "prompt_description": "Ved å tilpasse prompten kan du tilpasse OpenAIs oppførsel. $text $from $to $detect vil bli erstattet med teksten som skal oversettes, kildespråk, målspråk og oppdaget språk.",
+                    "add": "Legg til prompt"
+                }
             }
         },
-        "languages": {},
-        "config": {
-            "general": {
-                "proxy": {},
-                "event": {},
-                "theme": {},
-                "font_size": {}
-            },
-            "translate": {
-                "font_size": {}
-            },
-            "backup": {},
-            "recognize": {},
-            "hotkey": {},
-            "service": {},
-            "about": {},
-            "history": {}
+        "translate": {
+            "translate": "Oversett",
+            "add_collection_success": "Lagt til i samlingen",
+            "recognizing": "Gjenkjenner...",
+            "speak": "Les opp",
+            "copy": "Kopier",
+            "retry": "Prøv igjen",
+            "delete_newline": "Fjern linjeskift",
+            "translate_back": "Oversett tilbake til originalspråket"
         },
-        "translate": {},
-        "updater": {},
-        "recognize": {}
+        "recognize": {
+            "recognize": "Gjenkjenn",
+            "translate": "Oversett",
+            "copy_img": "Kopier bilde",
+            "copy_text": "Kopier",
+            "delete_newline": "Fjern linjeskift",
+            "delete_space": "Fjern mellomrom"
+        }
     }
 }

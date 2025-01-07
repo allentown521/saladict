@@ -440,14 +440,14 @@ jobs:
               run: |
                   # sudo apt-get install git -y
                   git config --global user.email product@aichatone.com
-                  git config --global user.name pot-app
+                  git config --global user.name saladict-app
             - name: Update Homebrew cask
               env:
                   HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.TOKEN }}
               run: |
-                  brew tap pot-app/homebrew-tap
+                  brew tap allentown521/homebrew-saladict
                   brew update
-                  brew bump-cask-pr pot --version ${{ env.VERSION }} --no-browse
+                  brew bump-cask-pr saladict --version ${{ env.VERSION }} --no-browse
 
     winget:
         name: Update WinGet Package

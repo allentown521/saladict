@@ -13,6 +13,7 @@ import Updater from './window/Updater';
 import { store } from './utils/store';
 import Config from './window/Config';
 import { useConfig } from './hooks';
+import { uiLanguage } from './utils/language';
 import './style.css';
 import './i18n';
 
@@ -24,10 +25,31 @@ const windowMap = {
     updater: <Updater />,
 };
 
+// 获取系统语言并匹配支持的语言列表
+const getSystemLanguage = () => {
+    const browserLang = navigator.language?.toLowerCase()?.replace('-', '_');
+    if (!browserLang) {
+        return 'en';
+    }
+    // 先尝试完全匹配
+    if (uiLanguage.includes(browserLang)) {
+        return browserLang;
+    }
+    // 再尝试匹配语言主码
+    const langMain = browserLang.split('_')?.[0];
+    if (!langMain) {
+        return 'en';
+    }
+    const matchedLang = Object.keys(uiLanguage).find(lang => 
+        typeof lang === 'string' && (lang.startsWith(langMain + '_') || lang === langMain)
+    );
+    return matchedLang || 'en';
+};
+
 export default function App() {
     const [devMode] = useConfig('dev_mode', false);
     const [appTheme] = useConfig('app_theme', 'system');
-    const [appLanguage] = useConfig('app_language', 'en');
+    const [appLanguage] = useConfig('app_language', getSystemLanguage());
     const [appFont] = useConfig('app_font', 'default');
     const [appFallbackFont] = useConfig('app_fallback_font', 'default');
     const [appFontSize] = useConfig('app_font_size', 16);
@@ -99,6 +121,8 @@ export default function App() {
     useEffect(() => {
         if (appLanguage !== null) {
             i18n.changeLanguage(appLanguage);
+            // for the first install to update the tray language
+            invoke('update_tray', { language: appLanguage, copyMode: '' });
         }
     }, [appLanguage]);
 

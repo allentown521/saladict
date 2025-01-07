@@ -22,7 +22,6 @@ pub fn update_tray(app_handle: tauri::AppHandle, mut language: String, mut copy_
         language = match get("app_language") {
             Some(v) => v.as_str().unwrap().to_string(),
             None => {
-                set("app_language", "en");
                 "en".to_string()
             }
         };
