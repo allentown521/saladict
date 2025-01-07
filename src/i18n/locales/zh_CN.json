@@ -224,6 +224,7 @@
             "downloading": "下载中…",
             "installing": "安装中…",
             "cancel": "取消",
+            "force_update_tip": "这是一个必需的更新。在完成更新之前，应用将无法使用。",
             "installed": "安装完成，重启应用生效"
         },
         "services": {

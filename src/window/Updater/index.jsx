@@ -1,7 +1,7 @@
 import { Code, Card, CardBody, Button, Progress, Skeleton } from '@nextui-org/react';
 import { checkUpdate, installUpdate } from '@tauri-apps/api/updater';
 import React, { useEffect, useState } from 'react';
-import { appWindow } from '@tauri-apps/api/window';
+import { appWindow, WebviewWindow, getAll } from '@tauri-apps/api/window';
 import { relaunch } from '@tauri-apps/api/process';
 import toast, { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
@@ -13,23 +13,43 @@ import { osType } from '../../utils/env';
 
 let unlisten = 0;
 let eventId = 0;
+const UPDATE_WINDOW_LABEL = 'updater';
 
 export default function Updater() {
     const [transparent] = useConfig('transparent', true);
     const [downloaded, setDownloaded] = useState(0);
     const [total, setTotal] = useState(0);
     const [body, setBody] = useState('');
+    const [forceUpdate, setForceUpdate] = useState(false);
+    const [shouldUpdate, setShouldUpdate] = useState(false);
     const { t } = useTranslation();
     const toastStyle = useToastStyle();
 
     useEffect(() => {
-        if (appWindow.label === 'updater') {
+        if (appWindow.label === UPDATE_WINDOW_LABEL) {
             appWindow.show();
         }
+
         checkUpdate().then(
-            (update) => {
+            async (update) => {
                 if (update.shouldUpdate) {
                     setBody(update.manifest.body);
+                    setShouldUpdate(update.shouldUpdate);
+                    // check --forceUpdate-- flag in CHANGELOG
+                    const isForceUpdate = update.manifest.body.includes('--forceUpdate--');
+                    setForceUpdate(isForceUpdate);
+                    if (isForceUpdate) {
+                        appWindow.setClosable(false);
+                        // listen window created event, close all other windows except updater
+                        const unlisten = await listen('tauri://window-created', async () => {
+                            const windows = await getAll();
+                            for (const window of windows) {
+                                if (window.label !== UPDATE_WINDOW_LABEL) {
+                                    await window.close();
+                                }
+                            }
+                        });
+                    }
                 } else {
                     setBody(t('updater.latest'));
                 }
@@ -39,6 +59,7 @@ export default function Updater() {
                 toast.error(e.toString(), { style: toastStyle });
             }
         );
+
         if (unlisten === 0) {
             unlisten = listen('tauri://update-download-progress', (e) => {
                 if (eventId === 0) {
@@ -64,7 +85,7 @@ export default function Updater() {
             <div className='p-[5px] h-[35px] w-full select-none cursor-default'>
                 <div
                     data-tauri-drag-region='true'
-                    className={`h-full w-full flex ${osType === 'Darwin' ? 'justify-end' : 'justify-start'}`}
+                    className='h-full w-full flex justify-center items-center'
                 >
                     <img
                         src='icon.png'
@@ -76,6 +97,11 @@ export default function Updater() {
             </div>
             <Card className='mx-[80px] mt-[10px] overscroll-auto h-[calc(100vh-150px)]'>
                 <CardBody>
+                    {forceUpdate && (
+                        <div className='mb-4 p-3 bg-warning-50 rounded-lg border-l-4 border-warning'>
+                            <p className='font-medium'>{t('updater.force_update_tip')}</p>
+                        </div>
+                    )}
                     {body === '' ? (
                         <div className='space-y-3'>
                             <Skeleton className='w-3/5 rounded-lg'>
@@ -149,39 +175,43 @@ export default function Updater() {
                 />
             )}
 
-            <div className='grid gap-4 grid-cols-2 h-[50px] my-[10px] mx-[80px]'>
-                <Button
-                    variant='flat'
-                    isLoading={downloaded !== 0}
-                    isDisabled={downloaded !== 0}
-                    color='primary'
-                    onPress={() => {
-                        installUpdate().then(
-                            () => {
-                                toast.success(t('updater.installed'), { style: toastStyle, duration: 10000 });
-                                relaunch();
-                            },
-                            (e) => {
-                                toast.error(e.toString(), { style: toastStyle });
-                            }
-                        );
-                    }}
-                >
-                    {downloaded !== 0
-                        ? downloaded > total
-                            ? t('updater.installing')
-                            : t('updater.downloading')
-                        : t('updater.update')}
-                </Button>
-                <Button
-                    variant='flat'
-                    color='danger'
-                    onPress={() => {
-                        appWindow.close();
-                    }}
-                >
-                    {t('updater.cancel')}
-                </Button>
+            <div className={`grid gap-4 ${shouldUpdate && !forceUpdate ? 'grid-cols-2' : 'grid-cols-1'} h-[50px] my-[10px] mx-[80px]`}>
+                {shouldUpdate && (
+                    <Button
+                        variant='flat'
+                        isLoading={downloaded !== 0}
+                        isDisabled={downloaded !== 0}
+                        color='primary'
+                        onPress={() => {
+                            installUpdate().then(
+                                () => {
+                                    toast.success(t('updater.installed'), { style: toastStyle, duration: 10000 });
+                                    relaunch();
+                                },
+                                (e) => {
+                                    toast.error(e.toString(), { style: toastStyle });
+                                }
+                            );
+                        }}
+                    >
+                        {downloaded !== 0
+                            ? downloaded > total
+                                ? t('updater.installing')
+                                : t('updater.downloading')
+                            : t('updater.update')}
+                    </Button>
+                )}
+                {!forceUpdate && (
+                    <Button
+                        variant='flat'
+                        color='danger'
+                        onPress={() => {
+                            appWindow.close();
+                        }}
+                    >
+                        {t('updater.cancel')}
+                    </Button>
+                )}
             </div>
         </div>
     );

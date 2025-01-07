@@ -27,6 +27,7 @@ async function resolveUpdater() {
         name: version,
         notes: changelog,
         pub_date: new Date().toISOString(),
+        forceUpdate: false,
         platforms: {
             'darwin-aarch64': { signature: darwin_aarch64_sig, url: darwin_aarch64 },
             'darwin-x86_64': { signature: darwin_x86_64_sig, url: darwin_x86_64 },

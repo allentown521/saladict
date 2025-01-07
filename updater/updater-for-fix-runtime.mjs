@@ -20,6 +20,7 @@ async function resolveUpdater() {
     let updateData = {
         name: version,
         notes: changelog,
+        forceUpdate: false,
         pub_date: new Date().toISOString(),
         platforms: {
             'windows-x86_64': { signature: windows_x86_64_sig, url: windows_x86_64 },

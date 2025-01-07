@@ -223,6 +223,7 @@
             "downloading": "下載中…",
             "installing": "安裝中…",
             "cancel": "取消",
+            "force_update_tip": "這是一個必需的更新。在完成更新之前，應用程式將無法使用。",
             "installed": "安裝完成，請重新啟動應用程式以使變更生效"
         },
         "services": {
