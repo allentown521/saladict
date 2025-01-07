@@ -7,11 +7,12 @@ import { BsTelegram } from 'react-icons/bs';
 import { BsGithub } from 'react-icons/bs';
 import { invoke } from '@tauri-apps/api';
 import React from 'react';
-
+import { useConfig } from '../../../../hooks/useConfig';
 import { appVersion, appName } from '../../../../utils/env';
 
 export default function About() {
     const { t } = useTranslation();
+    const [devMode, setDevMode] = useConfig('dev_mode', false);
 
     return (
         <div className='h-full w-full py-[80px] px-[100px]'>
@@ -40,10 +41,10 @@ export default function About() {
                         className='my-[5px]'
                         size='sm'
                         onPress={() => {
-                            open('https://github.com/allentown521/saladict');
+                            open('https://saladict-app.aichatone.com/docs');
                         }}
                     >
-                        {t('config.about.github')}
+                        {t('config.about.faq')}
                     </Button>
                     <Popover
                         placement='top'
@@ -119,7 +120,7 @@ export default function About() {
                 <Divider />
             </div>
             <div className='content-center px-[40px]'>
-                <div className='flex justify-between'>
+                <div className='flex justify-center'>
                     <Button
                         variant='light'
                         className='my-[5px]'
@@ -130,7 +131,7 @@ export default function About() {
                     >
                         {t('config.about.check_update')}
                     </Button>
-                    <Button
+                    {devMode && <Button
                         variant='light'
                         className='my-[5px]'
                         size='sm'
@@ -140,8 +141,8 @@ export default function About() {
                         }}
                     >
                         {t('config.about.view_log')}
-                    </Button>
-                    <Button
+                    </Button>}
+                    {devMode && <Button
                         variant='light'
                         className='my-[5px]'
                         size='sm'
@@ -151,7 +152,7 @@ export default function About() {
                         }}
                     >
                         {t('config.about.view_config')}
-                    </Button>
+                    </Button>}
                 </div>
 
                 <Divider />
