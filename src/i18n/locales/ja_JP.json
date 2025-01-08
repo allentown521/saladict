@@ -17,6 +17,10 @@
                 "title": "アプリケーションに関する",
                 "label": "に関する"
             },
+            "advance": {
+                "label": "進階設定",
+                "title": "進階設定"
+            },
             "general": {
                 "label": "一般設定",
                 "event": {
@@ -55,7 +59,9 @@
             },
             "hotkey": {
                 "label": "ホットキー",
-                "title": "ホットキー設定"
+                "title": "ホットキー設定",
+                "variable_format": "変数名形式変換",
+                "not_editable": "編集不可"
             },
             "recognize": {
                 "title": "認識設定",

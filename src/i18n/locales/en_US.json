@@ -153,7 +153,9 @@
                 "ocr_translate": "Screenshot Translation",
                 "is_register": "The hotkey is already registered",
                 "success": "Hotkey register success",
-                "set_hotkey": "Press to Set Hotkey"
+                "set_hotkey": "Press to Set Hotkey",
+                "variable_format": "Variable Name Format Conversion",
+                "not_editable": "Not Editable"
             },
             "service": {
                 "label": "Service",
@@ -214,6 +216,10 @@
                 "qq_group": "QQ Group",
                 "telegram": "Telegram",
                 "discussion": "Github Discussion"
+            },
+            "advance": {
+                "label": "Advanced",
+                "title": "Advanced Settings"
             }
         },
         "updater": {

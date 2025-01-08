@@ -8,6 +8,7 @@ import { MdKeyboardAlt } from 'react-icons/md';
 import { MdExtension } from 'react-icons/md';
 import { AiFillCloud } from 'react-icons/ai';
 import { FaHistory } from 'react-icons/fa';
+import { MdSettingsSuggest } from 'react-icons/md';
 import { Button } from '@nextui-org/react';
 import React from 'react';
 
@@ -105,6 +106,18 @@ export default function SideBar() {
                 startContent={<AiFillCloud className='text-[24px]' />}
             >
                 <div className='w-full'>{t('config.backup.label')}</div>
+            </Button>
+            <Button
+                fullWidth
+                size='lg'
+                variant={setStyle('/advance')}
+                className='mb-[5px]'
+                onPress={() => {
+                    navigate('/advance');
+                }}
+                startContent={<MdSettingsSuggest className='text-[24px]' />}
+            >
+                <div className='w-full'>{t('config.advance.label')}</div>
             </Button>
             <Button
                 fullWidth

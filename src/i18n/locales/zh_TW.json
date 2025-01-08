@@ -152,7 +152,9 @@
                 "ocr_translate": "截圖翻譯",
                 "is_register": "該快速鍵已被註冊",
                 "success": "快速鍵註冊成功",
-                "set_hotkey": "按下設定快速鍵"
+                "set_hotkey": "按下設定快速鍵",
+                "variable_format": "變量名格式轉換",
+                "not_editable": "不能編輯"
             },
             "service": {
                 "label": "服務設定",
@@ -213,6 +215,10 @@
                 "qq_group": "QQ 群組",
                 "telegram": "Telegram",
                 "discussion": "Github 討論區"
+            },
+            "advance": {
+                "label": "進階設定",
+                "title": "進階設定"
             }
         },
         "updater": {

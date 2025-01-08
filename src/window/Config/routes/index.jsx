@@ -8,6 +8,7 @@ import History from '../pages/History';
 import Hotkey from '../pages/Hotkey';
 import Backup from '../pages/Backup';
 import About from '../pages/About';
+import Advance from '../pages/Advance';
 
 const routes = [
     {
@@ -37,6 +38,10 @@ const routes = [
     {
         path: '/backup',
         element: <Backup />,
+    },
+    {
+        path: '/advance',
+        element: <Advance />,
     },
     {
         path: '/about',
