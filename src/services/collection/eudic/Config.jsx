@@ -17,7 +17,7 @@ export function Config(props) {
         instanceKey,
         {
             [INSTANCE_NAME_CONFIG_KEY]: t('services.collection.eudic.title'),
-            name: 'pot',
+            name: 'Saladict',
             token: '',
         },
         { sync: false }
