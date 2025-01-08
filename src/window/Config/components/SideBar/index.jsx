@@ -22,7 +22,7 @@ export default function SideBar() {
     }
 
     return (
-        <div className='mx-[12px] overflow-y-auto'>
+        <div className='mx-[12px] overflow-y-auto scrollbar-hide'>
             <Button
                 fullWidth
                 size='lg'
