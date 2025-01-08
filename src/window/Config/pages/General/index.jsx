@@ -24,7 +24,6 @@ import { osType } from '../../../../utils/env';
 export default function General() {
     const [autoStart, setAutoStart] = useState(false);
     const [fontList, setFontList] = useState(null);
-    const [checkUpdate, setCheckUpdate] = useConfig('check_update', true);
     const [appLanguage, setAppLanguage] = useConfig('app_language', 'en');
     const [appTheme, setAppTheme] = useConfig('app_theme', 'system');
     const [appFont, setAppFont] = useConfig('app_font', 'default');
@@ -66,17 +65,6 @@ export default function General() {
                                 }
                             }}
                         />
-                    </div>
-                    <div className='config-item'>
-                        <h3>{t('config.general.check_update')}</h3>
-                        {checkUpdate !== null && (
-                            <Switch
-                                isSelected={checkUpdate}
-                                onValueChange={(v) => {
-                                    setCheckUpdate(v);
-                                }}
-                            />
-                        )}
                     </div>
                 </CardBody>
             </Card>
