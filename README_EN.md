@@ -287,7 +287,7 @@ sudo pacman -S pot-translation
 
 </div>
 
-Pot provides a complete HTTP interface for integration with other software. You can call pot by sending HTTP requests to `127.0.0.1:port`, where `port` is the listening port of pot, default to `60828`, and can be changed in the app settings.
+Pot provides a complete HTTP interface for integration with other software. You can call pot by sending HTTP requests to `127.0.0.1:port`, where `port` is the listening port of pot, default to `60606`, and can be changed in the app settings.
 
 ## API Docs:
 
@@ -314,7 +314,7 @@ GET "/ocr_translate?screenshot=true" => Translate screenshot
     E.g. using curl:
 
     ```bash
-    curl "127.0.0.1:60828/selection_translate"
+    curl "127.0.0.1:60606/selection_translate"
     ```
 
 ## OCR without internal screenshot
@@ -334,7 +334,7 @@ This allows you to perform OCR/translation without using pot's internal screensh
 OCR using Flameshot on Linux:
 
 ```bash
-rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
+rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60606/ocr_recognize?screenshot=false"
 ```
 
 ## Existing Usages (Quick selection translation)
@@ -379,8 +379,8 @@ In some pure Wayland desktop environments/window managers (such as Hyprland), th
 Below is a configuration example for Hyprland using `grim` and `slurp` to achieve screenshot functionality:
 
 ```conf
-bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
-bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_translate?screenshot=false"
+bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60606/ocr_recognize?screenshot=false"
+bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60606/ocr_translate?screenshot=false"
 ```
 
 Other desktop environments/window managers also have similar operations.

@@ -228,7 +228,7 @@
 
 </div>
 
-沙拉翻译 提供了完整的 HTTP 接口，以便可以被其他软件调用。您可以通过向 `127.0.0.1:port` 发送 HTTP 请求来调用 沙拉翻译，其中的`port`是 沙拉翻译 监听的端口号，默认为`60828`,可以在软件设置中进行更改。
+沙拉翻译 提供了完整的 HTTP 接口，以便可以被其他软件调用。您可以通过向 `127.0.0.1:port` 发送 HTTP 请求来调用 沙拉翻译，其中的`port`是 沙拉翻译 监听的端口号，默认为`60606`,可以在软件设置中进行更改。
 
 ## API 文档:
 
@@ -255,7 +255,7 @@ GET "/ocr_translate?screenshot=true" => 截图翻译,
     例如通过 curl 发送请求：
 
     ```bash
-    curl "127.0.0.1:60828/selection_translate"
+    curl "127.0.0.1:60606/selection_translate"
     ```
 
 ## 不使用软件内截图
@@ -275,7 +275,7 @@ GET "/ocr_translate?screenshot=true" => 截图翻译,
 在 Linux 下调用 Flameshot 进行截图 OCR:
 
 ```bash
-rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
+rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60606/ocr_recognize?screenshot=false"
 ```
 
 ## 现有用法 (快捷划词翻译)
@@ -322,8 +322,8 @@ Github: [ccslykx/Starry](https://github.com/ccslykx/Starry)
 下面给出在 Hyprland 下的配置示例(通过 grim 和 slurp 实现截图)：
 
 ```conf
-bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
-bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_translate?screenshot=false"
+bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60606/ocr_recognize?screenshot=false"
+bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60606/ocr_translate?screenshot=false"
 ```
 
 其他桌面环境/窗口管理器也是类似的操作

@@ -28,7 +28,7 @@ export default function ControlArea(props) {
     const { serviceInstanceConfigMap, serviceInstanceList } = props;
     const pluginList = useAtomValue(pluginListAtom);
     const [recognizeLanguage] = useConfig('recognize_language', 'auto');
-    const [serverPort] = useConfig('server_port', 60828);
+    const [serverPort] = useConfig('server_port', 60606);
     const setRecognizeFlag = useSetAtom(recognizeFlagAtom);
     const [currentServiceInstanceKey, setCurrentServiceInstanceKey] = useAtom(currentServiceInstanceKeyAtom);
     const [language, setLanguage] = useAtom(languageAtom);

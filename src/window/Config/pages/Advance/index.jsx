@@ -11,7 +11,7 @@ import { useToastStyle } from '../../../../hooks';
 let timer = null;
 
 export default function Advance() {
-    const [serverPort, setServerPort] = useConfig('server_port', 60828);
+    const [serverPort, setServerPort] = useConfig('server_port', 60606);
     const [devMode, setDevMode] = useConfig('dev_mode', false);
     const [proxyEnable, setProxyEnable] = useConfig('proxy_enable', false);
     const [proxyHost, setProxyHost] = useConfig('proxy_host', '');

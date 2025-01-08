@@ -288,7 +288,7 @@ sudo pacman -S pot-translation
 
 </div>
 
-Pot은 완벽한 HTTP 인터페이스를 제공합니다. 이를 통해 다른 프로그램과 연동해서 사용이 가능합니다. 타 프로그램은 HTTP requests를 `127.0.0.1:port` 주소로 보내어 활용할 수 있습니다. 기본 포트는 `60828`입니다. 이는 사용자 설정에서 변경이 가능합니다.
+Pot은 완벽한 HTTP 인터페이스를 제공합니다. 이를 통해 다른 프로그램과 연동해서 사용이 가능합니다. 타 프로그램은 HTTP requests를 `127.0.0.1:port` 주소로 보내어 활용할 수 있습니다. 기본 포트는 `60606`입니다. 이는 사용자 설정에서 변경이 가능합니다.
 
 ## API 상세:
 
@@ -315,7 +315,7 @@ GET "/ocr_translate?screenshot=true" => Translate screenshot
     E.g. curl 사용시:
 
     ```bash
-    curl "127.0.0.1:60828/selection_translate"
+    curl "127.0.0.1:60606/selection_translate"
     ```
 
 ## 자체스크린샷 미사용 OCR 기능
@@ -335,7 +335,7 @@ OCR 및 번역을 위해서 pot은 자체 스크린샷(화면캡쳐)기능을 �
 리눅스에서 Flameshot을 활용한 OCR:
 
 ```bash
-rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
+rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s -p ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60606/ocr_recognize?screenshot=false"
 ```
 
 ## Existing Usages (Quick selection translation)
@@ -380,8 +380,8 @@ Github: [ccslykx/Starry](https://github.com/ccslykx/Starry)
 아래는 스크린샷 기능을 구현하기 위해 `grim`과 `slurp`를 사용하는 Hyprland의 구성 예시입니다:
 
 ```conf
-bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_recognize?screenshot=false"
-bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60828/ocr_translate?screenshot=false"
+bind = ALT, X, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60606/ocr_recognize?screenshot=false"
+bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && curl "127.0.0.1:60606/ocr_translate?screenshot=false"
 ```
 
 다른 데스크톱 환경/창 관리자도 비슷한 작업을 수행합니다.

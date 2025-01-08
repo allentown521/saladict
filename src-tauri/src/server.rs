@@ -9,8 +9,8 @@ pub fn start_server() {
     let port = match get("server_port") {
         Some(v) => v.as_i64().unwrap(),
         None => {
-            set("server_port", 60828);
-            60828
+            set("server_port", 60606);
+            60606
         }
     };
     thread::spawn(move || {
