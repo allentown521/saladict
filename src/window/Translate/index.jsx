@@ -275,7 +275,7 @@ export default function Translate() {
                     </Button>
                 </div>
                 <div className={`${osType === 'Linux' ? 'h-[calc(100vh-37px)]' : 'h-[calc(100vh-35px)]'} px-[8px]`}>
-                    <div className='h-full overflow-y-auto'>
+                    <div className='h-full overflow-y-auto scrollbar-hide'>
                         <div>
                             {serviceInstanceConfigMap !== null && (
                                 <SourceArea
