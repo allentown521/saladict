@@ -96,11 +96,9 @@
                 ]
             },
             "macOS": {
-                "entitlements": "entitlements.plist",
                 "exceptionDomain": "",
                 "frameworks": [],
                 "providerShortName": null,
-                "signingIdentity": "Apple Distribution: town allen (55U9H2H3UA)",
                 "minimumSystemVersion": "10.13"
             }
         },
