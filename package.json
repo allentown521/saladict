@@ -39,6 +39,7 @@
         "react-router-dom": "^6.27.0",
         "react-spinners": "^0.14.1",
         "react-use-measure": "^2.1.1",
+        "semver": "^7.6.0",
         "tauri-plugin-autostart-api": "https://github.com/tauri-apps/tauri-plugin-autostart#v1",
         "tauri-plugin-fs-watch-api": "https://github.com/tauri-apps/tauri-plugin-fs-watch#v1",
         "tauri-plugin-log-api": "https://github.com/tauri-apps/tauri-plugin-log#v1",

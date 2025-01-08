@@ -1,5 +1,6 @@
 import { Code, Card, CardBody, Button, Progress, Skeleton } from '@nextui-org/react';
 import { checkUpdate, installUpdate } from '@tauri-apps/api/updater';
+import { getVersion } from '@tauri-apps/api/app';
 import React, { useEffect, useState } from 'react';
 import { appWindow, WebviewWindow, getAll } from '@tauri-apps/api/window';
 import { relaunch } from '@tauri-apps/api/process';
@@ -7,6 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { listen } from '@tauri-apps/api/event';
 import ReactMarkdown from 'react-markdown';
+import { lte } from 'semver';
 
 import { useConfig, useToastStyle } from '../../hooks';
 import { osType } from '../../utils/env';
@@ -35,20 +37,29 @@ export default function Updater() {
                 if (update.shouldUpdate) {
                     setBody(update.manifest.body);
                     setShouldUpdate(update.shouldUpdate);
-                    // check --forceUpdate-- flag in CHANGELOG
-                    const isForceUpdate = update.manifest.body.includes('--forceUpdate--');
-                    setForceUpdate(isForceUpdate);
-                    if (isForceUpdate) {
-                        appWindow.setClosable(false);
-                        // listen window created event, close all other windows except updater
-                        const unlisten = await listen('tauri://window-created', async () => {
-                            const windows = await getAll();
-                            for (const window of windows) {
-                                if (window.label !== UPDATE_WINDOW_LABEL) {
-                                    await window.close();
+                    
+                    // Extract force update version from changelog
+                    const forceUpdateMatch = update.manifest.body.match(/--forceUpdate--(\d+\.\d+\.\d+)/);
+                    if (forceUpdateMatch) {
+                        const forceVersion = forceUpdateMatch[1];
+                        const currentVersion = await getVersion();
+                        
+                        // less than or equal to forceUpdateVersion
+                        const isForceUpdate = lte(currentVersion, forceVersion);
+                        setForceUpdate(isForceUpdate);
+                        
+                        if (isForceUpdate) {
+                            appWindow.setClosable(false);
+                            // listen window created event, close all other windows except updater
+                            const unlisten = await listen('tauri://window-created', async () => {
+                                const windows = await getAll();
+                                for (const window of windows) {
+                                    if (window.label !== UPDATE_WINDOW_LABEL) {
+                                        await window.close();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
                 } else {
                     setBody(t('updater.latest'));
