@@ -7,7 +7,7 @@ import { appWindow } from '@tauri-apps/api/window';
 import toast, { Toaster } from 'react-hot-toast';
 import { listen } from '@tauri-apps/api/event';
 import { MdContentCopy } from 'react-icons/md';
-import { MdSmartButton } from 'react-icons/md';
+import { MdWrapText } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
 import { HiTranslate } from 'react-icons/hi';
 import { LuDelete } from 'react-icons/lu';
@@ -430,7 +430,7 @@ export default function SourceArea(props) {
                                         });
                                     }}
                                 >
-                                    <MdSmartButton className='text-[16px]' />
+                                    <MdWrapText className='text-[16px]' />
                                 </Button>
                             </Tooltip>
                             <Tooltip content={t('common.clear')}>
