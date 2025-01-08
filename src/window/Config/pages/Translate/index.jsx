@@ -32,6 +32,7 @@ export default function Translate() {
     const [hideWindow, setHideWindow] = useConfig('translate_hide_window', false);
     const [closeOnBlur, setCloseOnBlur] = useConfig('translate_close_on_blur', true);
     const [alwaysOnTop, setAlwaysOnTop] = useConfig('translate_always_on_top', false);
+    const [revertEnter, setRevertEnter] = useConfig('translate_revert_enter', false);
     const { t } = useTranslation();
 
     return (
@@ -207,6 +208,17 @@ export default function Translate() {
                                 isSelected={rememberLanguage}
                                 onValueChange={(v) => {
                                     setRememberLanguage(v);
+                                }}
+                            />
+                        )}
+                    </div>
+                    <div className='config-item'>
+                        <h3 className='my-auto mx-0'>{t('config.translate.revert_enter')}</h3>
+                        {revertEnter !== null && (
+                            <Switch
+                                isSelected={revertEnter}
+                                onValueChange={(v) => {
+                                    setRevertEnter(v);
                                 }}
                             />
                         )}

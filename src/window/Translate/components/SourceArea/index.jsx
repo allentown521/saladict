@@ -48,6 +48,7 @@ export default function SourceArea(props) {
     const { t } = useTranslation();
     const textAreaRef = useRef();
     const speak = useVoice();
+    const [revertEnter] = useConfig('translate_revert_enter', false);
 
     const handleNewText = async (text) => {
         text = text.trim();
@@ -166,11 +167,14 @@ export default function SourceArea(props) {
     };
 
     const keyDown = (event) => {
-        if (event.key === 'Enter' && !event.shiftKey) {
-            event.preventDefault();
-            detect_language(sourceText).then(() => {
-                syncSourceText();
-            });
+        if (event.key === 'Enter') {
+            const shouldTranslate = revertEnter ? event.shiftKey : !event.shiftKey;
+            if (shouldTranslate) {
+                event.preventDefault();
+                detect_language(sourceText).then(() => {
+                    syncSourceText();
+                });
+            }
         }
         if (event.key === 'Escape') {
             appWindow.close();

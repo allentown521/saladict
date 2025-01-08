@@ -107,6 +107,7 @@
                 "dynamic_translate": "动态翻译",
                 "delete_newline": "自动删除换行",
                 "remember_language": "记住目标语言",
+                "revert_enter": "回车换行，Shift + Enter 翻译",
                 "font_size": {
                     "title": "字体大小",
                     "10": "极小 (10px)",

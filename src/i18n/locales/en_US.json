@@ -107,6 +107,7 @@
                 "dynamic_translate": "Dynamic Translation",
                 "delete_newline": "Delete Newline",
                 "remember_language": "Remember Target Language",
+                "revert_enter": "Enter to revert, Shift + Enter to translate",
                 "font_size": {
                     "title": "Font Size",
                     "10": "Very Very Small (10px)",

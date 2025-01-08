@@ -106,6 +106,7 @@
                 "dynamic_translate": "動態翻譯",
                 "delete_newline": "自動刪除換行",
                 "remember_language": "記住目標語言",
+                "revert_enter": "回車換行，Shift + Enter 翻譯",
                 "window_position": "視窗位置",
                 "mouse": "跟隨滑鼠",
                 "pre_state": "記住位置",
