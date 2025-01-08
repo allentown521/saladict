@@ -3,7 +3,6 @@
 export const languageList = [
     'zh_cn',
     'zh_tw',
-    'mn_mo',
     'en',
     'ja',
     'ko',
@@ -31,6 +30,7 @@ export const languageList = [
     'nl',
     'uk',
     'he',
+    'mn_mo',
 ] as const;
 
 // https://flagicons.lipis.dev/
