@@ -15,8 +15,17 @@ pub fn check_update(app_handle: tauri::AppHandle) {
             match tauri::updater::builder(app_handle).check().await {
                 Ok(update) => {
                     if update.is_update_available() {
+                        let should_show = match get("ignore_updater_version") {
+                            Some(version) => {
+                                version.as_str().unwrap() != update.latest_version()
+                            }
+                            None => true
+                        };
                         info!("New version available");
-                        updater_window();
+                        if should_show {
+                            info!("Show updater window");
+                            updater_window();
+                        }
                     }
                 }
                 Err(e) => {

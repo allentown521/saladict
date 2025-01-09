@@ -1,4 +1,4 @@
-import { Code, Card, CardBody, Button, Progress, Skeleton } from '@nextui-org/react';
+import { Code, Card, CardBody, Button, Progress, Skeleton, Checkbox } from '@nextui-org/react';
 import { checkUpdate, installUpdate } from '@tauri-apps/api/updater';
 import { getVersion } from '@tauri-apps/api/app';
 import React, { useEffect, useState } from 'react';
@@ -24,6 +24,8 @@ export default function Updater() {
     const [body, setBody] = useState('');
     const [forceUpdate, setForceUpdate] = useState(false);
     const [shouldUpdate, setShouldUpdate] = useState(false);
+    const [ignoreVersion, setIgnoreVersion] = useConfig('ignore_updater_version', '');
+    const [updateVersion, setUpdateVersion] = useState('');
     const { t } = useTranslation();
     const toastStyle = useToastStyle();
 
@@ -37,6 +39,7 @@ export default function Updater() {
                 if (update.shouldUpdate) {
                     setBody(update.manifest.body);
                     setShouldUpdate(update.shouldUpdate);
+                    setUpdateVersion(update.manifest.version);
                     
                     // Extract force update version from changelog
                     const forceUpdateMatch = update.manifest.body.match(/--forceUpdate--(\d+\.\d+\.\d+)/);
@@ -184,6 +187,18 @@ export default function Updater() {
                     showValueLabel
                     size='sm'
                 />
+            )}
+
+            {!forceUpdate && (
+                <div className="flex justify-end mx-[80px] my-2">
+                    <Checkbox
+                        isSelected={ignoreVersion}
+                        onValueChange={(checked) => setIgnoreVersion(checked ? updateVersion : '')}
+                        size="sm"
+                    >
+                        {t('updater.ignore_version')}
+                    </Checkbox>
+                </div>
             )}
 
             <div className={`grid gap-4 ${shouldUpdate && !forceUpdate ? 'grid-cols-2' : 'grid-cols-1'} h-[50px] my-[10px] mx-[80px]`}>
