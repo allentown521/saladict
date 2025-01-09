@@ -24,5 +24,6 @@ settings.json
 .env
 publish.readme.md
 build-mac-app-store-pkg.sh
+build-mac-arm-app-store-pkg.sh
 Saladict.provisionprofile
 entitlements.plist
