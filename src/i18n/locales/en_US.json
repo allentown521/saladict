@@ -233,7 +233,8 @@
             "cancel": "Cancel",
             "force_update_tip": "This update is required. The application cannot be used until the update is installed.",
             "installed": "Install completed, Restart the application for the changes to take effect",
-            "ignore_version": "Do not remind the update of the current version"
+            "ignore_version": "Do not remind the update of the current version",
+            "open_app_store": "Open App Store"
         },
         "services": {
             "help": "Configuration Guide",

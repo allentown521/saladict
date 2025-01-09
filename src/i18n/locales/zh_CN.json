@@ -233,7 +233,8 @@
             "cancel": "取消",
             "force_update_tip": "这是一个必需的更新。在完成更新之前，应用将无法使用。",
             "installed": "安装完成，重启应用生效",
-            "ignore_version": "不再提醒当前版本的更新"
+            "ignore_version": "不再提醒当前版本的更新",
+            "open_app_store": "打开 App Store"
         },
         "services": {
             "help": "配置指南",

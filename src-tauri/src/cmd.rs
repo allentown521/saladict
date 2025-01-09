@@ -225,3 +225,8 @@ pub fn open_devtools(window: tauri::Window) {
         window.close_devtools();
     }
 }
+
+#[tauri::command]
+pub fn is_app_store_version() -> bool {
+    std::env::var("APP_STORE_VERSION").unwrap_or_default() == "true"
+}

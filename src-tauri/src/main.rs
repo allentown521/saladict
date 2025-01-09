@@ -147,7 +147,8 @@ fn main() {
             local,
             install_plugin,
             font_list,
-            aliyun
+            aliyun,
+            is_app_store_version
         ])
         .on_system_tray_event(tray_event_handler)
         .build(tauri::generate_context!())

@@ -1,6 +1,8 @@
 import { Code, Card, CardBody, Button, Progress, Skeleton, Checkbox } from '@nextui-org/react';
 import { checkUpdate, installUpdate } from '@tauri-apps/api/updater';
 import { getVersion } from '@tauri-apps/api/app';
+import { invoke } from '@tauri-apps/api/tauri';
+import { open } from '@tauri-apps/api/shell';
 import React, { useEffect, useState } from 'react';
 import { appWindow, WebviewWindow, getAll } from '@tauri-apps/api/window';
 import { relaunch } from '@tauri-apps/api/process';
@@ -16,6 +18,18 @@ import { osType } from '../../utils/env';
 let unlisten = 0;
 let eventId = 0;
 const UPDATE_WINDOW_LABEL = 'updater';
+const APP_STORE_ID = '6740262076';
+const MAC_APP_STORE_URL = `https://apps.apple.com/app/id${APP_STORE_ID}`;
+
+async function getAppStoreVersion() {
+    const response = await fetch(`https://itunes.apple.com/lookup?id=${APP_STORE_ID}`);
+    const data = await response.json();
+    if (data.results && data.results[0]) {
+        return data.results[0].version;
+    } else {
+        return '';
+    }
+}
 
 export default function Updater() {
     const [transparent] = useConfig('transparent', true);
@@ -26,6 +40,7 @@ export default function Updater() {
     const [shouldUpdate, setShouldUpdate] = useState(false);
     const [ignoreVersion, setIgnoreVersion] = useConfig('ignore_updater_version', '');
     const [updateVersion, setUpdateVersion] = useState('');
+    const [isAppStore, setIsAppStore] = useState(false);
     const { t } = useTranslation();
     const toastStyle = useToastStyle();
 
@@ -34,13 +49,30 @@ export default function Updater() {
             appWindow.show();
         }
 
-        checkUpdate().then(
-            async (update) => {
+        async function checkForUpdate() {
+            try {
+                // 只在 macOS 系统下检查是否是 App Store 版本
+                setIsAppStore(osType === 'Darwin' ? await invoke('is_app_store_version') : false);
+
+                const update = await checkUpdate();
                 if (update.shouldUpdate) {
                     setBody(update.manifest.body);
-                    setShouldUpdate(update.shouldUpdate);
                     setUpdateVersion(update.manifest.version);
-                    
+
+                    // 如果是 App Store 版本，需要检查 App Store 上的版本
+                    if (isAppStore) {
+                        const storeVersion = await getAppStoreVersion();
+                        if (storeVersion === update.manifest.version) {
+                            setShouldUpdate(true);
+                        } else {
+                            // no need to show updater window because not available on App Store
+                            appWindow.close();
+                        }
+
+                    } else {
+                        setShouldUpdate(update.shouldUpdate);
+                    }
+
                     // Extract force update version from changelog
                     const forceUpdateMatch = update.manifest.body.match(/--forceUpdate--(\d+\.\d+\.\d+)/);
                     if (forceUpdateMatch) {
@@ -67,12 +99,14 @@ export default function Updater() {
                 } else {
                     setBody(t('updater.latest'));
                 }
-            },
-            (e) => {
+            } catch (e) {
                 setBody(e.toString());
                 toast.error(e.toString(), { style: toastStyle });
             }
-        );
+        }
+
+        // 执行更新检查
+        checkForUpdate();
 
         if (unlisten === 0) {
             unlisten = listen('tauri://update-download-progress', (e) => {
@@ -88,6 +122,25 @@ export default function Updater() {
             });
         }
     }, []);
+
+    const handleUpdate = async () => {
+        if (isAppStore) {
+            // 打开 App Store 页面
+            await open(MAC_APP_STORE_URL);
+            appWindow.close();
+        } else {
+            // 正常更新流程
+            installUpdate().then(
+                () => {
+                    toast.success(t('updater.installed'), { style: toastStyle, duration: 10000 });
+                    relaunch();
+                },
+                (e) => {
+                    toast.error(e.toString(), { style: toastStyle });
+                }
+            );
+        }
+    };
 
     return (
         <div
@@ -172,7 +225,7 @@ export default function Updater() {
                     )}
                 </CardBody>
             </Card>
-            {downloaded !== 0 && (
+            {downloaded !== 0 && !isAppStore && (
                 <Progress
                     aria-label='Downloading...'
                     label={t('updater.progress')}
@@ -205,26 +258,18 @@ export default function Updater() {
                 {shouldUpdate && (
                     <Button
                         variant='flat'
-                        isLoading={downloaded !== 0}
-                        isDisabled={downloaded !== 0}
+                        isLoading={downloaded !== 0 && !isAppStore}
+                        isDisabled={downloaded !== 0 && !isAppStore}
                         color='primary'
-                        onPress={() => {
-                            installUpdate().then(
-                                () => {
-                                    toast.success(t('updater.installed'), { style: toastStyle, duration: 10000 });
-                                    relaunch();
-                                },
-                                (e) => {
-                                    toast.error(e.toString(), { style: toastStyle });
-                                }
-                            );
-                        }}
+                        onPress={handleUpdate}
                     >
-                        {downloaded !== 0
-                            ? downloaded > total
-                                ? t('updater.installing')
-                                : t('updater.downloading')
-                            : t('updater.update')}
+                        {isAppStore 
+                            ? t('updater.open_app_store')
+                            : downloaded !== 0
+                                ? downloaded > total
+                                    ? t('updater.installing')
+                                    : t('updater.downloading')
+                                : t('updater.update')}
                     </Button>
                 )}
                 {!forceUpdate && (
