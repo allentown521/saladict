@@ -397,11 +397,11 @@ windowrulev2 = move cursor 0 0, class:(pot), title:(Translator|PopClip|Screensho
 
 <div align="center">
 
-# Internationalization([Weblate](https://hosted.weblate.org/engage/pot-app/))
+# Internationalization([Weblate](https://hosted.weblate.org/engage/saladict-app/))
 
-[![](https://hosted.weblate.org/widget/allentown521/saladict/svg-badge.svg)](https://hosted.weblate.org/engage/pot-app/)
+[![](https://hosted.weblate.org/widget/allentown521/saladict/svg-badge.svg)](https://hosted.weblate.org/engage/saladict-app/)
 
-[![](https://hosted.weblate.org/widget/allentown521/saladict/multi-auto.svg)](https://hosted.weblate.org/engage/pot-app/)
+[![](https://hosted.weblate.org/widget/allentown521/saladict/multi-auto.svg)](https://hosted.weblate.org/engage/saladict-app/)
 
 </div>
 
