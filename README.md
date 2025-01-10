@@ -293,7 +293,7 @@ rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s
 
 - 软件是收费的，国内用户可以从 [Mac应用软件分享](https://xclient.info/s/popclip.html) 下载免费版，有能力还是请支持正版。
 
-2. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 下载 沙拉翻译 的 PopClip 扩展 (saladict.popclipextz)
+2. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 下载 沙拉翻译 的 PopClip 扩展 (Saladict.popclipextz)
 3. 双击下载的扩展文件完成安装。
 4. 在 PopClip 的扩展中启用 沙拉翻译 扩展，选中文本即可点击翻译。
 
