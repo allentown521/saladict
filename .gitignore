@@ -27,3 +27,4 @@ build-mac-app-store-pkg.sh
 build-mac-arm-app-store-pkg.sh
 Saladict.provisionprofile
 entitlements.plist
+ocr-entitlements.plist
