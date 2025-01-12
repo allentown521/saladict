@@ -2,7 +2,7 @@ import { fetch, Body } from '@tauri-apps/api/http';
 
 export async function collection(source, target, options = {}) {
     const { config } = options;
-    const name = config['name'] ?? 'pot';
+    const name = config['name'] ?? 'Saladict';
     const token = config['token'] ?? '';
 
     let categoryId = await checkCategory(name, token);
