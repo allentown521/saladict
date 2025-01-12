@@ -28,3 +28,4 @@ build-mac-arm-app-store-pkg.sh
 Saladict.provisionprofile
 entitlements.plist
 ocr-entitlements.plist
+build-mac-arm-sandbox-test.sh
