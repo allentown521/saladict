@@ -15,6 +15,7 @@ pub static PREVIOUS_RELEASE_TIME: Mutex<u128> = Mutex::new(0);
 pub static PREVIOUS_RELEASE_POSITION: Mutex<(i32, i32)> = Mutex::new((0, 0));
 pub static RELEASE_THREAD_ID: Mutex<u32> = Mutex::new(0);
 
+// https://github.com/openai-translator/openai-translator/blob/main/src-tauri/src/windows.rs
 pub fn bind_mouse_hook() {
     if !utils::query_accessibility_permissions() {
         return;
