@@ -5,7 +5,8 @@
                 "title": "翻訳設定",
                 "label": "翻訳",
                 "delete_newline": "改行を削除",
-                "source_language": "ソース言語"
+                "source_language": "ソース言語",
+                "show_icon_when_text_is_selected": "テキストが選択されているときにアイコンを表示"
             },
             "backup": {
                 "title": "バックアップ設定",
@@ -51,6 +52,8 @@
                 "dev_mode": "開発者モード",
                 "app_theme": "テーマ",
                 "auto_start": "自動起動",
+                "show_icon_when_text_is_selected": "テキストが選択されているときにアイコンを表示",
+                "show_icon_when_text_is_selected_tip": "これは実験的な機能です。PopClip、SnipDo などのツールをお勧めします",
                 "proxy_change": "プロキシが変更されました。変更を有効にするためにアプリケーションを再起動してください",
                 "server_port_change": "リスニング・ポートが変更されました。変更を有効にするにはアプリケーションを再起動してください",
                 "app_language": "表示言語",

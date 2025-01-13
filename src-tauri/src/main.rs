@@ -14,6 +14,8 @@ mod system_ocr;
 mod tray;
 mod updater;
 mod window;
+mod utils;
+mod mouse_hook;
 
 use backup::*;
 use clipboard::*;
@@ -69,9 +71,7 @@ fn main() {
             #[cfg(target_os = "macos")]
             {
                 app.set_activation_policy(tauri::ActivationPolicy::Accessory);
-                let trusted =
-                    macos_accessibility_client::accessibility::application_is_trusted_with_prompt();
-                info!("MacOS Accessibility Trusted: {}", trusted);
+                utils::query_accessibility_permissions();
             }
             // Global AppHandle
             APP.get_or_init(|| app.handle());
@@ -84,6 +84,8 @@ fn main() {
                 info!("First Run, opening config window");
                 config_window();
             }
+            // create thumb window
+            let _ = window::get_thumb_window(0, 0);
             app.manage(StringWrapper(Mutex::new("".to_string())));
             // Update Tray Menu
             update_tray(app.app_handle(), "".to_string(), "".to_string());
@@ -155,8 +157,15 @@ fn main() {
         .expect("error while running tauri application")
         // 窗口关闭不退出
         .run(|_app_handle, event| {
-            if let tauri::RunEvent::ExitRequested { api, .. } = event {
-                api.prevent_exit();
+            match event {
+                tauri::RunEvent::ExitRequested { api, .. } => {
+                    api.prevent_exit();
+                }
+                tauri::RunEvent::Ready => {
+                    mouse_hook::bind_mouse_hook();
+                }
+                _ => {}
             }
         });
 }
+

@@ -16,13 +16,14 @@ import { useConfig } from './hooks';
 import { uiLanguage } from './utils/language';
 import './style.css';
 import './i18n';
-
+import { ThumbWindow } from './window/Thumb';
 const windowMap = {
     translate: <Translate />,
     screenshot: <Screenshot />,
     recognize: <Recognize />,
     config: <Config />,
     updater: <Updater />,
+    thumb: <ThumbWindow />,
 };
 
 // 获取系统语言并匹配支持的语言列表

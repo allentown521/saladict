@@ -15,6 +15,7 @@ import { Card } from '@nextui-org/react';
 import { invoke } from '@tauri-apps/api';
 import { useTheme } from 'next-themes';
 import toast, { Toaster } from 'react-hot-toast';
+import { Tooltip } from '@nextui-org/react';
 
 import { useConfig } from '../../../../hooks/useConfig';
 import { uiLanguage, LanguageFlag, uiLanguageData } from '../../../../utils/language';
@@ -31,6 +32,8 @@ export default function General() {
     const [appFontSize, setAppFontSize] = useConfig('app_font_size', 16);
     const [transparent, setTransparent] = useConfig('transparent', true);
     const [trayClickEvent, setTrayClickEvent] = useConfig('tray_click_event', 'config');
+    const [showIconWhenTextIsSelected, setShowIconWhenTextIsSelected] = useConfig('show_icon_when_text_is_selected', false);
+    const toastStyle = useToastStyle();
     const { t, i18n } = useTranslation();
     const { setTheme } = useTheme();
 
@@ -66,6 +69,26 @@ export default function General() {
                             }}
                         />
                     </div>
+                    {osType !== 'Linux' && showIconWhenTextIsSelected !== null && (
+                        <div className='config-item'>
+                            <div className="flex items-center gap-2">
+                                <h3>{t('config.general.show_icon_when_text_is_selected')}</h3>
+                                <Tooltip content={t('config.general.show_icon_when_text_is_selected_tip')}>
+                                    <span className="cursor-help text-default-400 text-sm">?</span>
+                                </Tooltip>
+                            </div>
+                            <Switch
+                                isSelected={showIconWhenTextIsSelected}
+                                onValueChange={(v) => {
+                                    setShowIconWhenTextIsSelected(v);
+                                    toast.success(t('common.need_restart'), {
+                                        duration: 1000,
+                                        style: toastStyle,
+                                    });
+                                }}
+                            />
+                        </div>
+                    )}
                 </CardBody>
             </Card>
             <Card className='mb-[10px]'>

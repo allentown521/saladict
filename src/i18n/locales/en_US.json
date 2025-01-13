@@ -7,7 +7,8 @@
             "write_clipboard": "Write to Clipboard",
             "plugin": "Plugin",
             "coming": "Coming soon…",
-            "clear": "Clear"
+            "clear": "Clear",
+            "need_restart": "Need Restart To Take Effect"
         },
         "languages": {
             "auto": "Auto Detect",
@@ -47,6 +48,8 @@
                 "label": "General",
                 "title": "General Settings",
                 "auto_start": "Auto Startup",
+                "show_icon_when_text_is_selected": "Show icon when text is selected",
+                "show_icon_when_text_is_selected_tip": "This is an experimental feature, more recommended using PopClip, SnipDo",
                 "check_update": "Check Update",
                 "server_port": "Listening Port",
                 "server_port_change": "The listening port has been changed, Please restart the application for the changes to take effect",

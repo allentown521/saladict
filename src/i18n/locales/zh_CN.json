@@ -7,7 +7,8 @@
             "write_clipboard": "写入剪贴板",
             "plugin": "插件",
             "coming": "敬请期待…",
-            "clear": "清空"
+            "clear": "清空",
+            "need_restart": "需要重启生效"
         },
         "languages": {
             "auto": "自动检测",
@@ -47,6 +48,8 @@
                 "label": "常规设置",
                 "title": "常规设置",
                 "auto_start": "开机时启动应用",
+                "show_icon_when_text_is_selected": "当文本被选中时显示翻译图标",
+                "show_icon_when_text_is_selected_tip": "这是一个实验性功能，更推荐使用 PopClip、SnipDo",
                 "check_update": "启动时检查更新",
                 "server_port": "监听端口",
                 "server_port_change": "监听端口已更改，重启应用生效",

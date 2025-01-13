@@ -7,7 +7,8 @@
             "write_clipboard": "寫入剪貼簿",
             "plugin": "外掛程式",
             "coming": "即將推出…",
-            "clear": "清除"
+            "clear": "清除",
+            "need_restart": "需要重新啟動以生效"
         },
         "languages": {
             "auto": "自動偵測",
@@ -47,6 +48,8 @@
                 "label": "一般設定",
                 "title": "一般設定",
                 "auto_start": "開機自動啟動",
+                "show_icon_when_text_is_selected": "當文本被選中時顯示翻譯圖標",
+                "show_icon_when_text_is_selected_tip": "這是一個實驗性功能，更推薦使用 PopClip、SnipDo",
                 "check_update": "啟動時檢查更新",
                 "server_port": "監聽連接埠",
                 "server_port_change": "監聽連接埠已變更，請重新啟動應用程式以使變更生效",

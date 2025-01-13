@@ -9,8 +9,12 @@ use tauri::Window;
 use tauri::WindowBuilder;
 #[cfg(any(target_os = "macos", target_os = "windows"))]
 use window_shadows::set_shadow;
+use tauri::{LogicalPosition, PhysicalPosition};
+#[cfg(target_os = "macos")]
+use cocoa::appkit::NSWindow;
+use mouse_position::mouse_position::Mouse;
 
-// Get daemon window instance
+pub const THUMB_WIN_NAME: &str = "thumb";// Get daemon window instance
 fn get_daemon_window() -> Window {
     let app_handle = APP.get().unwrap();
     match app_handle.get_window("daemon") {
@@ -119,7 +123,7 @@ pub fn config_window() {
     window.center().unwrap();
 }
 
-fn translate_window() -> Window {
+pub fn translate_window() -> Window {
     use mouse_position::mouse_position::{Mouse, Position};
     // Mouse physical position
     let mut mouse_position = match Mouse::get_mouse_position() {
@@ -353,4 +357,154 @@ pub fn updater_window() {
         .unwrap();
     window.set_size(tauri::LogicalSize::new(600, 400)).unwrap();
     window.center().unwrap();
+}
+
+pub fn delete_thumb() {
+    match APP.get() {
+        Some(handle) => match handle.get_window(THUMB_WIN_NAME) {
+            Some(window) => {
+                window.close().unwrap();
+            }
+            None => {}
+        },
+        None => {}
+    }
+}
+
+pub fn close_thumb() {
+    match APP.get() {
+        Some(handle) => match handle.get_window(THUMB_WIN_NAME) {
+            Some(window) => {
+                window
+                    .set_position(LogicalPosition::new(-100.0, -100.0))
+                    .unwrap();
+                window.set_always_on_top(false).unwrap();
+                window.hide().unwrap();
+            }
+            None => {}
+        },
+        None => {}
+    }
+}
+
+pub fn show_thumb(x: i32, y: i32) {
+    let window = get_thumb_window(x, y);
+    window.show().unwrap();
+}
+
+pub fn get_thumb_window(x: i32, y: i32) -> Window {
+    let handle = APP.get().unwrap();
+    let position_offset = 7.0 as f64;
+    let window = match handle.get_window(THUMB_WIN_NAME) {
+        Some(window) => {
+            info!("Thumb window already exists");
+            window.unminimize().unwrap();
+            window.set_always_on_top(true).unwrap();
+            window
+        }
+        None => {
+            info!("Thumb window does not exist");
+            let mut builder = WindowBuilder::new(
+                handle,
+                THUMB_WIN_NAME,
+                tauri::WindowUrl::App("src/tauri/index.html".into()),
+            )
+            .fullscreen(false)
+            .focused(false)
+            .inner_size(20.0, 20.0)
+            .min_inner_size(20.0, 20.0)
+            .max_inner_size(20.0, 20.0)
+            .visible(false)
+            .resizable(false)
+            .skip_taskbar(true)
+            .minimizable(false)
+            .maximizable(false)
+            .closable(false)
+            .decorations(false);
+
+            #[cfg(target_os = "windows")]
+            {
+                builder = builder.shadow(false);
+            }
+
+            let window = builder.build().unwrap();
+            #[cfg(target_os = "windows")]
+            {
+                // use SetWindowLongPtrW in tao page to disable minimize, maximize and close buttons
+                use windows::Win32::UI::WindowsAndMessaging::{
+                    SetWindowLongPtrW, GWL_STYLE, WS_POPUP,
+                };
+                let hwnd: windows::Win32::Foundation::HWND = window.hwnd().unwrap();
+                unsafe {
+                    // let mut style = GetWindowLongPtrW(hwnd, GWL_STYLE);
+                    // style = style & !(0x00020000 | 0x00010000 | 0x00080000); // WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_SYSMENU
+                    let style: u32 = WS_POPUP.0;
+                    SetWindowLongPtrW(hwnd, GWL_STYLE, style as isize);
+                }
+                window
+                    .set_size(tauri::LogicalSize {
+                        width: 20.0,
+                        height: 20.0,
+                    })
+                    .unwrap();
+            }
+            post_process_window(&window);
+
+            window.unminimize().unwrap();
+            window.set_always_on_top(true).unwrap();
+
+            window
+        }
+    };
+
+    if cfg!(target_os = "macos") {
+        window
+            .set_position(LogicalPosition::new(
+                x as f64 + position_offset,
+                y as f64 + position_offset,
+            ))
+            .unwrap();
+    } else {
+        window
+            .set_position(PhysicalPosition::new(
+                x as f64 + position_offset,
+                y as f64 + position_offset,
+            ))
+            .unwrap();
+    }
+
+    window
+}
+
+pub fn post_process_window<R: tauri::Runtime>(window: &tauri::Window<R>) {
+    // window.set_visible_on_all_workspaces(true).unwrap();
+
+    let _ = window.current_monitor();
+
+    #[cfg(target_os = "macos")]
+    {
+        use cocoa::appkit::NSWindowCollectionBehavior;
+        use cocoa::base::id;
+
+        let ns_win = window.ns_window().unwrap() as id;
+
+        unsafe {
+            // Disable the automatic creation of "Show Tab Bar" etc menu items on macOS
+            NSWindow::setAllowsAutomaticWindowTabbing_(ns_win, cocoa::base::NO);
+
+            let mut collection_behavior = ns_win.collectionBehavior();
+            collection_behavior |=
+                NSWindowCollectionBehavior::NSWindowCollectionBehaviorCanJoinAllSpaces;
+
+            ns_win.setCollectionBehavior_(collection_behavior);
+        }
+    }
+}
+
+pub fn get_mouse_location() -> Result<(i32, i32), String> {
+    let position = Mouse::get_mouse_position();
+    match position {
+        Mouse::Position { x, y } => Ok((x, y)),
+        Mouse::Error => Err("Error getting mouse position".to_string()),
+    }
 }
