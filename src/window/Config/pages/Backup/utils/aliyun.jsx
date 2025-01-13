@@ -96,7 +96,8 @@ export async function qrcode() {
     const res = await fetch('https://openapi.alipan.com/oauth/authorize/qrcode', {
         method: 'POST',
         body: Body.json({
-            client_id: 'bf56dd2dc03a4d3489e3dda05dd6d466',
+            client_id: import.meta.env.VITE_ALIYUN_PAN_APP_ID || '',
+            client_secret: import.meta.env.VITE_ALIYUN_PAN_APP_SECRET || '',
             scopes: ['user:base', 'file:all:read', 'file:all:write'],
         }),
     });
@@ -161,7 +162,7 @@ export async function userInfo(token) {
 }
 
 export async function accessToken(code) {
-    const res = await fetch('https://pot-app.com/api/ali_access_token', {
+    const res = await fetch('https://saladict.aichatone.com/api/aliyuncloud/auth', {
         method: 'POST',
         body: Body.json({
             code,
@@ -218,7 +219,7 @@ async function createDir(token, drive_id) {
         body: Body.json({
             drive_id,
             parent_file_id: 'root',
-            name: 'pot-app',
+            name: 'saladict-app',
             type: 'folder',
             check_name_mode: 'refuse',
         }),
@@ -282,7 +283,7 @@ async function getFileByPath(token, drive_id, name) {
         },
         body: Body.json({
             drive_id,
-            file_path: `/pot-app/${name}`,
+            file_path: `/saladict-app/${name}`,
         }),
     });
     if (res.ok) {

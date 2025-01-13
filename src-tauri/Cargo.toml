@@ -2,7 +2,7 @@
 name = "saladict"
 version = "0.0.0"
 description = "Saladict App"
-authors = ["pot-app"]
+authors = ["saladict-app"]
 license = "GPL-3.0-only"
 repository = "https://github.com/allentown521/saladict"
 edition = "2021"
