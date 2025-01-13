@@ -6,13 +6,22 @@ import { BsTencentQq } from 'react-icons/bs';
 import { BsTelegram } from 'react-icons/bs';
 import { BsGithub } from 'react-icons/bs';
 import { invoke } from '@tauri-apps/api';
-import React from 'react';
+import React, { use } from 'react';
 import { useConfig } from '../../../../hooks/useConfig';
 import { appVersion, appName } from '../../../../utils/env';
+import { useState, useEffect } from 'react';
 
 export default function About() {
     const { t } = useTranslation();
     const [devMode, setDevMode] = useConfig('dev_mode', false);
+    const [isAppStore, setIsAppStore] = useState(false);
+    useEffect(() => {
+        const fetchIsAppStore = async () => {
+            const isAppStore = await invoke('is_app_store_version');
+            setIsAppStore(isAppStore);
+        };
+        fetchIsAppStore();
+    }, []);
 
     return (
         <div className='h-full w-full py-[80px] px-[100px]'>
@@ -121,7 +130,7 @@ export default function About() {
             </div>
             <div className='content-center px-[40px]'>
                 <div className='flex justify-center'>
-                    <Button
+                    {!isAppStore && <Button
                         variant='light'
                         className='my-[5px]'
                         size='sm'
@@ -130,7 +139,7 @@ export default function About() {
                         }}
                     >
                         {t('config.about.check_update')}
-                    </Button>
+                    </Button>}
                     {devMode && <Button
                         variant='light'
                         className='my-[5px]'

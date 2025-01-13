@@ -219,14 +219,21 @@ pub fn font_list() -> Result<Vec<String>, Error> {
 
 #[tauri::command]
 pub fn open_devtools(window: tauri::Window) {
-    if !window.is_devtools_open() {
-        window.open_devtools();
-    } else {
-        window.close_devtools();
+    #[cfg(not(feature = "app-store"))]
+    {
+        if !window.is_devtools_open() {
+            window.open_devtools();
+        } else {
+            window.close_devtools();
+        }
     }
 }
 
 #[tauri::command]
 pub fn is_app_store_version() -> bool {
-    std::env::var("APP_STORE_VERSION").unwrap_or_default() == "true"
+    #[cfg(feature = "app-store")]
+    return true;
+    
+    #[cfg(not(feature = "app-store"))]
+    return false;
 }

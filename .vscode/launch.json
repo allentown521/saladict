@@ -18,6 +18,15 @@
                 "args": ["build", "--release", "--manifest-path=./src-tauri/Cargo.toml"]
             },
             "preLaunchTask": "ui:build"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Tauri App Store Development Debug",
+            "cargo": {
+                "args": ["build", "--manifest-path=./src-tauri/Cargo.toml", "--no-default-features", "--features", "app-store"]
+            },
+            "preLaunchTask": "ui:dev"
         }
     ]
 }
