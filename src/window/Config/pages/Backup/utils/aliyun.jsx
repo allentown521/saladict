@@ -96,8 +96,7 @@ export async function qrcode() {
     const res = await fetch('https://openapi.alipan.com/oauth/authorize/qrcode', {
         method: 'POST',
         body: Body.json({
-            client_id: import.meta.env.VITE_ALIYUN_PAN_APP_ID || '',
-            client_secret: import.meta.env.VITE_ALIYUN_PAN_APP_SECRET || '',
+            client_id: '1f62e3cbb706451982689b1e99aebf47',
             scopes: ['user:base', 'file:all:read', 'file:all:write'],
         }),
     });
