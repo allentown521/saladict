@@ -51,7 +51,6 @@ export default function Updater() {
 
         async function checkForUpdate() {
             try {
-                // 只在 macOS 系统下检查是否是 App Store 版本
                 setIsAppStore(await invoke('is_app_store_version'));
 
                 const update = await checkUpdate();

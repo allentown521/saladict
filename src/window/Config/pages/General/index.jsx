@@ -24,6 +24,7 @@ import { osType } from '../../../../utils/env';
 
 export default function General() {
     const [autoStart, setAutoStart] = useState(false);
+    const [isAppStore, setIsAppStore] = useState(false);
     const [fontList, setFontList] = useState(null);
     const [appLanguage, setAppLanguage] = useConfig('app_language', 'en');
     const [appTheme, setAppTheme] = useConfig('app_theme', 'system');
@@ -43,6 +44,9 @@ export default function General() {
         });
         invoke('font_list').then((v) => {
             setFontList(v);
+        });
+        invoke('is_app_store_version').then((v) => {
+            setIsAppStore(v);
         });
     }, []);
 
@@ -69,7 +73,7 @@ export default function General() {
                             }}
                         />
                     </div>
-                    {osType !== 'Linux' && showIconWhenTextIsSelected !== null && (
+                    {osType !== 'Linux' && showIconWhenTextIsSelected !== null && !isAppStore && (
                         <div className='config-item'>
                             <div className="flex items-center gap-2">
                                 <h3>{t('config.general.show_icon_when_text_is_selected')}</h3>

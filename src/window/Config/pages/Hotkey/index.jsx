@@ -11,7 +11,7 @@ import { useConfig } from '../../../../hooks/useConfig';
 import { useToastStyle } from '../../../../hooks';
 import { osType } from '../../../../utils/env';
 import { invoke } from '@tauri-apps/api';
-
+import { useState, useEffect } from 'react';
 const keyMap = {
     Backquote: '`',
     Backslash: '\\',
@@ -51,9 +51,15 @@ export default function Hotkey() {
     const [ocrRecognize, setOcrRecognize] = useConfig('hotkey_ocr_recognize', '');
     const [ocrTranslate, setOcrTranslate] = useConfig('hotkey_ocr_translate', '');
     const [variableFormat, setVariableFormat] = useConfig('hotkey_variable_format', 'Shift+Alt+U');
-
+    const [isAppStore, setIsAppStore] = useState(false);
     const { t } = useTranslation();
     const toastStyle = useToastStyle();
+
+    useEffect(() => {
+        invoke('is_app_store_version').then((v) => {
+            setIsAppStore(v);
+        });
+    }, []);
 
     function keyDown(e, setKey) {
         e.preventDefault();
@@ -118,10 +124,11 @@ export default function Hotkey() {
         <Card>
             <Toaster />
             <CardBody>
-                <div className='config-item'>
-                    <h3 className='my-auto'>{t('config.hotkey.selection_translate')}</h3>
-                    {selectionTranslate !== null && (
-                        <Input
+                {!isAppStore && (
+                    <div className='config-item'>
+                        <h3 className='my-auto'>{t('config.hotkey.selection_translate')}</h3>
+                        {selectionTranslate !== null && (
+                            <Input
                             type='hotkey'
                             variant='bordered'
                             value={selectionTranslate}
@@ -149,6 +156,7 @@ export default function Hotkey() {
                         />
                     )}
                 </div>
+                )}
                 <div className='config-item'>
                     <h3 className='my-auto'>{t('config.hotkey.input_translate')}</h3>
                     {inputTranslate !== null && (
