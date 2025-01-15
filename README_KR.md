@@ -1,6 +1,6 @@
 <img width="200px" src="public/icon.svg" align="left"/>
 
-# Pot (간편 번역기)
+# Saladict (간편 번역기)
 
 > A cross-platform translator application ([Telegram Group](https://t.me/pot_app))
 
@@ -230,18 +230,7 @@ brew upgrade --cask pot
 
 ### 문제해결
 
--   "pot" 을 열 수 없는 경우는 개발자 인증이 되지 않아서 입니다.
-
-    취소 버튼을 누르고 설정 메뉴로 들어갑니다 -> 개인정보 및 보안 메뉴에서 설정을 합니다.
-    열기 버튼을 클릭한 다음 팝업 창에서 열기 버튼을 클릭합니다. 그 이후에는 포트를 열 때 더 이상 팝업 경고가 표시되지 않습니다.
-
-    개인정보 및 보안에서 위의 옵션을 찾을 수 없거나 Apple Silicon 컴퓨터에서 파일 손상과 같은 오류 메시지가 표시되는 경우. Terminal.app을 열고 다음 명령을 입력한 다음(중간에 비밀번호를 입력해야 할 수도 있음), pot을 다시 시작합니다:
-
-    ```bash
-    sudo xattr -d com.apple.quarantine /Applications/Saladict.app
-    ```
-
--   열 때마다 권한 프롬프트가 나타나거나 바로 가기 번역을 수행할 수 없는 경우 설정 -> 개인정보 및 보안 -> 지원 기능으로 이동하여 Pot을 제거한 다음 Pot을 다시 추가하세요..
+-   열 때마다 권한 프롬프트가 나타나거나 바로 가기 번역을 수행할 수 없는 경우 설정 -> 개인정보 및 보안 -> 지원 기능으로 이동하여 Saladict 을 제거한 다음 Pot을 다시 추가하세요..
 
 ## Linux
 
@@ -251,36 +240,6 @@ brew upgrade --cask pot
 
 참고 : 두 가지 버전이 제공됩니다. `glibc2.28`기반의 `universal`과 `openssl-1.1` 버전입니다. 프로그램이 당신의 컴퓨터에서 정상적으로 실행되지 않는다면 dependency와 관련된 문제일 경우가 많습니다. `universal`버전을 사용하면 이전 버전의 dependency를 사용하여 실행하면 대부분 실행이 가능합니다.
 
-### Arch/Manjaro
-
-> [!WARNING]  
-> In newer version of [Webkit2Gtk](https://archlinux.org/packages/extra/x86_64/webkit2gtk) (2.42.0), Because Nvidia Proprietary drives are not fully implemented DMABUF, it will cause failure to start and crash.<br>
-> Please downgrade or add the `WEBKIT_DISABLE_DMABUF_RENDERER=1` environment variable to `/etc/environment` (or other places where environment variables are set) to turn off the use of DMABUF.
-
-1. View on [AUR](https://aur.archlinux.org/packages?O=0&K=pot-translation)
-
-Use aur helper：
-
-```bash
-yay -S pot-translation # or pot-translation-bin or pot-translation-git
-# or
-paru -S pot-translation # or pot-translation-bin or pot-translation-git
-```
-
-2. If you are using `archlinuxcn`, you can install directly using pacman:
-
-```bash
-sudo pacman -S pot-translation
-```
-
-### Flatpak
-
-> [!WARNING]
-> 시스템 트레이 아이콘이 Flatpak을 통해 설치하면 표시되지 않습니다.
-
-<a href='https://flathub.org/apps/com.pot_app.pot'>
-    <img width='240' alt='Download on Flathub' src='https://flathub.org/api/badge?locale=en'/>
-</a>
 
 <div align="center">
 
@@ -288,7 +247,7 @@ sudo pacman -S pot-translation
 
 </div>
 
-Pot은 완벽한 HTTP 인터페이스를 제공합니다. 이를 통해 다른 프로그램과 연동해서 사용이 가능합니다. 타 프로그램은 HTTP requests를 `127.0.0.1:port` 주소로 보내어 활용할 수 있습니다. 기본 포트는 `60606`입니다. 이는 사용자 설정에서 변경이 가능합니다.
+Saladict 은 완벽한 HTTP 인터페이스를 제공합니다. 이를 통해 다른 프로그램과 연동해서 사용이 가능합니다. 타 프로그램은 HTTP requests를 `127.0.0.1:port` 주소로 보내어 활용할 수 있습니다. 기본 포트는 `60606`입니다. 이는 사용자 설정에서 변경이 가능합니다.
 
 ## API 상세:
 

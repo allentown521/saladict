@@ -1,6 +1,6 @@
 <img width="200px" src="public/icon.svg" align="left"/>
 
-# Pot (A cute translator)
+# Saladict (A cute translator)
 
 > A cross-platform translator application ([Telegram Group](https://t.me/pot_app))
 
@@ -230,16 +230,6 @@ brew upgrade --cask pot
 
 ### Troubleshooting
 
--   "pot" can’t be opened because the developer cannot be verified.
-
-    Click the Cancel button, then go to the Settings -> Privacy and Security page, click the Still Open button, and then click the Open button in the pop-up window. After that, there will be no more pop-up warnings when opening pot.
-
-    If you cannot find the above options in Privacy & Security, or get error prompts such as broken files with Apple Silicon machines. Open Terminal.app and enter the following command (you may need to enter a password halfway through), then restart pot:
-
-    ```bash
-    sudo xattr -d com.apple.quarantine /Applications/Saladict.app
-    ```
-
 -   If you encounter a permission prompt every time you open it, or if you cannot perform a shortcut translation, please go to Settings -> Privacy & Security -> Supporting Features to remove pot, and then re-add pot.
 
 ## Linux
@@ -250,36 +240,6 @@ We provide `deb` packages for Linux.
 
 Please note that: There are two deb package, `universal` is based on `glibc2.28` and `openssl-1.1`, If the regular deb package can't run on your machine due to dependency problems, please download the `universal` package, Due to its low version dependency, it can run on most systems.
 
-### Arch/Manjaro
-
-> [!WARNING]  
-> In newer version of [Webkit2Gtk](https://archlinux.org/packages/extra/x86_64/webkit2gtk) (2.42.0), Because Nvidia Proprietary drives are not fully implemented DMABUF, it will cause failure to start and crash.<br>
-> Please downgrade or add the `WEBKIT_DISABLE_DMABUF_RENDERER=1` environment variable to `/etc/environment` (or other places where environment variables are set) to turn off the use of DMABUF.
-
-1. View on [AUR](https://aur.archlinux.org/packages?O=0&K=pot-translation)
-
-Use aur helper：
-
-```bash
-yay -S pot-translation # or pot-translation-bin or pot-translation-git
-# or
-paru -S pot-translation # or pot-translation-bin or pot-translation-git
-```
-
-2. If you are using `archlinuxcn`, you can install directly using pacman:
-
-```bash
-sudo pacman -S pot-translation
-```
-
-### Flatpak
-
-> [!WARNING]
-> The tray icon is missing in Flatpak version.
-
-<a href='https://flathub.org/apps/com.pot_app.pot'>
-    <img width='240' alt='Download on Flathub' src='https://flathub.org/api/badge?locale=en'/>
-</a>
 
 <div align="center">
 
@@ -287,7 +247,7 @@ sudo pacman -S pot-translation
 
 </div>
 
-Pot provides a complete HTTP interface for integration with other software. You can call pot by sending HTTP requests to `127.0.0.1:port`, where `port` is the listening port of pot, default to `60606`, and can be changed in the app settings.
+Saladict provides a complete HTTP interface for integration with other software. You can call pot by sending HTTP requests to `127.0.0.1:port`, where `port` is the listening port of pot, default to `60606`, and can be changed in the app settings.
 
 ## API Docs:
 
