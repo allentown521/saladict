@@ -201,7 +201,7 @@ export function Config(props) {
                 </div>
                 <Card
                     isBlurred
-                    className='border-none bg-success/20 dark:bg-success/10'
+                    className='border-none bg-success/20 dark:bg-success/10 hidden'
                     shadow='sm'
                 >
                     <CardBody>
