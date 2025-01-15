@@ -53,7 +53,7 @@
 
 | Clipboard Listening                                                                                                          | Screenshot OCR                     | Screenshot Translation                   |
 | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ---------------------------------------- |
-| Click the top left icon on any translation panel to start clipboard listening. Copied text will be translated automatically. | Press shortcut, select area to OCR | Press shortcut, select area to translate |
+| Right click the menu bar icon to select `Clipboard Listening` to start clipboard listening. Copied text will be translated automatically. | Press shortcut, select area to OCR | Press shortcut, select area to translate |
 | <img src="asset/eg4.gif"/>                                                                                                   | <img src="asset/eg5.gif"/>         | <img src="asset/eg6.gif"/>               |
 
 <div align="center">
