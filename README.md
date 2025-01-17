@@ -174,6 +174,12 @@
 
 ## Windows
 
+### 通过 Winget 安装
+
+```powershell
+winget install Saladict.app
+```
+
 ### 手动安装
 
 1. 在 [Release](https://github.com/allentown521/saladict/releases/latest) 页面下载最新 `exe` 安装包。
