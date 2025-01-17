@@ -2,7 +2,7 @@
 
 # Saladict (간편 번역기)
 
-> A cross-platform translator application ([Telegram Group](https://t.me/pot_app))
+> A cross-platform translator application
 
 ![License](https://img.shields.io/github/license/allentown521/saladict.svg)
 ![Tauri](https://img.shields.io/badge/Tauri-1.6.8-blue?logo=tauri)
@@ -185,9 +185,9 @@ winget install Saladict.app
 
 1. 최신버전 다운로드 페이지 [Release](https://github.com/allentown521/saladict/releases/latest)에서 `.exe` 파일을 다운받습니다.
 
-    - 64-bit 버전 사용시, `pot_{version}_x64-setup.exe`
-    - 32-bit 버전 사용시, `pot_{version}_x86-setup.exe`
-    - arm64 버전 사용시, `pot_{version}_arm64-setup.exe`
+    - 64-bit 버전 사용시, `Saladict_{version}_x64-setup.exe`
+    - 32-bit 버전 사용시, `Saladict_{version}_x86-setup.exe`
+    - arm64 버전 사용시, `Saladict_{version}_arm64-setup.exe`
 
 2. 더블클릭하여 설치를 합니다.
 
@@ -197,35 +197,45 @@ winget install Saladict.app
 
     윈도우-브라우저에서 사용하는 WebView2 기능이 설치되지 않았거나 비활성화 된 경우 입니다. 이 때는 WebView2 를 설치하거나 기능을 재설정 하십시오.
 
-    회사/기업 사용자의 경우 WebView2 기능이 설치되지 않았거나 비활성화된 경우가 있습니다. 이 경우 다음을 설치하십시오. WebView2 version `pot_{version} at [Release](https://github.com/allentown521/saladict/releases/latest) _{arch}_fix_webview2_runtime-setup.exe`
+    회사/기업 사용자의 경우 WebView2 기능이 설치되지 않았거나 비활성화된 경우가 있습니다. 이 경우 다음을 설치하십시오. WebView2 version `Saladict_{version} at [Release](https://github.com/allentown521/saladict/releases/latest) _{arch}_fix_webview2_runtime-setup.exe`
 
     문제가 해결되지 않는 경우, Windows 7 compatibility mode에서 시도해 보십시오.
 
 ## MacOS 맥OS
+
+### Mac App Store 설치
+
+M-series Macs 사용자는 Mac App Store에서 설치할 수 있습니다.
+
+ <a href="https://apps.apple.com/app/6740262076" target="_blank">
+  <img src="asset/download_on_mac_app_store.svg" alt="Download on the Mac App Store" style="width: 156px;" />
+ </a> 
+
+> 기술적 제한으로, Mac App Store 버전은 `Selection Translation` 및 `Translation Using Shortcuts After Selection`을 지원하지 않습니다.
 
 ### Brew를 통한 설치
 
 1. 탭에 추가:
 
 ```bash
-brew tap pot-app/homebrew-tap
+brew tap allentown521/homebrew-saladict
 ```
 
 2. 설치:
 
 ```bash
-brew install --cask pot
+brew install --cask saladict
 ```
 
 3. 업데이트:
 
 ```bash
-brew upgrade --cask pot
+brew upgrade --cask saladict
 ```
 
 ### 수동설치
 
-1. 최신버전 다운로드 페이지 [Release](https://github.com/allentown521/saladict/releases/latest)에서 `.dmg` 파일을 다운받습니다. (M1 사용자이면, 다음 파일명을 다운로드 합니다 `pot_{version}_aarch64.dmg`, 기타 사용자는 다음 파일을 다운로드 합니다. `pot_{version}_x64.dmg`)
+1. 최신버전 다운로드 페이지 [Release](https://github.com/allentown521/saladict/releases/latest)에서 `.dmg` 파일을 다운받습니다. (M1 사용자이면, 다음 파일명을 다운로드 합니다 `Saladict{version}_aarch64.dmg`, 기타 사용자는 다음 파일을 다운로드 합니다. `Saladict_{version}_x64.dmg`)
 2. 더블클릭하여 설치를 합니다.
 
 ### 문제해결

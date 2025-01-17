@@ -2,7 +2,7 @@
 
 # Saladict (A cute translator)
 
-> A cross-platform translator application ([Telegram Group](https://t.me/pot_app))
+> A cross-platform translator application
 
 ![License](https://img.shields.io/github/license/allentown521/saladict.svg)
 ![Tauri](https://img.shields.io/badge/Tauri-1.6.8-blue?logo=tauri)
@@ -185,47 +185,56 @@ winget install Saladict.app
 
 1. Download the installation package ending in `.exe` from the Latest [Release](https://github.com/allentown521/saladict/releases/latest) page.
 
-    - 64-bit machine download `pot_{version}_x64-setup.exe`
-    - 32-bit machine download `pot_{version}_x86-setup.exe`
-    - arm64 machine download `pot_{version}_arm64-setup.exe`
+    - 64-bit machine download `Saladict_{version}_x64-setup.exe`
+    - 32-bit machine download `Saladict_{version}_x86-setup.exe`
+    - arm64 machine download `Saladict_{version}_arm64-setup.exe`
 
 2. Double click the downloaded file to install it.
 
-### 故障排除
+### Troubleshooting
 
 -   There is no interface after startup, and there is no response when clicking the tray icon.
 
     Check if WebView2 is uninstalled/disabled, if so, install WebView2 manually or restore it.
 
-    If the enterprise edition system is inconvenient to install or cannot install WebView2, please try to download the fix WebView2 version `pot_{version} at [Release](https://github.com/allentown521/saladict/releases/latest) _{arch}_fix_webview2_runtime-setup.exe`
+    If the enterprise edition system is inconvenient to install or cannot install WebView2, please try to download the fix WebView2 version `Saladict_{version} at [Release](https://github.com/allentown521/saladict/releases/latest) _{arch}_fix_webview2_runtime-setup.exe`
 
     If the issue persists, please try starting in Windows 7 compatibility mode.
 
 ## MacOS
+### Mac App Store Installation
+
+For M-series Macs, you can install it from Mac App Store
+
+ <a href="https://apps.apple.com/app/6740262076" target="_blank">
+  <img src="asset/download_on_mac_app_store.svg" alt="Download on the Mac App Store" style="width: 156px;" />
+ </a> 
+
+> Due to technical limitations, the Mac App Store version does not support `Selection Translation` and `Translation Using Shortcuts After Selection`.
 
 ### Install via Brew
 
 1. Add our tap:
 
 ```bash
-brew tap pot-app/homebrew-tap
+brew tap allentown521/homebrew-saladict
 ```
 
 2. Install pot:
 
 ```bash
-brew install --cask pot
+brew install --cask saladict
 ```
 
 3. Upgrade pot
 
 ```bash
-brew upgrade --cask pot
+brew upgrade --cask saladict
 ```
 
 ### Install Manually
 
-1. Download the installation package ending in `.dmg` from the Latest [Release](https://github.com/allentown521/saladict/releases/latest) page. (If you are using M1, please download the installation package named `pot_{version}_aarch64.dmg`, otherwise download the installation package named `pot_{version}_x64.dmg`)
+1. Download the installation package ending in `.dmg` from the Latest [Release](https://github.com/allentown521/saladict/releases/latest) page. (If you are using M1, please download the installation package named `Saladict_{version}_aarch64.dmg`, otherwise download the installation package named `Saladict_{version}_x64.dmg`)
 2. Double click the downloaded file to install it.
 
 ### Troubleshooting

@@ -178,9 +178,9 @@
 
 1. 在 [Release](https://github.com/allentown521/saladict/releases/latest) 页面下载最新 `exe` 安装包。
 
-    - 64 位机器下载 `saladict_{version}_x64-setup.exe`
-    - 32 位机器下载 `saladict_{version}_x86-setup.exe`
-    - arm64 机器下载 `saladict_{version}_arm64-setup.exe`
+    - 64 位机器下载 `Saladict_{version}_x64-setup.exe`
+    - 32 位机器下载 `Saladict_{version}_x86-setup.exe`
+    - arm64 机器下载 `Saladict_{version}_arm64-setup.exe`
 
 2. 双击安装包进行安装。
 
@@ -190,19 +190,47 @@
 
     检查是否卸载/禁用了 WebView2，如果卸载/禁用了 WebView2，请手动安装 WebView2 或将其恢复。
 
-    如果是企业版系统不方便安装或无法安装 WebView2，请尝试在 [Release](https://github.com/allentown521/saladict/releases/latest) 下载内置 WebView2 的版本 `saladict_{version}_{arch}_fix_webview2_runtime-setup.exe`
+    如果是企业版系统不方便安装或无法安装 WebView2，请尝试在 [Release](https://github.com/allentown521/saladict/releases/latest) 下载内置 WebView2 的版本 `Saladict_{version}_{arch}_fix_webview2_runtime-setup.exe`
 
     若问题仍然存在请尝试使用 Windows7 兼容模式启动。
 
 ## MacOS
 
-### 通过 Mac App Store 安装
+### Mac App Store 安装
+
+M-series Macs 用户可以从 Mac App Store 安装。
+
+ <a href="https://apps.apple.com/app/6740262076" target="_blank">
+  <img src="asset/download_on_mac_app_store.svg" alt="Download on the Mac App Store" style="width: 156px;" />
+ </a> 
+
+> 由于技术限制，Mac App Store 版本不支持 `划词翻译` 和 `快捷键划词翻译`。
 
 
 ### 手动安装
 
-1. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 页面下载最新的 `dmg` 安装包。（如果您使用的是 M1 芯片，请下载名为`saladict_{version}_aarch64.dmg`的安装包，否则请下载名为`saladict_{version}_x64.dmg`的安装包）
+1. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 页面下载最新的 `dmg` 安装包。（如果您使用的是 M1 芯片，请下载名为`Saladict_{version}_aarch64.dmg`的安装包，否则请下载名为`Saladict_{version}_x64.dmg`的安装包）
 2. 双击下载的文件后将 沙拉翻译 拖入 Applications 文件夹即可完成安装。
+
+### 通过 Brew 安装
+
+1. 添加我们的 tap:
+
+```bash
+brew tap allentown521/homebrew-saladict
+```
+
+2. 安装 沙拉翻译:
+
+```bash
+brew install --cask saladict
+```
+
+3. 升级 沙拉翻译
+
+```bash
+brew upgrade --cask saladict
+```
 
 ### 故障排除
 
