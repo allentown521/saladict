@@ -178,7 +178,7 @@
 ### Winget 을 이용한 설치
 
 ```powershell
-winget install Saladict.app
+winget install allentown521.Saladict
 ```
 
 ### 수동 설치

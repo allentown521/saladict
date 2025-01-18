@@ -177,7 +177,7 @@
 ### 通过 Winget 安装
 
 ```powershell
-winget install Saladict.app
+winget install allentown521.Saladict
 ```
 
 ### 手动安装
