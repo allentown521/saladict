@@ -404,55 +404,46 @@ pub fn get_thumb_window(x: i32, y: i32) -> Window {
         }
         None => {
             info!("Thumb window does not exist");
-            let mut builder = WindowBuilder::new(
-                handle,
-                THUMB_WIN_NAME,
-                tauri::WindowUrl::App("src/tauri/index.html".into()),
-            )
-            .fullscreen(false)
-            .focused(false)
-            .inner_size(20.0, 20.0)
-            .min_inner_size(20.0, 20.0)
-            .max_inner_size(20.0, 20.0)
-            .visible(false)
-            .resizable(false)
-            .skip_taskbar(true)
-            .minimizable(false)
-            .maximizable(false)
-            .closable(false)
-            .decorations(false);
+            
+            #[cfg(target_os = "macos")]
+            let window = {
+                let mut builder = WindowBuilder::new(
+                    handle,
+                    THUMB_WIN_NAME,
+                    tauri::WindowUrl::App("src/tauri/index.html".into()),
+                )
+                .fullscreen(false)
+                .focused(false)
+                .inner_size(20.0, 20.0)
+                .min_inner_size(20.0, 20.0)
+                .max_inner_size(20.0, 20.0)
+                .visible(false)
+                .resizable(false)
+                .skip_taskbar(true)
+                .minimizable(false)
+                .maximizable(false)
+                .closable(false)
+                .decorations(false);
+                builder.build().unwrap()
+            };
 
             #[cfg(target_os = "windows")]
-            {
-                builder = builder.shadow(false);
-            }
-
-            let window = builder.build().unwrap();
-            #[cfg(target_os = "windows")]
-            {
-                // use SetWindowLongPtrW in tao page to disable minimize, maximize and close buttons
-                use windows::Win32::UI::WindowsAndMessaging::{
-                    SetWindowLongPtrW, GWL_STYLE, WS_POPUP,
-                };
-                let hwnd: windows::Win32::Foundation::HWND = window.hwnd().unwrap();
-                unsafe {
-                    // let mut style = GetWindowLongPtrW(hwnd, GWL_STYLE);
-                    // style = style & !(0x00020000 | 0x00010000 | 0x00080000); // WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_SYSMENU
-                    let style: u32 = WS_POPUP.0;
-                    SetWindowLongPtrW(hwnd, GWL_STYLE, style as isize);
-                }
+            let window = {
+                let mut window = build_window(THUMB_WIN_NAME, THUMB_WIN_NAME).0;
+                set_shadow(&window, false).unwrap_or_default();
+                window.set_skip_taskbar(true).unwrap();
                 window
                     .set_size(tauri::LogicalSize {
                         width: 20.0,
                         height: 20.0,
                     })
                     .unwrap();
-            }
-            post_process_window(&window);
+                window
+            };
 
+            post_process_window(&window);
             window.unminimize().unwrap();
             window.set_always_on_top(true).unwrap();
-
             window
         }
     };
