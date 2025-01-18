@@ -436,6 +436,7 @@ pub fn get_thumb_window(x: i32, y: i32) -> Window {
             let window = {
                 let mut window = build_window(THUMB_WIN_NAME, THUMB_WIN_NAME).0;
                 set_shadow(&window, false).unwrap_or_default();
+                window.set_resizable(false);
                 window.set_skip_taskbar(true).unwrap();
                 window
                     .set_size(tauri::LogicalSize {
