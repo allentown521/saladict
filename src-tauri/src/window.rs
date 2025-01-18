@@ -424,6 +424,11 @@ pub fn get_thumb_window(x: i32, y: i32) -> Window {
                 .maximizable(false)
                 .closable(false)
                 .decorations(false);
+
+                #[cfg(not(feature = "app-store"))]
+                {
+                    builder = builder.transparent(true);
+                }
                 builder.build().unwrap()
             };
 
