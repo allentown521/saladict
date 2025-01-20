@@ -34,6 +34,7 @@ export default function General() {
     const [transparent, setTransparent] = useConfig('transparent', true);
     const [trayClickEvent, setTrayClickEvent] = useConfig('tray_click_event', 'config');
     const [showIconWhenTextIsSelected, setShowIconWhenTextIsSelected] = useConfig('show_icon_when_text_is_selected', false);
+    const [hideDockIcon, setHideDockIcon] = useConfig('hide_dock_icon', false);
     const toastStyle = useToastStyle();
     const { t, i18n } = useTranslation();
     const { setTheme } = useTheme();
@@ -72,6 +73,21 @@ export default function General() {
                                 }
                             }}
                         />
+                    </div>
+                    <div className='config-item'>
+                        <h3>{t('config.general.hide_dock_icon')}</h3>
+                        {hideDockIcon !== null && (
+                            <Switch
+                                isSelected={hideDockIcon}
+                                onValueChange={(v) => {
+                                    setHideDockIcon(v);
+                                    toast.success(t('common.need_restart'), {
+                                        duration: 1000,
+                                        style: toastStyle,
+                                    });
+                                }}
+                            />
+                        )}
                     </div>
                     {osType !== 'Linux' && showIconWhenTextIsSelected !== null && !isAppStore && (
                         <div className='config-item'>

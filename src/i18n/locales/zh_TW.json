@@ -48,6 +48,7 @@
                 "label": "一般設定",
                 "title": "一般設定",
                 "auto_start": "開機自動啟動",
+                "hide_dock_icon": "隱藏 Dock 欄中的圖示",
                 "show_icon_when_text_is_selected": "當文本被選中時顯示翻譯圖標",
                 "show_icon_when_text_is_selected_tip": "這是一個實驗性功能，更推薦使用 PopClip、SnipDo",
                 "check_update": "啟動時檢查更新",

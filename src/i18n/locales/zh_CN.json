@@ -48,6 +48,7 @@
                 "label": "常规设置",
                 "title": "常规设置",
                 "auto_start": "开机时启动应用",
+                "hide_dock_icon": "隐藏 Dock 栏中的图标",
                 "show_icon_when_text_is_selected": "当文本被选中时显示翻译图标",
                 "show_icon_when_text_is_selected_tip": "这是一个实验性功能，更推荐使用 PopClip、SnipDo",
                 "check_update": "启动时检查更新",

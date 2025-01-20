@@ -70,7 +70,6 @@ fn main() {
             info!("============== Start App ==============");
             #[cfg(target_os = "macos")]
             {
-                app.set_activation_policy(tauri::ActivationPolicy::Accessory);
                 utils::query_accessibility_permissions();
             }
             // Global AppHandle
@@ -86,6 +85,18 @@ fn main() {
             }
             // create thumb window
             let _ = window::get_thumb_window(0, 0);
+            #[cfg(target_os = "macos")]
+            {
+                // hide macos dock icon if set
+                let hide_dock_icon = get("hide_dock_icon")
+                .and_then(|v| v.as_bool())
+                .unwrap_or(true);
+                if hide_dock_icon {
+                    app.set_activation_policy(tauri::ActivationPolicy::Accessory);
+                } else {
+                    app.set_activation_policy(tauri::ActivationPolicy::Regular);
+                }
+            }
             app.manage(StringWrapper(Mutex::new("".to_string())));
             // Update Tray Menu
             update_tray(app.app_handle(), "".to_string(), "".to_string());
@@ -155,7 +166,7 @@ fn main() {
         .on_system_tray_event(tray_event_handler)
         .build(tauri::generate_context!())
         .expect("error while running tauri application")
-        // 窗口关闭不退出
+        // not exit when window close
         .run(|_app_handle, event| {
             match event {
                 tauri::RunEvent::ExitRequested { api, .. } => {

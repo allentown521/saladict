@@ -48,6 +48,7 @@
                 "label": "General",
                 "title": "General Settings",
                 "auto_start": "Auto Startup",
+                "hide_dock_icon": "Hide Dock Icon",
                 "show_icon_when_text_is_selected": "Show icon when text is selected",
                 "show_icon_when_text_is_selected_tip": "This is an experimental feature, more recommended using PopClip, SnipDo",
                 "check_update": "Check Update",

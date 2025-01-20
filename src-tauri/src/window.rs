@@ -81,6 +81,9 @@ fn build_window(label: &str, title: &str) -> (Window, bool) {
         }
         None => {
             info!("Window not existence, Creating new window: {}", label);
+            let hide_dock_icon = get("hide_dock_icon")
+                .and_then(|v| v.as_bool())
+                .unwrap_or(true);
             let mut builder = tauri::WindowBuilder::new(
                 app_handle,
                 label,
@@ -90,7 +93,8 @@ fn build_window(label: &str, title: &str) -> (Window, bool) {
             .additional_browser_args("--disable-web-security")
             .focused(true)
             .title(title)
-            .visible(false);
+            .visible(false)
+            .skip_taskbar(hide_dock_icon);
 
             #[cfg(target_os = "macos")]
             {
