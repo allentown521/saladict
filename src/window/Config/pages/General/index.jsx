@@ -34,7 +34,7 @@ export default function General() {
     const [transparent, setTransparent] = useConfig('transparent', true);
     const [trayClickEvent, setTrayClickEvent] = useConfig('tray_click_event', 'config');
     const [showIconWhenTextIsSelected, setShowIconWhenTextIsSelected] = useConfig('show_icon_when_text_is_selected', false);
-    const [hideDockIcon, setHideDockIcon] = useConfig('hide_dock_icon', false);
+    const [hideDockIcon, setHideDockIcon] = useConfig('hide_dock_icon', true);
     const toastStyle = useToastStyle();
     const { t, i18n } = useTranslation();
     const { setTheme } = useTheme();
