@@ -13,6 +13,7 @@ use tauri::{LogicalPosition, PhysicalPosition};
 #[cfg(target_os = "macos")]
 use cocoa::appkit::NSWindow;
 use mouse_position::mouse_position::Mouse;
+use serde_json;
 
 pub const THUMB_WIN_NAME: &str = "thumb";// Get daemon window instance
 fn get_daemon_window() -> Window {
@@ -508,4 +509,35 @@ pub fn get_mouse_location() -> Result<(i32, i32), String> {
         Mouse::Position { x, y } => Ok((x, y)),
         Mouse::Error => Err("Error getting mouse position".to_string()),
     }
+}
+
+pub fn notify_window(content: &str) {
+    let app_handle = APP.get().unwrap();
+    
+    // Save content to file
+    let app_dir = app_handle.path_resolver().app_dir().unwrap();
+    let notify_file = app_dir.join("notify_content.json");
+    let content_json = serde_json::json!({
+        "content": content
+    });
+    std::fs::write(&notify_file, content_json.to_string()).unwrap();
+    
+    let window: Window = match app_handle.get_window("notify") {
+        Some(v) => {
+            info!("Notification window exists");
+            v.set_focus().unwrap();
+            v
+        }
+        None => {
+            info!("Creating new notification window");
+            build_window("notify", "Notification").0
+        }
+    };
+    
+    window.set_size(tauri::LogicalSize::new(400, 400)).unwrap();
+    window.center().unwrap();
+    window.set_maximizable(false).unwrap();
+    window.set_minimizable(false).unwrap();
+    window.set_always_on_top(true).unwrap();
+    window.show().unwrap();
 }

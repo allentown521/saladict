@@ -10,6 +10,7 @@ import Screenshot from './window/Screenshot';
 import Translate from './window/Translate';
 import Recognize from './window/Recognize';
 import Updater from './window/Updater';
+import Notify from './window/Notify';
 import { store } from './utils/store';
 import Config from './window/Config';
 import { useConfig } from './hooks';
@@ -24,6 +25,7 @@ const windowMap = {
     config: <Config />,
     updater: <Updater />,
     thumb: <ThumbWindow />,
+    notify: <Notify />,
 };
 
 // 获取系统语言并匹配支持的语言列表

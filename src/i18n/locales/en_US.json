@@ -8,7 +8,8 @@
             "plugin": "Plugin",
             "coming": "Coming soon…",
             "clear": "Clear",
-            "need_restart": "Need Restart To Take Effect"
+            "need_restart": "Need Restart To Take Effect",
+            "important_notice": "Important Notice"
         },
         "languages": {
             "auto": "Auto Detect",

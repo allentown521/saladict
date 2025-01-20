@@ -8,7 +8,8 @@
             "plugin": "外掛程式",
             "coming": "即將推出…",
             "clear": "清除",
-            "need_restart": "需要重新啟動以生效"
+            "need_restart": "需要重新啟動以生效",
+            "important_notice": "重要通知"
         },
         "languages": {
             "auto": "自動偵測",
