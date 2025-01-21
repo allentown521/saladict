@@ -1,11 +1,11 @@
-## 3.0.6 (2024-10-29)
+## 3.0.8 (2025-01-21)
 
 ### New feature:
 
--   add builtin lingva service
--   add support for hebrew
--   improve ui translation
+-   add text selection translation
+-   add hide dock icon option
+-   add ctrl + enter key to translate option
 
 ### Bugs fixed:
 
--   builtin ecdict can not be save
+-   fix lingva service not working

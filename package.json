@@ -1,7 +1,7 @@
 {
     "name": "saladict",
     "private": true,
-    "version": "3.0.6",
+    "version": "3.0.8",
     "type": "module",
     "scripts": {
         "dev": "vite",
