@@ -224,6 +224,14 @@ fn add_check_update_menu(menu: SystemTrayMenu, check_update: CustomMenuItem) -> 
     menu
 }
 
+fn add_restart_menu(menu: SystemTrayMenu, restart: CustomMenuItem) -> SystemTrayMenu {
+    let mut menu = menu;
+    if !is_app_store_version() {
+        menu = menu.add_item(restart);
+    }
+    menu
+}
+
 fn tray_menu_en() -> tauri::SystemTrayMenu {
     let input_translate = CustomMenuItem::new("input_translate", "Input Translate");
     let copy_source = CustomMenuItem::new("copy_source", "Source");
@@ -257,13 +265,12 @@ fn tray_menu_en() -> tauri::SystemTrayMenu {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(config);
 
-    add_developer_menu(
+    let menu = add_developer_menu(
         add_check_update_menu(menu, check_update),
         view_log
-    )
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(restart)
-        .add_item(quit)
+    ).add_native_item(SystemTrayMenuItem::Separator);
+    let menu = add_restart_menu(menu, restart);
+    menu.add_item(quit)
 }
 
 fn tray_menu_zh_cn() -> tauri::SystemTrayMenu {
@@ -299,13 +306,12 @@ fn tray_menu_zh_cn() -> tauri::SystemTrayMenu {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(config);
 
-    add_developer_menu(
+    let menu = add_developer_menu(
         add_check_update_menu(menu, check_update),
         view_log
-    )
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(restart)
-        .add_item(quit)
+    ).add_native_item(SystemTrayMenuItem::Separator);
+    let menu = add_restart_menu(menu, restart);
+    menu.add_item(quit)
 }
 
 fn tray_menu_zh_tw() -> tauri::SystemTrayMenu {
@@ -341,13 +347,12 @@ fn tray_menu_zh_tw() -> tauri::SystemTrayMenu {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(config);
 
-    add_developer_menu(
+    let menu = add_developer_menu(
         add_check_update_menu(menu, check_update),
         view_log
-    )
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(restart)
-        .add_item(quit)
+    ).add_native_item(SystemTrayMenuItem::Separator);
+    let menu = add_restart_menu(menu, restart);
+    menu.add_item(quit)
 }
 
 fn tray_menu_ja() -> tauri::SystemTrayMenu {
@@ -383,13 +388,12 @@ fn tray_menu_ja() -> tauri::SystemTrayMenu {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(config);
 
-    add_developer_menu(
+    let menu = add_developer_menu(
         add_check_update_menu(menu, check_update),
         view_log
-    )
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(restart)
-        .add_item(quit)
+    ).add_native_item(SystemTrayMenuItem::Separator);
+    let menu = add_restart_menu(menu, restart);
+    menu.add_item(quit)
 }
 
 fn tray_menu_ko() -> tauri::SystemTrayMenu {
@@ -425,13 +429,12 @@ fn tray_menu_ko() -> tauri::SystemTrayMenu {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(config);
 
-    add_developer_menu(
+    let menu = add_developer_menu(
         add_check_update_menu(menu, check_update),
         view_log
-    )
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(restart)
-        .add_item(quit)
+    ).add_native_item(SystemTrayMenuItem::Separator);
+    let menu = add_restart_menu(menu, restart);
+    menu.add_item(quit)
 }
 
 fn tray_menu_fr() -> tauri::SystemTrayMenu {
@@ -467,13 +470,12 @@ fn tray_menu_fr() -> tauri::SystemTrayMenu {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(config);
 
-    add_developer_menu(
+    let menu = add_developer_menu(
         add_check_update_menu(menu, check_update),
         view_log
-    )
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(restart)
-        .add_item(quit)
+    ).add_native_item(SystemTrayMenuItem::Separator);
+    let menu = add_restart_menu(menu, restart);
+    menu.add_item(quit)
 }
 
 fn tray_menu_de() -> tauri::SystemTrayMenu {
@@ -509,13 +511,12 @@ fn tray_menu_de() -> tauri::SystemTrayMenu {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(config);
 
-    add_developer_menu(
+    let menu = add_developer_menu(
         add_check_update_menu(menu, check_update),
         view_log
-    )
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(restart)
-        .add_item(quit)
+    ).add_native_item(SystemTrayMenuItem::Separator);
+    let menu = add_restart_menu(menu, restart);
+    menu.add_item(quit)
 }
 
 fn tray_menu_ru() -> tauri::SystemTrayMenu {
@@ -551,13 +552,12 @@ fn tray_menu_ru() -> tauri::SystemTrayMenu {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(config);
 
-    add_developer_menu(
+    let menu = add_developer_menu(
         add_check_update_menu(menu, check_update),
         view_log
-    )
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(restart)
-        .add_item(quit)
+    ).add_native_item(SystemTrayMenuItem::Separator);
+    let menu = add_restart_menu(menu, restart);
+    menu.add_item(quit)
 }
 
 fn tray_menu_fa() -> tauri::SystemTrayMenu {
@@ -593,13 +593,12 @@ fn tray_menu_fa() -> tauri::SystemTrayMenu {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(config);
 
-    add_developer_menu(
+    let menu = add_developer_menu(
         add_check_update_menu(menu, check_update),
         view_log
-    )
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(restart)
-        .add_item(quit)
+    ).add_native_item(SystemTrayMenuItem::Separator);
+    let menu = add_restart_menu(menu, restart);
+    menu.add_item(quit)
 }
 
 fn tray_menu_pt_br() -> tauri::SystemTrayMenu {
@@ -635,13 +634,12 @@ fn tray_menu_pt_br() -> tauri::SystemTrayMenu {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(config);
 
-    add_developer_menu(
+    let menu = add_developer_menu(
         add_check_update_menu(menu, check_update),
         view_log
-    )
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(restart)
-        .add_item(quit)
+    ).add_native_item(SystemTrayMenuItem::Separator);
+    let menu = add_restart_menu(menu, restart);
+    menu.add_item(quit)
 }
 
 fn tray_menu_uk() -> tauri::SystemTrayMenu {
@@ -677,11 +675,10 @@ fn tray_menu_uk() -> tauri::SystemTrayMenu {
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(config);
 
-    add_developer_menu(
+    let menu = add_developer_menu(
         add_check_update_menu(menu, check_update),
         view_log
-    )
-        .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(restart)
-        .add_item(quit)
+    ).add_native_item(SystemTrayMenuItem::Separator);
+    let menu = add_restart_menu(menu, restart);
+    menu.add_item(quit)
 }

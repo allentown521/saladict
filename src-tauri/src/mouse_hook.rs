@@ -17,6 +17,10 @@ pub static RELEASE_THREAD_ID: Mutex<u32> = Mutex::new(0);
 
 // https://github.com/openai-translator/openai-translator/blob/main/src-tauri/src/windows.rs
 pub fn bind_mouse_hook() {
+    #[cfg(feature = "app-store")]
+    {
+        return;
+    }
     if !utils::query_accessibility_permissions() {
         return;
     }

@@ -33,7 +33,10 @@ export default function General() {
     const [appFontSize, setAppFontSize] = useConfig('app_font_size', 16);
     const [transparent, setTransparent] = useConfig('transparent', true);
     const [trayClickEvent, setTrayClickEvent] = useConfig('tray_click_event', 'config');
-    const [showIconWhenTextIsSelected, setShowIconWhenTextIsSelected] = useConfig('show_icon_when_text_is_selected', false);
+    const [showIconWhenTextIsSelected, setShowIconWhenTextIsSelected] = useConfig(
+        'show_icon_when_text_is_selected',
+        false
+    );
     const [hideDockIcon, setHideDockIcon] = useConfig('hide_dock_icon', true);
     const toastStyle = useToastStyle();
     const { t, i18n } = useTranslation();
@@ -56,24 +59,26 @@ export default function General() {
             <Toaster />
             <Card className='mb-[10px]'>
                 <CardBody>
-                    <div className='config-item'>
-                        <h3>{t('config.general.auto_start')}</h3>
-                        <Switch
-                            isSelected={autoStart}
-                            onValueChange={(v) => {
-                                setAutoStart(v);
-                                if (v) {
-                                    enable().then(() => {
-                                        info('Auto start enabled');
-                                    });
-                                } else {
-                                    disable().then(() => {
-                                        info('Auto start disabled');
-                                    });
-                                }
-                            }}
-                        />
-                    </div>
+                    {!isAppStore && (
+                        <div className='config-item'>
+                            <h3>{t('config.general.auto_start')}</h3>
+                            <Switch
+                                isSelected={autoStart}
+                                onValueChange={(v) => {
+                                    setAutoStart(v);
+                                    if (v) {
+                                        enable().then(() => {
+                                            info('Auto start enabled');
+                                        });
+                                    } else {
+                                        disable().then(() => {
+                                            info('Auto start disabled');
+                                        });
+                                    }
+                                }}
+                            />
+                        </div>
+                    )}
                     <div className='config-item'>
                         <h3>{t('config.general.hide_dock_icon')}</h3>
                         {hideDockIcon !== null && (
@@ -91,10 +96,10 @@ export default function General() {
                     </div>
                     {osType !== 'Linux' && showIconWhenTextIsSelected !== null && !isAppStore && (
                         <div className='config-item'>
-                            <div className="flex items-center gap-2">
+                            <div className='flex items-center gap-2'>
                                 <h3>{t('config.general.show_icon_when_text_is_selected')}</h3>
                                 <Tooltip content={t('config.general.show_icon_when_text_is_selected_tip')}>
-                                    <span className="cursor-help text-default-400 text-sm">?</span>
+                                    <span className='cursor-help text-default-400 text-sm'>?</span>
                                 </Tooltip>
                             </div>
                             <Switch

@@ -68,7 +68,7 @@ fn main() {
         .system_tray(tauri::SystemTray::new())
         .setup(|app| {
             info!("============== Start App ==============");
-            #[cfg(target_os = "macos")]
+            #[cfg(not(feature = "app-store"))]
             {
                 utils::query_accessibility_permissions();
             }
