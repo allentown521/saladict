@@ -55,10 +55,8 @@ pub fn check_notify() {
         };
         
         let client = reqwest::Client::new();
-        match client.post("https://saladict.aichatone.com/api/app-check-notify")
-            .json(&serde_json::json!({
-                "language": language
-            }))
+        match client.get("https://saladict.aichatone.com/api/app-check-notify")
+            .query(&[("language", &language)])
             .send()
             .await {
                 Ok(response) => {
