@@ -177,7 +177,8 @@
                 "install_plugin": "安裝外掛程式",
                 "uninstall_success": "外掛程式移除成功",
                 "homepage": "外掛程式首頁",
-                "view_plugin_list": "檢視外掛程式列表"
+                "view_plugin_list": "檢視外掛程式列表",
+                "installed_plugins": "已安裝 {{count}} 個外掛程式"
             },
             "history": {
                 "label": "歷史記錄",

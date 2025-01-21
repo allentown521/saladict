@@ -178,7 +178,8 @@
                 "install_plugin": "Install Plugin",
                 "view_plugin_list": "View Plugin List",
                 "uninstall_success": "Plugin Uninstall Successfully",
-                "homepage": "Homepage"
+                "homepage": "Homepage",
+                "installed_plugins": "Installed {{count}} plugins"
             },
             "history": {
                 "label": "History",

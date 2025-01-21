@@ -115,7 +115,7 @@ export default function SelectPluginModal(props) {
                                             }).then(
                                                 (count) => {
                                                     setInstalling(false);
-                                                    toast.success('Installed ' + count + ' plugins', {
+                                                    toast.success(t('config.service.installed_plugins', { count }), {
                                                         style: toastStyle,
                                                     });
                                                     emit('reload_plugin_list');
