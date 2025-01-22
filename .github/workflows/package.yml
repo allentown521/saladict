@@ -5,6 +5,10 @@ on:
         tags-ignore: [updater]
 permissions: write-all
 
+env:
+  VITE_UMAMI_SCRIPT_URL: ${{ secrets.VITE_UMAMI_SCRIPT_URL }}
+  VITE_UMAMI_DATA_WEBSITE_ID: ${{ secrets.VITE_UMAMI_DATA_WEBSITE_ID }}
+
 jobs:
     change-version:
         runs-on: ubuntu-latest
