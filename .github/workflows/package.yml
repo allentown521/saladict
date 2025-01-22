@@ -148,16 +148,6 @@ jobs:
                   pnpm tauri build --target ${{ matrix.target }}
                   sudo chmod +x src-tauri/resources/*
                   chmod +x src-tauri/resources/*
-            - name: Change File Name
-              if: matrix.target == 'aarch64-apple-darwin'
-              run: |
-                  sudo mv src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz
-                  sudo mv src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz.sig src-tauri/target/aarch64-apple-darwin/release/bundle/macos/Saladict_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz.sig
-            - name: Change File Name
-              if: matrix.target == 'x86_64-apple-darwin'
-              run: |
-                  sudo mv src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict_${{needs.change-version.outputs.version}}_x64.app.tar.gz
-                  sudo mv src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict.app.tar.gz.sig src-tauri/target/x86_64-apple-darwin/release/bundle/macos/Saladict_${{needs.change-version.outputs.version}}_x64.app.tar.gz.sig
             - name: Upload Artifacts
               uses: actions/upload-artifact@v4
               with:
