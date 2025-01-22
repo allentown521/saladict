@@ -5,7 +5,7 @@ import { atom, useAtom, useAtomValue } from 'jotai';
 import React, { useEffect, useState } from 'react';
 import { CgSpaceBetween } from 'react-icons/cg';
 import { MdContentCopy } from 'react-icons/md';
-import { MdSmartButton } from 'react-icons/md';
+import { MdWrapText } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
 import { nanoid } from 'nanoid';
 
@@ -197,7 +197,7 @@ export default function TextArea(props) {
                                 setText(text.replace(/\-\s+/g, '').replace(/\s+/g, ' '));
                             }}
                         >
-                            <MdSmartButton className='text-[16px]' />
+                            <MdWrapText className='text-[16px]' />
                         </Button>
                     </Tooltip>
                     <Tooltip content={t('recognize.delete_space')}>
