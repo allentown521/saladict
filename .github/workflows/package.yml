@@ -142,12 +142,6 @@ jobs:
                   name: macos_${{ matrix.target }}_dmg
                   path: src-tauri/target/${{ matrix.target }}/release/bundle/dmg/*.dmg
                   if-no-files-found: error
-            - name: Upload Artifacts
-              uses: actions/upload-artifact@v4
-              with:
-                  name: macos_${{ matrix.target }}_updater
-                  path: src-tauri/target/${{ matrix.target }}/release/bundle/macos/*.app*
-                  if-no-files-found: error
             - name: Upload Release
               if: startsWith(github.ref, 'refs/tags')
               uses: softprops/action-gh-release@v1
@@ -155,13 +149,6 @@ jobs:
                   body_path: CHANGELOG
                   token: ${{ secrets.GITHUB_TOKEN }}
                   files: src-tauri/target/${{ matrix.target }}/release/bundle/dmg/*.dmg
-            - name: Upload Release
-              if: startsWith(github.ref, 'refs/tags')
-              uses: softprops/action-gh-release@v1
-              with:
-                  body_path: CHANGELOG
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  files: src-tauri/target/${{ matrix.target }}/release/bundle/macos/*.app*
 
     build-for-windows:
         needs: change-version
