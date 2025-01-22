@@ -148,6 +148,61 @@ jobs:
                   pnpm tauri build --target ${{ matrix.target }}
                   sudo chmod +x src-tauri/resources/*
                   chmod +x src-tauri/resources/*
+            - name: Sign and Notarize
+              env:
+                  SIGN_APP: ${{ secrets.SIGN_APP }}
+                  APPLE_ID: ${{ secrets.APPLE_ID }}
+                  TEAM_ID: ${{ secrets.TEAM_ID }}
+                  APPLE_APP_PASS: ${{ secrets.APPLE_APP_PASS }}
+              run: |
+                  # Set paths
+                  app_path="src-tauri/target/${{ matrix.target }}/release/bundle/macos/Saladict.app"
+                  dmg_path="src-tauri/target/${{ matrix.target }}/release/bundle/dmg/Saladict_${{needs.change-version.outputs.version}}_${{ matrix.target }}.dmg"
+                  ocr_arm64_path="${app_path}/Contents/Resources/resources/ocr-aarch64-apple-darwin"
+                  ocr_x86_path="${app_path}/Contents/Resources/resources/ocr-x86_64-apple-darwin"
+
+                  # Sign OCR binaries
+                  echo "Signing OCR binary..."
+                  codesign --force -s "$SIGN_APP" --options runtime "${ocr_arm64_path}"
+                  codesign --force -s "$SIGN_APP" --options runtime "${ocr_x86_path}"
+
+                  # Sign main application
+                  echo "Signing application..."
+                  codesign --deep --force -s "$SIGN_APP" --options runtime "${app_path}"
+
+                  # Create temporary directory for DMG
+                  echo "Creating temporary directory for DMG..."
+                  tmp_dir=$(mktemp -d)
+                  cp -r "${app_path}" "${tmp_dir}/"
+
+                  # Create Applications symlink
+                  echo "Creating Applications folder symlink..."
+                  ln -s /Applications "${tmp_dir}/Applications"
+
+                  # Remove unsigned DMG
+                  rm -f "${dmg_path}"
+
+                  # Create DMG
+                  echo "Creating DMG with signed app..."
+                  hdiutil create -volname "Saladict" -srcfolder "${tmp_dir}" -ov -format UDZO "${dmg_path}"
+
+                  # Submit DMG for notarization
+                  echo "Submitting DMG for notarization..."
+                  xcrun notarytool submit "${dmg_path}" \
+                      --apple-id "$APPLE_ID" \
+                      --team-id "$TEAM_ID" \
+                      --password "$APPLE_APP_PASS" \
+                      --wait
+
+                  # Staple notarization ticket
+                  echo "Stapling notarization ticket to DMG..."
+                  xcrun stapler staple "${dmg_path}"
+
+                  # Validate signature
+                  echo "Validating DMG..."
+                  xcrun stapler validate "${dmg_path}"
+
+                  echo "Notarization process completed"
             - name: Upload Artifacts
               uses: actions/upload-artifact@v4
               with:
