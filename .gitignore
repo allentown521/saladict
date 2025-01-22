@@ -31,3 +31,4 @@ ocr-entitlements.plist
 build-mac-arm-sandbox-test.sh
 test-notarization.sh
 sandbox-test-entitlements.plist
+test-tauri-sign.sh
