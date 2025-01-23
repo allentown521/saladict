@@ -151,7 +151,7 @@ The built-in services are limited. But you can expand the app's functionality th
 
 You can find plugins you need in the [Plugin List](https://saladict-app.aichatone.com/plugin.html), and then go to the plugin repo to download it.
 
-The file extension of pot plugin is `.potext`. After downloading the `.potext` file, go to Preferences - Service Settings - Add External Plugin - Install External Plugin to select the corresponding `.potext` to install it. It will then be added to the service list and can be used like a built-in service.
+The file extension of Saladict plugin is `.potext`. After downloading the `.potext` file, go to Preferences - Service Settings - Add External Plugin - Install External Plugin to select the corresponding `.potext` to install it. It will then be added to the service list and can be used like a built-in service.
 
 ### Troubleshooting
 
@@ -185,9 +185,9 @@ winget install allentown521.Saladict
 
 1. Download the installation package ending in `.exe` from the Latest [Release](https://github.com/allentown521/saladict/releases/latest) page.
 
-    - 64-bit machine download `Saladict_{version}_x64-setup.exe`
-    - 32-bit machine download `Saladict_{version}_x86-setup.exe`
-    - arm64 machine download `Saladict_{version}_arm64-setup.exe`
+    - 64-bit machine download `saladict_{version}_x64-setup.exe`
+    - 32-bit machine download `saladict_{version}_x86-setup.exe`
+    - arm64 machine download `saladict_{version}_arm64-setup.exe`
 
 2. Double click the downloaded file to install it.
 
@@ -197,7 +197,7 @@ winget install allentown521.Saladict
 
     Check if WebView2 is uninstalled/disabled, if so, install WebView2 manually or restore it.
 
-    If the enterprise edition system is inconvenient to install or cannot install WebView2, please try to download the fix WebView2 version `Saladict_{version} at [Release](https://github.com/allentown521/saladict/releases/latest) _{arch}_fix_webview2_runtime-setup.exe`
+    If the enterprise edition system is inconvenient to install or cannot install WebView2, please try to download the fix WebView2 version `saladict_{version} at [Release](https://github.com/allentown521/saladict/releases/latest) _{arch}_fix_webview2_runtime-setup.exe`
 
     If the issue persists, please try starting in Windows 7 compatibility mode.
 
@@ -220,13 +220,13 @@ For M-series Macs, you can install it from Mac App Store
 brew tap allentown521/homebrew-saladict
 ```
 
-2. Install pot:
+2. Install Saladict:
 
 ```bash
 brew install --cask saladict
 ```
 
-3. Upgrade pot
+3. Upgrade Saladict
 
 ```bash
 brew upgrade --cask saladict
@@ -234,12 +234,12 @@ brew upgrade --cask saladict
 
 ### Install Manually
 
-1. Download the installation package ending in `.dmg` from the Latest [Release](https://github.com/allentown521/saladict/releases/latest) page. (If you are using M1, please download the installation package named `Saladict_{version}_aarch64.dmg`, otherwise download the installation package named `Saladict_{version}_x64.dmg`)
+1. Download the installation package ending in `.dmg` from the Latest [Release](https://github.com/allentown521/saladict/releases/latest) page. (If you are using M1, please download the installation package named `saladict_{version}_aarch64.dmg`, otherwise download the installation package named `saladict_{version}_x64.dmg`)
 2. Double click the downloaded file to install it.
 
 ### Troubleshooting
 
--   If you encounter a permission prompt every time you open it, or if you cannot perform a shortcut translation, please go to Settings -> Privacy & Security -> Supporting Features to remove pot, and then re-add pot.
+-   If you encounter a permission prompt every time you open it, or if you cannot perform a shortcut translation, please go to Settings -> Privacy & Security -> Supporting Features to remove Saladict, and then re-add Saladict.
 
 ## Linux
 
@@ -256,7 +256,7 @@ Please note that: There are two deb package, `universal` is based on `glibc2.28`
 
 </div>
 
-Saladict provides a complete HTTP interface for integration with other software. You can call pot by sending HTTP requests to `127.0.0.1:port`, where `port` is the listening port of pot, default to `60606`, and can be changed in the app settings.
+Saladict provides a complete HTTP interface for integration with other software. You can call Saladict by sending HTTP requests to `127.0.0.1:port`, where `port` is the listening port of Saladict, default to `60606`, and can be changed in the app settings.
 
 ## API Docs:
 
@@ -278,7 +278,7 @@ GET "/ocr_translate?screenshot=true" => Translate screenshot
 
 -   Call translation by selection:
 
-    To call pot's translation by selection, simply send a request to `127.0.0.1:port`:
+    To call Saladict's translation by selection, simply send a request to `127.0.0.1:port`:
 
     E.g. using curl:
 
@@ -288,7 +288,7 @@ GET "/ocr_translate?screenshot=true" => Translate screenshot
 
 ## OCR without internal screenshot
 
-This allows you to perform OCR/translation without using pot's internal screenshot, so you can use your own screenshot tools. It also solves the problem where pot's internal screenshot doesn't work on some platforms.
+This allows you to perform OCR/translation without using Saladict's internal screenshot, so you can use your own screenshot tools. It also solves the problem where Saladict's internal screenshot doesn't work on some platforms.
 
 ### Workflow:
 
@@ -311,16 +311,16 @@ rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s
 ### SnipDo (Windows)
 
 1. Download and install SnipDo in the [Microsoft Store](https://apps.microsoft.com/store/detail/snipdo/9NPZ2TVKJVT7)
-2. Download the SnipDo extension of pot from the Latest [Release](https://github.com/allentown521/saladict/releases/latest) (Saladict.pbar)
+2. Download the SnipDo extension of Saladict from the Latest [Release](https://github.com/allentown521/saladict/releases/latest) (Saladict.pbar)
 3. Double click the downloaded file to install it.
-4. Selection some text, you can see the pot icon in the upper right corner of the selection, click the icon to translate.
+4. Selection some text, you can see the Saladict icon in the upper right corner of the selection, click the icon to translate.
 
 ### PopClip (MacOS)
 
 1. Download and install PopClip in the [Official Website](https://www.popclip.app/)
-2. Download the PopClip extension of pot from the Latest [Release](https://github.com/allentown521/saladict/releases/latest) (Saladict.popclipextz)
+2. Download the PopClip extension of Saladict from the Latest [Release](https://github.com/allentown521/saladict/releases/latest) (Saladict.popclipextz)
 3. Double click the downloaded file to install it.
-4. Enable the pot extension in PopClip settings, and then you can translate by selecting text.
+4. Enable the Saladict extension in PopClip settings, and then you can translate by selecting text.
 
 ### Starry (Linux)
 
@@ -334,16 +334,16 @@ Github: [ccslykx/Starry](https://github.com/ccslykx/Starry)
 
 </div>
 
-Due to the varying levels of support for Wayland among different distributions, pot itself cannot achieve perfect compatibility. However, here are some solutions to common issues that can be implemented through proper configuration, allowing pot to run flawlessly on Wayland.
+Due to the varying levels of support for Wayland among different distributions, Saladict itself cannot achieve perfect compatibility. However, here are some solutions to common issues that can be implemented through proper configuration, allowing Saladict to run flawlessly on Wayland.
 
 ## Shortcut key cannot be used
 
-Due to Tauri's lack of support for Wayland, the shortcut key scheme in the pot application cannot be used under Wayland.
-You can set the system shortcut and send a request with `curl` to call pot, see [External Calls](#external-calls) for details
+Due to Tauri's lack of support for Wayland, the shortcut key scheme in the Saladict application cannot be used under Wayland.
+You can set the system shortcut and send a request with `curl` to call Saladict, see [External Calls](#external-calls) for details
 
 ## Screenshot doesn't work
 
-In some pure Wayland desktop environments/window managers (such as Hyprland), the built-in screenshot feature of pot cannot be used. In this case, you can use other screenshot tools instead. For more details, please refer to the section [Not Using Built-in Screenshot](#not-using-built-in-screenshot).
+In some pure Wayland desktop environments/window managers (such as Hyprland), the built-in screenshot feature of Saladict cannot be used. In this case, you can use other screenshot tools instead. For more details, please refer to the section [Not Using Built-in Screenshot](#not-using-built-in-screenshot).
 
 Below is a configuration example for Hyprland using `grim` and `slurp` to achieve screenshot functionality:
 
@@ -356,12 +356,12 @@ Other desktop environments/window managers also have similar operations.
 
 ## The translation window follows the mouse position.
 
-Due to the current inability of pot to obtain accurate mouse coordinates under Wayland, its internal implementation cannot function properly.
+Due to the current inability of Saladict to obtain accurate mouse coordinates under Wayland, its internal implementation cannot function properly.
 For certain desktop environments/window managers, it is possible to achieve window following mouse position by setting window rules. Here we take Hyprland as an example:
 
 ```conf
-windowrulev2 = float, class:(pot), title:(Translator|OCR|PopClip|Screenshot Translate) # Translation window floating
-windowrulev2 = move cursor 0 0, class:(pot), title:(Translator|PopClip|Screenshot Translate) # Translation window follows the mouse position.
+windowrulev2 = float, class:(saladict), title:(Translator|OCR|PopClip|Screenshot Translate) # Translation window floating
+windowrulev2 = move cursor 0 0, class:(saladict), title:(Translator|PopClip|Screenshot Translate) # Translation window follows the mouse position.
 ```
 
 <div align="center">
@@ -403,7 +403,7 @@ Rust >= 1.80.0
 2. Install dependencies
 
     ```bash
-    cd pot-desktop
+    cd saladict
     pnpm install
     ```
 

@@ -184,9 +184,9 @@ winget install allentown521.Saladict
 
 1. 在 [Release](https://github.com/allentown521/saladict/releases/latest) 页面下载最新 `exe` 安装包。
 
-    - 64 位机器下载 `Saladict_{version}_x64-setup.exe`
-    - 32 位机器下载 `Saladict_{version}_x86-setup.exe`
-    - arm64 机器下载 `Saladict_{version}_arm64-setup.exe`
+    - 64 位机器下载 `saladict_{version}_x64-setup.exe`
+    - 32 位机器下载 `saladict_{version}_x86-setup.exe`
+    - arm64 机器下载 `saladict_{version}_arm64-setup.exe`
 
 2. 双击安装包进行安装。
 
@@ -196,7 +196,7 @@ winget install allentown521.Saladict
 
     检查是否卸载/禁用了 WebView2，如果卸载/禁用了 WebView2，请手动安装 WebView2 或将其恢复。
 
-    如果是企业版系统不方便安装或无法安装 WebView2，请尝试在 [Release](https://github.com/allentown521/saladict/releases/latest) 下载内置 WebView2 的版本 `Saladict_{version}_{arch}_fix_webview2_runtime-setup.exe`
+    如果是企业版系统不方便安装或无法安装 WebView2，请尝试在 [Release](https://github.com/allentown521/saladict/releases/latest) 下载内置 WebView2 的版本 `saladict_{version}_{arch}_fix_webview2_runtime-setup.exe`
 
     若问题仍然存在请尝试使用 Windows7 兼容模式启动。
 
@@ -215,7 +215,7 @@ M-series Macs 用户可以从 Mac App Store 安装。
 
 ### 手动安装
 
-1. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 页面下载最新的 `dmg` 安装包。（如果您使用的是 M1 芯片，请下载名为`Saladict_{version}_aarch64.dmg`的安装包，否则请下载名为`Saladict_{version}_x64.dmg`的安装包）
+1. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 页面下载最新的 `dmg` 安装包。（如果您使用的是 M1 芯片，请下载名为`saladict_{version}_aarch64.dmg`的安装包，否则请下载名为`saladict_{version}_x64.dmg`的安装包）
 2. 双击下载的文件后将 沙拉翻译 拖入 Applications 文件夹即可完成安装。
 
 ### 通过 Brew 安装
@@ -289,7 +289,7 @@ GET "/ocr_translate?screenshot=true" => 截图翻译,
 ### 调用流程
 
 1. 使用其他截图工具截图
-2. 将截图保存在 `$CACHE/allen.town.focus.saladict/pot_screenshot_cut.png`
+2. 将截图保存在 `$CACHE/allen.town.focus.saladict/Saladict_screenshot_cut.png`
 3. 向`127.0.0.1:port/ocr_recognize?screenshot=false`发送请求即可调用成功
 
 > `$CACHE`为系统缓存目录，例如在 Windows 上为`C:\Users\{用户名}\AppData\Local\allen.town.focus.saladict\pot_screenshot_cut.png`
@@ -357,8 +357,8 @@ bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_s
 由于目前 沙拉翻译 在 Wayland 下还无法获取到正确的鼠标坐标，所以内部的实现无法工作。 对于某些桌面环境/窗口管理器，可以通过设置窗口规则来实现窗口跟随鼠标位置，这里以 Hyprland 为例：
 
 ```conf
-windowrulev2 = float, class:(pot), title:(Translator|OCR|PopClip|Screenshot Translate) # Translation window floating
-windowrulev2 = move cursor 0 0, class:(pot), title:(Translator|PopClip|Screenshot Translate) # Translation window follows the mouse position.
+windowrulev2 = float, class:(saladict), title:(Translator|OCR|PopClip|Screenshot Translate) # Translation window floating
+windowrulev2 = move cursor 0 0, class:(saladict), title:(Translator|PopClip|Screenshot Translate) # Translation window follows the mouse position.
 ```
 
 <div align="center">

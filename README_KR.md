@@ -185,9 +185,9 @@ winget install allentown521.Saladict
 
 1. 최신버전 다운로드 페이지 [Release](https://github.com/allentown521/saladict/releases/latest)에서 `.exe` 파일을 다운받습니다.
 
-    - 64-bit 버전 사용시, `Saladict_{version}_x64-setup.exe`
-    - 32-bit 버전 사용시, `Saladict_{version}_x86-setup.exe`
-    - arm64 버전 사용시, `Saladict_{version}_arm64-setup.exe`
+    - 64-bit 버전 사용시, `saladict_{version}_x64-setup.exe`
+    - 32-bit 버전 사용시, `saladict_{version}_x86-setup.exe`
+    - arm64 버전 사용시, `saladict_{version}_arm64-setup.exe`
 
 2. 더블클릭하여 설치를 합니다.
 
@@ -197,7 +197,7 @@ winget install allentown521.Saladict
 
     윈도우-브라우저에서 사용하는 WebView2 기능이 설치되지 않았거나 비활성화 된 경우 입니다. 이 때는 WebView2 를 설치하거나 기능을 재설정 하십시오.
 
-    회사/기업 사용자의 경우 WebView2 기능이 설치되지 않았거나 비활성화된 경우가 있습니다. 이 경우 다음을 설치하십시오. WebView2 version `Saladict_{version} at [Release](https://github.com/allentown521/saladict/releases/latest) _{arch}_fix_webview2_runtime-setup.exe`
+    회사/기업 사용자의 경우 WebView2 기능이 설치되지 않았거나 비활성화된 경우가 있습니다. 이 경우 다음을 설치하십시오. WebView2 version `saladict_{version} at [Release](https://github.com/allentown521/saladict/releases/latest) _{arch}_fix_webview2_runtime-setup.exe`
 
     문제가 해결되지 않는 경우, Windows 7 compatibility mode에서 시도해 보십시오.
 
@@ -235,7 +235,7 @@ brew upgrade --cask saladict
 
 ### 수동설치
 
-1. 최신버전 다운로드 페이지 [Release](https://github.com/allentown521/saladict/releases/latest)에서 `.dmg` 파일을 다운받습니다. (M1 사용자이면, 다음 파일명을 다운로드 합니다 `Saladict{version}_aarch64.dmg`, 기타 사용자는 다음 파일을 다운로드 합니다. `Saladict_{version}_x64.dmg`)
+1. 최신버전 다운로드 페이지 [Release](https://github.com/allentown521/saladict/releases/latest)에서 `.dmg` 파일을 다운받습니다. (M1 사용자이면, 다음 파일명을 다운로드 합니다 `Saladict{version}_aarch64.dmg`, 기타 사용자는 다음 파일을 다운로드 합니다. `saladict_{version}_x64.dmg`)
 2. 더블클릭하여 설치를 합니다.
 
 ### 문제해결
@@ -289,7 +289,7 @@ GET "/ocr_translate?screenshot=true" => Translate screenshot
 
 ## 자체스크린샷 미사용 OCR 기능
 
-OCR 및 번역을 위해서 pot은 자체 스크린샷(화면캡쳐)기능을 사용하지 않을 수 있습니다. 자체 화면캡쳐 툴을 사용하면 특정환경에서 자체 스크린샷 기능이 정상적으로 동작하지 않는 것을 해결할 수 있습니다.
+OCR 및 번역을 위해서 Saladict은 자체 스크린샷(화면캡쳐)기능을 사용하지 않을 수 있습니다. 자체 화면캡쳐 툴을 사용하면 특정환경에서 자체 스크린샷 기능이 정상적으로 동작하지 않는 것을 해결할 수 있습니다.
 
 ### Workflow:
 
@@ -335,16 +335,16 @@ Github: [ccslykx/Starry](https://github.com/ccslykx/Starry)
 
 </div>
 
-배포판마다 Wayland에 대한 지원 수준이 다르기 때문에 pot 자체로는 완벽한 호환성을 달성할 수 없습니다. 하지만 다음은 적절한 구성을 통해 구현할 수 있는 몇 가지 일반적인 문제에 대한 해결책으로, Wayland에서 pot을 완벽하게 실행할 수 있습니다.
+배포판마다 Wayland에 대한 지원 수준이 다르기 때문에 Saladict 자체로는 완벽한 호환성을 달성할 수 없습니다. 하지만 다음은 적절한 구성을 통해 구현할 수 있는 몇 가지 일반적인 문제에 대한 해결책으로, Wayland에서 Saladict을 완벽하게 실행할 수 있습니다.
 
 ## 단축키를 적용할 수 없을 때,
 
-타우리Tauri는 웨이랜드Wayland를 지원하지 않기 때문에, pot의 단축키 기능은 웨이랜드Waylan에서 사용할 수 없습니다.
+타우리Tauri는 웨이랜드Wayland를 지원하지 않기 때문에, Saladict의 단축키 기능은 웨이랜드Waylan에서 사용할 수 없습니다.
 시스템 단축키를 설정하고 `curl`로 요청을 보내 팟을 호출할 수 있으며, 자세한 내용은[External Calls](#external-calls) 을 참조하세요.
 
 ## 단축키가 동작하지 않을 때,
 
-일부 순수 웨이랜드Wayland 데스크톱 환경/창 관리자(예: 하이프랜드)에서는 pot의 기본 제공 스크린샷 기능을 사용할 수 없습니다. 이 경우 다른 스크린샷 도구를 대신 사용할 수 있습니다. 자세한 내용은 [Not Using Built-in Screenshot](#not-using-built-in-screenshot) 섹션을 참조하세요.
+일부 순수 웨이랜드Wayland 데스크톱 환경/창 관리자(예: 하이프랜드)에서는 Saladict의 기본 제공 스크린샷 기능을 사용할 수 없습니다. 이 경우 다른 스크린샷 도구를 대신 사용할 수 있습니다. 자세한 내용은 [Not Using Built-in Screenshot](#not-using-built-in-screenshot) 섹션을 참조하세요.
 
 아래는 스크린샷 기능을 구현하기 위해 `grim`과 `slurp`를 사용하는 Hyprland의 구성 예시입니다:
 
@@ -360,8 +360,8 @@ bind = ALT, C, exec, grim -g "$(slurp)" ~/.cache/allen.town.focus.saladict/pot_s
 현재 웨이랜드Wayland에서 정확한 마우스 좌표를 얻을 수 없기 때문에 내부 구현이 제대로 작동하지 않습니다. 특정 데스크톱 환경/창 관리자의 경우 창 규칙을 설정하여 마우스 위치에 따른 창을 구현할 수 있습니다. 여기서는 하이프랜드Hyprland를 예로 들어보겠습니다:
 
 ```conf
-windowrulev2 = float, class:(pot), title:(Translator|OCR|PopClip|Screenshot Translate) # Translation window floating
-windowrulev2 = move cursor 0 0, class:(pot), title:(Translator|PopClip|Screenshot Translate) # Translation window follows the mouse position.
+windowrulev2 = float, class:(saladict), title:(Translator|OCR|PopClip|Screenshot Translate) # Translation window floating
+windowrulev2 = move cursor 0 0, class:(saladict), title:(Translator|PopClip|Screenshot Translate) # Translation window follows the mouse position.
 ```
 
 <div align="center">
@@ -403,7 +403,7 @@ Rust >= 1.80.0
 2. dependencies를 설치합니다
 
     ```bash
-    cd pot-desktop
+    cd saladict
     pnpm install
     ```
 

@@ -157,7 +157,7 @@ jobs:
               run: |
                   # Set paths
                   app_path="src-tauri/target/${{ matrix.target }}/release/bundle/macos/Saladict.app"
-                  dmg_path="src-tauri/target/${{ matrix.target }}/release/bundle/dmg/Saladict_${{needs.change-version.outputs.version}}_${{ contains(matrix.target, 'aarch64') && 'aarch64' || 'x86_64' }}.dmg"
+                  dmg_path="src-tauri/target/${{ matrix.target }}/release/bundle/dmg/saladict_${{needs.change-version.outputs.version}}_${{ contains(matrix.target, 'aarch64') && 'aarch64' || 'x86_64' }}.dmg"
                   ocr_arm64_path="${app_path}/Contents/Resources/resources/ocr-aarch64-apple-darwin"
                   ocr_x86_path="${app_path}/Contents/Resources/resources/ocr-x86_64-apple-darwin"
 
@@ -221,8 +221,8 @@ jobs:
               run: |
                   cd src-tauri/target/aarch64-apple-darwin/release/bundle/macos
                   rm -f Saladict.app.tar.gz Saladict.app.tar.gz.sig
-                  tar -czf Saladict_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz Saladict.app
-                  pnpm tauri signer sign -k "$TAURI_PRIVATE_KEY" -p "$TAURI_KEY_PASSWORD" "$PWD/Saladict_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz"
+                  tar -czf saladict_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz Saladict.app
+                  pnpm tauri signer sign -k "$TAURI_PRIVATE_KEY" -p "$TAURI_KEY_PASSWORD" "$PWD/saladict_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz"
 
             - name: Change File Name
               if: matrix.target == 'x86_64-apple-darwin'
@@ -232,8 +232,8 @@ jobs:
               run: |
                   cd src-tauri/target/x86_64-apple-darwin/release/bundle/macos
                   rm -f Saladict.app.tar.gz Saladict.app.tar.gz.sig
-                  tar -czf Saladict_${{needs.change-version.outputs.version}}_x64.app.tar.gz Saladict.app
-                  pnpm tauri signer sign -k "$TAURI_PRIVATE_KEY" -p "$TAURI_KEY_PASSWORD" "$PWD/Saladict_${{needs.change-version.outputs.version}}_x64.app.tar.gz"
+                  tar -czf saladict_${{needs.change-version.outputs.version}}_x64.app.tar.gz Saladict.app
+                  pnpm tauri signer sign -k "$TAURI_PRIVATE_KEY" -p "$TAURI_KEY_PASSWORD" "$PWD/saladict_${{needs.change-version.outputs.version}}_x64.app.tar.gz"
 
             - name: Upload Artifacts
               uses: actions/upload-artifact@v4
@@ -378,9 +378,9 @@ jobs:
                   $env:TAURI_PRIVATE_KEY="${{ secrets.TAURI_PRIVATE_KEY }}"
                   $env:TAURI_KEY_PASSWORD="${{ secrets.TAURI_KEY_PASSWORD }}"
                   pnpm tauri build -b nsis,updater --target ${{ matrix.target }}
-                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.exe Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.exe
-                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.nsis.zip Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.nsis.zip
-                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.nsis.zip.sig Saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.nsis.zip.sig
+                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.exe saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.exe
+                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.nsis.zip saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.nsis.zip
+                  Rename-Item .\src-tauri\target\${{ matrix.target }}\release\bundle\nsis\saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}-setup.nsis.zip.sig saladict_${{needs.change-version.outputs.version}}_${{ matrix.arch }}_fix_webview2_runtime-setup.nsis.zip.sig
             - name: Upload Artifacts
               uses: actions/upload-artifact@v4
               with:

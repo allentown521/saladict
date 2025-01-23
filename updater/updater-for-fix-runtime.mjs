@@ -10,12 +10,12 @@ async function resolveUpdater() {
     let version = await getVersion(TOKEN);
     let changelog = await getChangeLog(TOKEN);
 
-    const windows_x86_64 = `https://github.com/allentown521/saladict/releases/download/${version}/Saladict_${version}_x64_fix_webview2_runtime-setup.nsis.zip`;
-    const windows_x86_64_sig = await getSignature(`https://github.com/allentown521/saladict/releases/download/${version}/Saladict_${version}_x64_fix_webview2_runtime-setup.nsis.zip.sig`);
-    const windows_i686 = `https://github.com/allentown521/saladict/releases/download/${version}/Saladict_${version}_x86_fix_webview2_runtime-setup.nsis.zip`;
-    const windows_i686_sig = await getSignature(`https://github.com/allentown521/saladict/releases/download/${version}/Saladict_${version}_x86_fix_webview2_runtime-setup.nsis.zip.sig`);
-    const windows_aarch64 = `https://github.com/allentown521/saladict/releases/download/${version}/Saladict_${version}_arm64_fix_webview2_runtime-setup.nsis.zip`;
-    const windows_aarch64_sig = await getSignature(`https://github.com/allentown521/saladict/releases/download/${version}/Saladict_${version}_arm64_fix_webview2_runtime-setup.nsis.zip.sig`);
+    const windows_x86_64 = `https://github.com/allentown521/saladict/releases/download/${version}/saladict_${version}_x64_fix_webview2_runtime-setup.nsis.zip`;
+    const windows_x86_64_sig = await getSignature(`https://github.com/allentown521/saladict/releases/download/${version}/saladict_${version}_x64_fix_webview2_runtime-setup.nsis.zip.sig`);
+    const windows_i686 = `https://github.com/allentown521/saladict/releases/download/${version}/saladict_${version}_x86_fix_webview2_runtime-setup.nsis.zip`;
+    const windows_i686_sig = await getSignature(`https://github.com/allentown521/saladict/releases/download/${version}/saladict_${version}_x86_fix_webview2_runtime-setup.nsis.zip.sig`);
+    const windows_aarch64 = `https://github.com/allentown521/saladict/releases/download/${version}/saladict_${version}_arm64_fix_webview2_runtime-setup.nsis.zip`;
+    const windows_aarch64_sig = await getSignature(`https://github.com/allentown521/saladict/releases/download/${version}/saladict_${version}_arm64_fix_webview2_runtime-setup.nsis.zip.sig`);
 
     let updateData = {
         name: version,
