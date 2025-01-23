@@ -146,8 +146,6 @@ jobs:
                   export TAURI_PRIVATE_KEY="${{ secrets.TAURI_PRIVATE_KEY }}"
                   export TAURI_KEY_PASSWORD="${{ secrets.TAURI_KEY_PASSWORD }}"
                   pnpm tauri build --target ${{ matrix.target }}
-                  sudo chmod +x src-tauri/resources/*
-                  chmod +x src-tauri/resources/*
             - name: Sign and Notarize
               env:
                   SIGN_APP: ${{ secrets.SIGN_APP }}
@@ -160,6 +158,10 @@ jobs:
                   dmg_path="src-tauri/target/${{ matrix.target }}/release/bundle/dmg/saladict_${{needs.change-version.outputs.version}}_${{ contains(matrix.target, 'aarch64') && 'aarch64' || 'x86_64' }}.dmg"
                   ocr_arm64_path="${app_path}/Contents/Resources/resources/ocr-aarch64-apple-darwin"
                   ocr_x86_path="${app_path}/Contents/Resources/resources/ocr-x86_64-apple-darwin"
+
+                  # Set executable permissions for resources
+                  echo "Setting executable permissions..."
+                  chmod +x "${ocr_arm64_path}" "${ocr_x86_path}"
 
                   # Sign OCR binaries
                   echo "Signing OCR binary..."
@@ -221,7 +223,7 @@ jobs:
               run: |
                   cd src-tauri/target/aarch64-apple-darwin/release/bundle/macos
                   rm -f saladict.app.tar.gz saladict.app.tar.gz.sig
-                  tar -czf saladict_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz saladict.app
+                  tar -czpf saladict_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz saladict.app
                   pnpm tauri signer sign -k "$TAURI_PRIVATE_KEY" -p "$TAURI_KEY_PASSWORD" "$PWD/saladict_${{needs.change-version.outputs.version}}_aarch64.app.tar.gz"
 
             - name: Change File Name
@@ -232,7 +234,7 @@ jobs:
               run: |
                   cd src-tauri/target/x86_64-apple-darwin/release/bundle/macos
                   rm -f saladict.app.tar.gz saladict.app.tar.gz.sig
-                  tar -czf saladict_${{needs.change-version.outputs.version}}_x64.app.tar.gz saladict.app
+                  tar -czpf saladict_${{needs.change-version.outputs.version}}_x64.app.tar.gz saladict.app
                   pnpm tauri signer sign -k "$TAURI_PRIVATE_KEY" -p "$TAURI_KEY_PASSWORD" "$PWD/saladict_${{needs.change-version.outputs.version}}_x64.app.tar.gz"
 
             - name: Upload Artifacts
