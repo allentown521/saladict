@@ -3,6 +3,51 @@
 version = 4
 
 [[package]]
+name = "Saladict"
+version = "0.0.0"
+dependencies = [
+ "accessibility-ng",
+ "accessibility-sys-ng",
+ "arboard",
+ "base64 0.22.1",
+ "cocoa 0.24.1",
+ "core-foundation",
+ "core-graphics 0.22.3",
+ "dirs 5.0.1",
+ "enigo",
+ "font-kit",
+ "image 0.25.4",
+ "lingua",
+ "log",
+ "macos-accessibility-client",
+ "mouce",
+ "mouse_position",
+ "objc",
+ "once_cell",
+ "parking_lot",
+ "reqwest 0.12.9",
+ "reqwest_dav",
+ "screenshots",
+ "selection",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-autostart",
+ "tauri-plugin-fs-watch",
+ "tauri-plugin-log",
+ "tauri-plugin-single-instance",
+ "tauri-plugin-sql",
+ "tauri-plugin-store",
+ "thiserror",
+ "tiny_http",
+ "walkdir",
+ "window-shadows",
+ "windows 0.39.0",
+ "zip 2.2.0",
+]
+
+[[package]]
 name = "accessibility-ng"
 version = "0.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5390,51 +5435,6 @@ name = "ryu"
 version = "1.0.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f3cb5ba0dc43242ce17de99c180e96db90b235b8a9fdc9543c96d2209116bd9f"
-
-[[package]]
-name = "saladict"
-version = "0.0.0"
-dependencies = [
- "accessibility-ng",
- "accessibility-sys-ng",
- "arboard",
- "base64 0.22.1",
- "cocoa 0.24.1",
- "core-foundation",
- "core-graphics 0.22.3",
- "dirs 5.0.1",
- "enigo",
- "font-kit",
- "image 0.25.4",
- "lingua",
- "log",
- "macos-accessibility-client",
- "mouce",
- "mouse_position",
- "objc",
- "once_cell",
- "parking_lot",
- "reqwest 0.12.9",
- "reqwest_dav",
- "screenshots",
- "selection",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-autostart",
- "tauri-plugin-fs-watch",
- "tauri-plugin-log",
- "tauri-plugin-single-instance",
- "tauri-plugin-sql",
- "tauri-plugin-store",
- "thiserror",
- "tiny_http",
- "walkdir",
- "window-shadows",
- "windows 0.39.0",
- "zip 2.2.0",
-]
 
 [[package]]
 name = "same-file"

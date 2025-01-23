@@ -1,5 +1,5 @@
 [package]
-name = "saladict"
+name = "Saladict"
 version = "0.0.0"
 description = "Saladict App"
 authors = ["saladict-app"]
