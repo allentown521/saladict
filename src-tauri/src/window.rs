@@ -410,7 +410,7 @@ pub fn get_thumb_window(x: i32, y: i32) -> Window {
         None => {
             info!("Thumb window does not exist");
             
-            #[cfg(target_os = "macos")]
+            #[cfg(any(target_os = "macos", target_os = "linux"))]
             let window = {
                 let mut builder = WindowBuilder::new(
                     handle,
