@@ -207,8 +207,11 @@ jobs:
                   echo "Creating Applications folder symlink..."
                   ln -s /Applications "${tmp_dir}/Applications"
 
-                  # Remove unsigned DMG
+                  # Remove unsigned DMG and cleanup any mounted volumes
+                  echo "Cleaning up existing DMG and mounted volumes..."
                   rm -f "${dmg_path}"
+                  hdiutil detach "/Volumes/Saladict" 2>/dev/null || true
+                  sleep 5  # Give the system some time to release resources
 
                   # Create DMG
                   echo "Creating DMG with signed app..."
