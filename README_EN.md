@@ -336,6 +336,15 @@ Github: [ccslykx/Starry](https://github.com/ccslykx/Starry)
 
 Due to the varying levels of support for Wayland among different distributions, Saladict itself cannot achieve perfect compatibility. However, here are some solutions to common issues that can be implemented through proper configuration, allowing Saladict to run flawlessly on Wayland.
 
+```
+Ubuntu 22.04 start using Wayland as the display server, if you need to use X11 as the display server:
+1. Click the gear icon on the login interface
+2. Select "Ubuntu on Xorg" (use X11 instead of Wayland)
+3. Then login
+
+This can solve the following problems
+```
+
 ## Shortcut key cannot be used
 
 Due to Tauri's lack of support for Wayland, the shortcut key scheme in the Saladict application cannot be used under Wayland.

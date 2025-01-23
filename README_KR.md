@@ -337,6 +337,15 @@ Github: [ccslykx/Starry](https://github.com/ccslykx/Starry)
 
 배포판마다 Wayland에 대한 지원 수준이 다르기 때문에 Saladict 자체로는 완벽한 호환성을 달성할 수 없습니다. 하지만 다음은 적절한 구성을 통해 구현할 수 있는 몇 가지 일반적인 문제에 대한 해결책으로, Wayland에서 Saladict을 완벽하게 실행할 수 있습니다.
 
+```
+Ubuntu 22.04부터 Wayland를 디스플레이 서버로 사용하게 됩니다. X11을 디스플레이 서버로 사용해야 하는 경우:
+1. 로그인 인터페이스의 기어 아이콘을 클릭하세요
+2. "Ubuntu on Xorg"를 선택하세요 (Wayland 대신 X11 사용)
+3. 로그인하세요
+
+이렇게 하면 다음 문제들을 해결할 수 있습니다
+```
+
 ## 단축키를 적용할 수 없을 때,
 
 타우리Tauri는 웨이랜드Wayland를 지원하지 않기 때문에, Saladict의 단축키 기능은 웨이랜드Waylan에서 사용할 수 없습니다.
