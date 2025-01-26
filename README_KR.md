@@ -175,6 +175,12 @@
 
 ## Windows 윈도우
 
+### Microsoft Store 설치
+
+ <a href="https://apps.microsoft.com/detail/9pfzvl2bqx1s" target="_blank">
+  <img src="asset/download_on_microsoft_store.png" alt="Download on the Microsoft Store" style="width: 156px;" />
+ </a> 
+
 ### Winget 을 이용한 설치
 
 ```powershell

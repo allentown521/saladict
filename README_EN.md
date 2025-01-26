@@ -175,6 +175,12 @@ The [Template](https://saladict-app.aichatone.com/en/plugin.html#template) secti
 
 ## Windows
 
+### Microsoft Store Installation
+
+ <a href="https://apps.microsoft.com/detail/9pfzvl2bqx1s" target="_blank">
+  <img src="asset/download_on_microsoft_store.png" alt="Download on the Microsoft Store" style="width: 156px;" />
+ </a> 
+
 ### Install via Winget
 
 ```powershell

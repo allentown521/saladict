@@ -174,6 +174,12 @@
 
 ## Windows
 
+### 通过 Microsoft Store 安装
+
+ <a href="https://apps.microsoft.com/detail/9pfzvl2bqx1s" target="_blank">
+  <img src="asset/download_on_microsoft_store.png" alt="Download on the Microsoft Store" style="width: 156px;" />
+ </a> 
+
 ### 通过 Winget 安装
 
 ```powershell

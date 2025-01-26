@@ -32,3 +32,4 @@ build-mac-arm-sandbox-test.sh
 test-notarization.sh
 sandbox-test-entitlements.plist
 test-tauri-sign.sh
+allentown0521.Saladict_3.0.8.0_x64_template.xml
