@@ -9,6 +9,7 @@ import SideBar from './components/SideBar';
 import { osType } from '../../utils/env';
 import { useConfig } from '../../hooks';
 import routes from './routes';
+import Header from '../../Header';
 import './style.css';
 
 export default function Config() {
@@ -37,7 +38,7 @@ export default function Config() {
                     <div
                         className='w-full h-full'
                         data-tauri-drag-region='true'
-                    />
+                    ><Header /></div>
                 </div>
                 <div className='p-[5px]'>
                     <div data-tauri-drag-region='true'>

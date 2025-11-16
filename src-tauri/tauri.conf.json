@@ -35,27 +35,18 @@
             "http": {
                 "all": true,
                 "request": true,
-                "scope": [
-                    "http://**",
-                    "https://**"
-                ]
+                "scope": ["http://**", "https://**"]
             },
             "os": {
                 "all": true
             },
             "protocol": {
                 "asset": true,
-                "assetScope": [
-                    "$CACHE/**",
-                    "$CONFIG/**"
-                ]
+                "assetScope": ["$CACHE/**", "$CONFIG/**"]
             },
             "fs": {
                 "all": true,
-                "scope": [
-                    "$APPCONFIG/**",
-                    "$APPCACHE/**"
-                ]
+                "scope": ["$APPCONFIG/**", "$APPCACHE/**"]
             },
             "dialog": {
                 "open": true,
@@ -80,20 +71,10 @@
                 "icons/icon.ico"
             ],
             "deb": {
-                "depends": [
-                    "libxdo-dev",
-                    "libxcb1",
-                    "libxrandr2",
-                    "tesseract-ocr"
-                ]
+                "depends": ["libxdo-dev", "libxcb1", "libxrandr2", "tesseract-ocr"]
             },
             "rpm": {
-                "depends": [
-                    "libxdo-dev",
-                    "libxcb1",
-                    "libxrandr2",
-                    "tesseract-ocr"
-                ]
+                "depends": ["libxdo-dev", "libxcb1", "libxrandr2", "tesseract-ocr"]
             },
             "macOS": {
                 "exceptionDomain": "",
@@ -122,10 +103,15 @@
         "updater": {
             "active": true,
             "dialog": false,
-            "endpoints": [
-                "https://github.com/allentown521/saladict/releases/download/updater/update.json"
-            ],
+            "endpoints": ["https://github.com/allentown521/saladict/releases/download/updater/update.json"],
             "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEM2NUYwQzBBNzUwMUY0RUEKUldUcTlBRjFDZ3hmeGpjbVcwN3dIVnlFbTE0Y1AvU2lVNUthaU5xYmovZ2VDaFV2TnVhRS9GWkUK"
+        }
+    },
+    "plugins": {
+        "deep-link": {
+            "desktop": {
+                "schemes": ["bas"]
+            }
         }
     }
 }
