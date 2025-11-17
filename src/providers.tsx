@@ -1,23 +1,34 @@
-import { signInSocial } from '@daveyplate/better-auth-tauri';
-import { useBetterAuthTauri } from '@daveyplate/better-auth-tauri/react';
 import { AuthUIProvider } from '@daveyplate/better-auth-ui';
-import { isTauri } from '@tauri-apps/api/core';
-import { useNavigate } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import { Toaster } from 'sonner';
+import { useNavigate, NavLink } from 'react-router-dom';
 
-import { authClient } from '@/lib/auth-client';
+import { authClient } from './lib/auth-client';
+
+// 适配器组件，将 NavLink 转换为 AuthUIProvider 期望的 Link 类型
+const LinkAdapter = ({
+    href,
+    className,
+    children,
+    ...props
+}: {
+    href: string;
+    className?: string;
+    children: ReactNode;
+}) => {
+    return (
+        <NavLink
+            to={href}
+            className={typeof className === 'function' ? undefined : className}
+            {...props}
+        >
+            {children}
+        </NavLink>
+    );
+};
 
 export function Providers({ children }: { children: ReactNode }) {
     const navigate = useNavigate();
-
-    useBetterAuthTauri({
-        authClient,
-        scheme: 'bas',
-        onSuccess: (callbackURL) => navigate(`/auth/callback?redirectTo=${callbackURL}`),
-        debugLogs: true,
-    });
-
     return (
         <AuthUIProvider
             authClient={authClient}
@@ -25,11 +36,8 @@ export function Providers({ children }: { children: ReactNode }) {
                 // Clear router cache (protected routes)
                 window.location.reload();
             }}
-            baseURL={isTauri() ? 'bas://' : undefined}
-            social={{
-                providers: ['google'],
-                signIn: (params) => signInSocial({ ...params, authClient }),
-            }}
+            navigate={navigate}
+            Link={LinkAdapter}
         >
             {children}
 
