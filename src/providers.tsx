@@ -32,10 +32,7 @@ export function Providers({ children }: { children: ReactNode }) {
     return (
         <AuthUIProvider
             authClient={authClient}
-            onSessionChange={() => {
-                // Clear router cache (protected routes)
-                window.location.reload();
-            }}
+            redirectTo='/general'
             navigate={navigate}
             Link={LinkAdapter}
         >

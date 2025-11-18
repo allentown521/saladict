@@ -7,7 +7,6 @@ import React from 'react';
 import { initStore } from './utils/store';
 import { initEnv } from './utils/env';
 import App from './App';
-import { Providers } from './providers';
 
 if (import.meta.env.PROD) {
     document.addEventListener('contextmenu', (e) => {
@@ -22,9 +21,7 @@ initStore().then(async () => {
     root.render(
         <NextUIProvider>
             <NextThemesProvider attribute='class'>
-                <Providers>
-                    <App />
-                </Providers>
+                <App />
             </NextThemesProvider>
         </NextUIProvider>
     );

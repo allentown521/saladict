@@ -15,6 +15,7 @@ import { store } from './utils/store';
 import Config from './window/Config';
 import { useConfig } from './hooks';
 import { uiLanguage } from './utils/language';
+import { Providers } from './providers';
 import './style.css';
 import './i18n';
 import { ThumbWindow } from './window/Thumb';
@@ -140,5 +141,11 @@ export default function App() {
         }
     }, [appFont, appFallbackFont, appFontSize]);
 
-    return <BrowserRouter>{windowMap[appWindow.label]}</BrowserRouter>;
+    return (
+        <BrowserRouter>
+            <Providers>
+                {windowMap[appWindow.label]}
+            </Providers>
+        </BrowserRouter>
+    );
 }

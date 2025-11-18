@@ -9,7 +9,7 @@ import SideBar from './components/SideBar';
 import { osType } from '../../utils/env';
 import { useConfig } from '../../hooks';
 import routes from './routes';
-import { Header } from '../../Header';
+import { UserButton } from '@daveyplate/better-auth-ui';
 import './style.css';
 
 export default function Config() {
@@ -34,20 +34,22 @@ export default function Config() {
                     osType === 'Linux' && 'rounded-l-[10px] border-1'
                 } border-r-1 border-default-100 select-none cursor-default`}
             >
-                <div className='h-[35px] p-[5px]'>
+                <div className='h-[40px] p-[5px] flex justify-between items-center'>
                     <div
-                        className='w-full h-full'
+                        className='h-full w-full'
                         data-tauri-drag-region='true'
-                    >
-                        <Header />
-                    </div>
+                    />
+                    <UserButton
+                        size='icon'
+                        disableDefaultLinks
+                    />
                 </div>
                 <div className='p-[5px]'>
                     <div data-tauri-drag-region='true'>
                         <img
                             alt='pot logo'
                             src='icon.svg'
-                            className='h-[60px] w-[60px] m-auto mb-[30px]'
+                            className='h-[60px] w-[60px] m-auto mb-[20px]'
                             draggable={false}
                         />
                     </div>
