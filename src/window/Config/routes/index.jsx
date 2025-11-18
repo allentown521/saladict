@@ -10,6 +10,7 @@ import Backup from '../pages/Backup';
 import About from '../pages/About';
 import Advance from '../pages/Advance';
 import AuthPage from '../pages/Auth';
+import AccountPage from '../pages/Account';
 
 const routes = [
     {
@@ -55,6 +56,10 @@ const routes = [
     {
         path: '/auth/:pathname',
         element: <AuthPage />,
+    },
+    {
+        path: '/account/:pathname',
+        element: <AccountPage />,
     },
 ];
 

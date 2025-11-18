@@ -239,6 +239,14 @@
             "auth/forgot-password": {
                 "label": "忘记密码",
                 "title": "忘记密码"
+            },
+            "account/settings": {
+                "label": "账号设置",
+                "title": "账号设置"
+            },
+            "account/security": {
+                "label": "安全设置",
+                "title": "安全设置"
             }
         },
         "updater": {

@@ -239,6 +239,14 @@
             "auth/forgot-password": {
                 "label": "Forgot Password",
                 "title": "Forgot Password"
+            },
+            "account/settings": {
+                "label": "Account Settings",
+                "title": "Account Settings"
+            },
+            "account/security": {
+                "label": "Security Settings",
+                "title": "Security Settings"
             }
         },
         "updater": {

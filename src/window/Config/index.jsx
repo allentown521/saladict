@@ -39,10 +39,7 @@ export default function Config() {
                         className='h-full w-full'
                         data-tauri-drag-region='true'
                     />
-                    <UserButton
-                        size='icon'
-                        disableDefaultLinks
-                    />
+                    <UserButton size='icon' />
                 </div>
                 <div data-tauri-drag-region='true'>
                     <img
