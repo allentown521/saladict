@@ -226,6 +226,18 @@
             "advance": {
                 "label": "進階設定",
                 "title": "進階設定"
+            },
+            "auth/sign-in": {
+                "label": "登錄",
+                "title": "登錄"
+            },
+            "auth/sign-up": {
+                "label": "註冊",
+                "title": "註冊"
+            },
+            "auth/forgot-password": {
+                "label": "忘記密碼",
+                "title": "忘記密碼"
             }
         },
         "updater": {

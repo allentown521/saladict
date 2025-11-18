@@ -227,6 +227,18 @@
             "advance": {
                 "label": "Advanced",
                 "title": "Advanced Settings"
+            },
+            "auth/sign-in": {
+                "label": "Sign In",
+                "title": "Sign In"
+            },
+            "auth/sign-up": {
+                "label": "Sign Up",
+                "title": "Sign Up"
+            },
+            "auth/forgot-password": {
+                "label": "Forgot Password",
+                "title": "Forgot Password"
             }
         },
         "updater": {

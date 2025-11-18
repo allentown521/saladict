@@ -227,6 +227,18 @@
             "advance": {
                 "label": "高级设置",
                 "title": "高级设置"
+            },
+            "auth/sign-in": {
+                "label": "登录",
+                "title": "登录"
+            },
+            "auth/sign-up": {
+                "label": "注册",
+                "title": "注册"
+            },
+            "auth/forgot-password": {
+                "label": "忘记密码",
+                "title": "忘记密码"
             }
         },
         "updater": {
