@@ -34,7 +34,7 @@ export default function Config() {
                     osType === 'Linux' && 'rounded-l-[10px] border-1'
                 } border-r-1 border-default-100 select-none cursor-default`}
             >
-                <div className='h-[40px] p-[5px] flex justify-between items-center'>
+                <div className='h-[45px] p-[5px] flex justify-between items-center'>
                     <div
                         className='h-full w-full'
                         data-tauri-drag-region='true'
@@ -44,15 +44,13 @@ export default function Config() {
                         disableDefaultLinks
                     />
                 </div>
-                <div className='p-[5px]'>
-                    <div data-tauri-drag-region='true'>
-                        <img
-                            alt='pot logo'
-                            src='icon.svg'
-                            className='h-[60px] w-[60px] m-auto mb-[20px]'
-                            draggable={false}
-                        />
-                    </div>
+                <div data-tauri-drag-region='true'>
+                    <img
+                        alt='pot logo'
+                        src='icon.svg'
+                        className='h-[60px] w-[60px] m-auto mb-[20px]'
+                        draggable={false}
+                    />
                 </div>
                 <SideBar />
             </Card>
