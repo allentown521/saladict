@@ -246,6 +246,12 @@
             "account/security": {
                 "label": "安全設定",
                 "title": "安全設定"
+            },
+            "account": {
+                "how_to_social_login": "如何使用社交帳號登錄?",
+                "manager_credits": "管理积分",
+                "manager_subscriptions": "管理訂閱",
+                "view_credits_plans": "查看积分计划"
             }
         },
         "updater": {

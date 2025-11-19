@@ -247,6 +247,12 @@
             "account/security": {
                 "label": "Security Settings",
                 "title": "Security Settings"
+            },
+            "account": {
+                "how_to_social_login": "How to use social login?",
+                "manager_credits": "Manager Credits",
+                "manager_subscriptions": "Manager Subscriptions",
+                "view_credits_plans": "View Credits Plans"
             }
         },
         "updater": {
