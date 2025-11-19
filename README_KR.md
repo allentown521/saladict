@@ -82,7 +82,7 @@
 
 -   [x] [OpenAI](https://platform.openai.com/)
 -   [x] [ChatGLM](https://www.zhipuai.cn/)
--   [x] [Gemini Pro](https://gemini.google.com/)
+-   [x] [Gemini](https://gemini.google.com/)
 -   [x] [Ollama](https://www.ollama.com/) (Offline)
 -   [x] [Ali Translate](https://www.aliyun.com/product/ai/alimt)
 -   [x] [Baidu Translate](https://fanyi.baidu.com/)
@@ -149,7 +149,7 @@
 
 ## -플러그인-의 설치
 
-설치가능한 플러그인 항목은 다음을 참고하세요 [Plugin List](https://saladict-app.aichatone.com/plugin.html). 그리고 필요한 항목을 다운받으십시오.
+설치가능한 플러그인 항목은 다음을 참고하세요 [Plugin List](https://app.saladict.net/plugin.html). 그리고 필요한 항목을 다운받으십시오.
 
 플러그인의 확장자는 `.potext` 입니다. 다운받은 `.potext` 확장자 파일을 프로그램 설정메뉴 - 서비스 - Add External Plugin - Install External Plugin 메뉴에서 등록하여 설치합니다. 파일을 등록하면 해당 항목을 프로그램의 사용목록에 표시가 되어 사용이 가능해 집니다.
 
@@ -165,7 +165,7 @@
 
 ## -플러그인-의 개발
 
-템플릿 [Template](https://saladict-app.aichatone.com/en/plugin.html#template) 항목에서 다양한 항목을 플러그인들을 찾을 수 있습니다 [Plugin List](https://saladict-app.aichatone.com/en/plugin.html). 이 곳에서 필요한 문서를 참고하십시오.
+템플릿 [Template](https://app.saladict.net/en/plugin.html#template) 항목에서 다양한 항목을 플러그인들을 찾을 수 있습니다 [Plugin List](https://app.saladict.net/en/plugin.html). 이 곳에서 필요한 문서를 참고하십시오.
 
 <div align="center">
 
@@ -179,7 +179,7 @@
 
  <a href="https://apps.microsoft.com/detail/9pfzvl2bqx1s" target="_blank">
   <img src="asset/download_on_microsoft_store.png" alt="Download on the Microsoft Store" style="width: 156px;" />
- </a> 
+ </a>
 
 ### Winget 을 이용한 설치
 
@@ -215,7 +215,7 @@ M-series Macs 사용자는 Mac App Store에서 설치할 수 있습니다.
 
  <a href="https://apps.apple.com/app/6740262076" target="_blank">
   <img src="asset/download_on_mac_app_store.svg" alt="Download on the Mac App Store" style="width: 156px;" />
- </a> 
+ </a>
 
 > 기술적 제한으로, Mac App Store 버전은 `Selection Translation` 및 `Translation Using Shortcuts After Selection`을 지원하지 않습니다.
 
@@ -255,7 +255,6 @@ brew upgrade --cask saladict
 리눅스 환경을 위해 `deb` 파일이 제공됩니다
 
 참고 : 두 가지 버전이 제공됩니다. `glibc2.28`기반의 `universal`과 `openssl-1.1` 버전입니다. 프로그램이 당신의 컴퓨터에서 정상적으로 실행되지 않는다면 dependency와 관련된 문제일 경우가 많습니다. `universal`버전을 사용하면 이전 버전의 dependency를 사용하여 실행하면 대부분 실행이 가능합니다.
-
 
 <div align="center">
 

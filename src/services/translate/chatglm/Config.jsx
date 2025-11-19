@@ -16,7 +16,6 @@ import { translate } from './index';
 import { Language } from './index';
 
 // https://open.bigmodel.cn/dev/api/normal-model/glm-4
-const availableModels = 'glm-4-plus、glm-4-0520、glm-4 、glm-4-air、glm-4-airx、glm-4-long 、 glm-4-flash'.split('、').map(it => it.trim());
 
 export function Config(props) {
     const { instanceKey, updateServiceList, onClose } = props;
@@ -25,7 +24,7 @@ export function Config(props) {
         instanceKey,
         {
             [INSTANCE_NAME_CONFIG_KEY]: t('services.translate.chatglm.title'),
-            model: 'chatglm_turbo',
+            model: 'glm-4.5-flash',
             apiKey: '',
             promptList: [
                 {
@@ -60,7 +59,7 @@ export function Config(props) {
                         },
                         (e) => {
                             setIsLoading(false);
-                            toast.error(t('config.service.test_failed') + e.toString(), { style: toastStyle });
+                            toast.error(t('config.service.test_failed') + ' : ' + e.toString(), { style: toastStyle });
                         }
                     );
                 }}
@@ -89,35 +88,30 @@ export function Config(props) {
                     <h3 className='my-auto'>{t('services.help')}</h3>
                     <Button
                         onPress={() => {
-                            open('https://saladict-app.aichatone.com/docs/api/translate/chatglm.html');
+                            open('https://app.saladict.net/docs/api/translate/chatglm.html');
                         }}
                     >
                         {t('services.help')}
                     </Button>
                 </div>
                 <div className='config-item'>
-                    <h3 className='my-auto'>{t('services.translate.chatglm.model')}</h3>
-                    <Dropdown>
-                        <DropdownTrigger>
-                            <Button variant='bordered'>{serviceConfig.model}</Button>
-                        </DropdownTrigger>
-                        <DropdownMenu
-                            autoFocus='first'
-                            aria-label='model'
-                            onAction={(key) => {
-                                setServiceConfig({
-                                    ...serviceConfig,
-                                    model: key,
-                                });
-                            }}
-                        >
-                            {availableModels.map(it => (
-                                <DropdownItem key={it}>
-                                    {it}
-                                </DropdownItem>
-                            ))}
-                        </DropdownMenu>
-                    </Dropdown>
+                    <Input
+                        label={t('services.translate.chatglm.model')}
+                        labelPlacement='outside-left'
+                        value={serviceConfig['model']}
+                        variant='bordered'
+                        classNames={{
+                            base: 'justify-between',
+                            label: 'text-[length:--nextui-font-size-medium]',
+                            mainWrapper: 'max-w-[50%]',
+                        }}
+                        onValueChange={(value) => {
+                            setServiceConfig({
+                                ...serviceConfig,
+                                model: value,
+                            });
+                        }}
+                    />
                 </div>
                 <div className='config-item'>
                     <Input

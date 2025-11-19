@@ -267,11 +267,11 @@
                     "prompt_description": "על ידי התאמה אישית של ההנחיה, אתה יכול להתאים אישית את ההתנהגות של OpenAI כרצונך. $text $from $to $detect יוחלף בטקסט לתרגום, שפת המקור, שפת היעד ושפת הזיהוי."
                 },
                 "geminipro": {
-                    "title": "Gemini Pro",
+                    "title": "Gemini",
                     "request_path": "בקש נתיב",
                     "api_key": "מפתח Api",
                     "stream": "מצב הזרמה",
-                    "prompt_description": "על ידי התאמה אישית של ההנחיה, תוכל להתאים אישית את ההתנהגות של Gemini Pro כרצונך. $text $from $to $detect יוחלף בטקסט לתרגום, שפת המקור, שפת היעד ושפת הזיהוי.",
+                    "prompt_description": "על ידי התאמה אישית של ההנחיה, תוכל להתאים אישית את ההתנהגות של Gemini כרצונך. $text $from $to $detect יוחלף בטקסט לתרגום, שפת המקור, שפת היעד ושפת הזיהוי.",
                     "add": "הוסף הנחיה"
                 },
                 "chatglm": {

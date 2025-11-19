@@ -319,11 +319,12 @@
                     "add": "Add Prompt"
                 },
                 "geminipro": {
-                    "title": "Gemini Pro",
+                    "title": "Gemini",
+                    "model": "Model",
                     "request_path": "Request Path",
                     "api_key": "Api Key",
                     "stream": "Stream Mode",
-                    "prompt_description": "By customizing the Prompt, you can customize the behavior of Gemini Pro. $text $from $to $detect will be replaced with the text to be translated, source language, target language and detected language.",
+                    "prompt_description": "By customizing the Prompt, you can customize the behavior of Gemini. $text $from $to $detect will be replaced with the text to be translated, source language, target language and detected language.",
                     "add": "Add Prompt"
                 },
                 "chatglm": {
@@ -401,6 +402,50 @@
                 "caiyun": {
                     "title": "Caiyun",
                     "token": "Token"
+                },
+                "openai_cloud": {
+                    "title": "OpenAI Cloud"
+                },
+                "gemini_cloud": {
+                    "title": "Gemini Cloud"
+                },
+                "claude_cloud": {
+                    "title": "Claude Cloud",
+                    "model": "Model",
+                    "stream": "Stream Mode",
+                    "prompt_description": "By customizing the Prompt, you can customize the behavior of Claude. $text $from $to $detect will be replaced with the text to be translated, source language, target language and detected language.",
+                    "add": "Add Prompt"
+                },
+                "chatglm_cloud": {
+                    "title": "ChatGLM Cloud"
+                },
+                "moonshot_cloud": {
+                    "title": "Moonshot Cloud",
+                    "model": "Model",
+                    "stream": "Stream Mode",
+                    "prompt_description": "By customizing the Prompt, you can customize the behavior of Moonshot. $text $from $to $detect will be replaced with the text to be translated, source language, target language and detected language.",
+                    "add": "Add Prompt"
+                },
+                "minimax_cloud": {
+                    "title": "MiniMax Cloud",
+                    "model": "Model",
+                    "stream": "Stream Mode",
+                    "prompt_description": "By customizing the Prompt, you can customize the behavior of MiniMax. $text $from $to $detect will be replaced with the text to be translated, source language, target language and detected language.",
+                    "add": "Add Prompt"
+                },
+                "deepseek_cloud": {
+                    "title": "DeepSeek Cloud",
+                    "model": "Model",
+                    "stream": "Stream Mode",
+                    "prompt_description": "By customizing the Prompt, you can customize the behavior of DeepSeek. $text $from $to $detect will be replaced with the text to be translated, source language, target language and detected language.",
+                    "add": "Add Prompt"
+                },
+                "tongyi_cloud": {
+                    "title": "Tongyi Cloud",
+                    "model": "Model",
+                    "stream": "Stream Mode",
+                    "prompt_description": "By customizing the Prompt, you can customize the behavior of Tongyi. $text $from $to $detect will be replaced with the text to be translated, source language, target language and detected language.",
+                    "add": "Add Prompt"
                 }
             },
             "recognize": {

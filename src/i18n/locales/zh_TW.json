@@ -391,10 +391,11 @@
                     "prompt_description": "透過自定義 Prompt，您可以自定義 AI 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。"
                 },
                 "geminipro": {
-                    "title": "Gemini Pro",
+                    "title": "Gemini",
+                    "model": "模型",
                     "request_path": "請求路徑",
                     "api_key": "API Key",
-                    "prompt_description": "透過自定義 Prompt，您可以自定義 Gemini Pro 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",
+                    "prompt_description": "透過自定義 Prompt，您可以自定義 Gemini 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",
                     "stream": "串流輸出",
                     "add": "新增 Prompt"
                 }

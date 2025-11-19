@@ -1,6 +1,6 @@
 export const info = {
     name: 'geminipro',
-    icon: 'logo/geminipro.webp',
+    icon: 'logo/gemini.svg',
 };
 
 export enum Language {

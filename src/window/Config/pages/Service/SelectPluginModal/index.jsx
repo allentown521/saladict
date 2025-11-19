@@ -35,7 +35,7 @@ export default function SelectPluginModal(props) {
                                     fullWidth
                                     variant='flat'
                                     onPress={() => {
-                                        openInBrowser('http://saladict-app.aichatone.com/plugin.html');
+                                        openInBrowser('http://app.saladict.net/plugin.html');
                                     }}
                                 >
                                     <div className='w-full'>{t('config.service.view_plugin_list')}</div>

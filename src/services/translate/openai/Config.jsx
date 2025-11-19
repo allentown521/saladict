@@ -117,7 +117,7 @@ export function Config(props) {
                     <h3 className='my-auto'>{t('services.help')}</h3>
                     <Button
                         onPress={() => {
-                            open('https://saladict-app.aichatone.com/docs/api/translate/openai.html');
+                            open('https://app.saladict.net/docs/api/translate/openai.html');
                         }}
                     >
                         {t('services.help')}
@@ -199,32 +199,7 @@ export function Config(props) {
                         }}
                     />
                 </div>
-                <Card
-                    isBlurred
-                    className='border-none bg-success/20 dark:bg-success/10 hidden'
-                    shadow='sm'
-                >
-                    <CardBody>
-                        <div>
-                            推荐
-                            <Link
-                                isExternal
-                                href='https://aihubmix.com/register?aff=trJY'
-                                color='primary'
-                            >
-                                AiHubMix
-                            </Link>
-                            的OpenAI API 密钥，速度飞快，经济实惠，1美元的OpenAI API 额度只需人民币6.3元
-                            <Link
-                                isExternal
-                                href='https://saladict-app.aichatone.com/ads/aihubmix.html'
-                                color='primary'
-                            >
-                                配置文档
-                            </Link>
-                        </div>
-                    </CardBody>
-                </Card>
+
                 <div className={`config-item ${openaiConfig.service === 'azure' && 'hidden'}`}>
                     <Input
                         label={t('services.translate.openai.model')}
