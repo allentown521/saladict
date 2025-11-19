@@ -25,7 +25,7 @@ const availableModels = 'minimax-m2'.split('、').map((it) => it.trim());
 export function Config(props) {
     const { instanceKey, updateServiceList, onClose } = props;
     const { t } = useTranslation();
-    const [minimaxConfig, setOpenaiConfig] = useConfig(
+    const [minimaxConfig, setServiceConfig] = useConfig(
         instanceKey,
         {
             [INSTANCE_NAME_CONFIG_KEY]: t('services.translate.minimax_cloud.title'),
@@ -56,7 +56,7 @@ export function Config(props) {
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
-                    setOpenaiConfig(minimaxConfig, true);
+                    setServiceConfig(minimaxConfig, true);
                     updateServiceList(instanceKey);
                     onClose();
                 }}
@@ -91,7 +91,7 @@ export function Config(props) {
                     <Switch
                         isSelected={minimaxConfig['stream']}
                         onValueChange={(value) => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...minimaxConfig,
                                 stream: value,
                             });
@@ -113,7 +113,7 @@ export function Config(props) {
                             autoFocus='first'
                             aria-label='model'
                             onAction={(key) => {
-                                setOpenaiConfig({
+                                setServiceConfig({
                                     ...minimaxConfig,
                                     model: key,
                                 });
@@ -142,7 +142,7 @@ export function Config(props) {
                                         value={prompt.content}
                                         placeholder={`Input Some ${prompt.role} Prompt`}
                                         onValueChange={(value) => {
-                                            setOpenaiConfig({
+                                            setServiceConfig({
                                                 ...minimaxConfig,
                                                 promptList: minimaxConfig.promptList.map((p, i) => {
                                                     if (i === index) {
@@ -170,7 +170,7 @@ export function Config(props) {
                                         className='my-auto mx-1'
                                         variant='flat'
                                         onPress={() => {
-                                            setOpenaiConfig({
+                                            setServiceConfig({
                                                 ...minimaxConfig,
                                                 promptList: minimaxConfig.promptList.filter((_, i) => i !== index),
                                             });
@@ -184,7 +184,7 @@ export function Config(props) {
                     <Button
                         fullWidth
                         onPress={() => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...minimaxConfig,
                                 promptList: [
                                     ...minimaxConfig.promptList,
@@ -215,7 +215,7 @@ export function Config(props) {
                         value={minimaxConfig['requestArguments']}
                         placeholder={`Input API Request Arguments`}
                         onValueChange={(value) => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...minimaxConfig,
                                 requestArguments: value,
                             });

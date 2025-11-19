@@ -402,6 +402,50 @@
                 "caiyun": {
                     "title": "彩云小译",
                     "token": "Token"
+                },
+                "openai_cloud": {
+                    "title": "OpenAI Cloud"
+                },
+                "gemini_cloud": {
+                    "title": "Gemini Cloud"
+                },
+                "claude_cloud": {
+                    "title": "Claude Cloud",
+                    "model": "模型",
+                    "stream": "流式输出",
+                    "prompt_description": "通过自定义Prompt自定义AI行为, $text $from $to $detect 将会被替换为 待翻译文本，源语言，目标语言和检测到的语言。",
+                    "add": "添加 Prompt"
+                },
+                "chatglm_cloud": {
+                    "title": "ChatGLM Cloud"
+                },
+                "moonshot_cloud": {
+                    "title": "Moonshot Cloud",
+                    "model": "模型",
+                    "stream": "流式输出",
+                    "prompt_description": "通过自定义Prompt自定义AI行为, $text $from $to $detect 将会被替换为 待翻译文本，源语言，目标语言和检测到的语言。",
+                    "add": "添加 Prompt"
+                },
+                "minimax_cloud": {
+                    "title": "MiniMax Cloud",
+                    "model": "模型",
+                    "stream": "流式输出",
+                    "prompt_description": "通过自定义Prompt自定义AI行为, $text $from $to $detect 将会被替换为 待翻译文本，源语言，目标语言和检测到的语言。",
+                    "add": "添加 Prompt"
+                },
+                "deepseek_cloud": {
+                    "title": "DeepSeek Cloud",
+                    "model": "模型",
+                    "stream": "流式输出",
+                    "prompt_description": "通过自定义Prompt自定义AI行为, $text $from $to $detect 将会被替换为 待翻译文本，源语言，目标语言和检测到的语言。",
+                    "add": "添加 Prompt"
+                },
+                "tongyi_cloud": {
+                    "title": "Tongyi Cloud",
+                    "model": "模型",
+                    "stream": "流式输出",
+                    "prompt_description": "通过自定义Prompt自定义AI行为, $text $from $to $detect 将会被替换为 待翻译文本，源语言，目标语言和检测到的语言。",
+                    "add": "添加 Prompt"
                 }
             },
             "recognize": {

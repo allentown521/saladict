@@ -25,7 +25,7 @@ const availableModels = 'deepseek-chat'.split('、').map((it) => it.trim());
 export function Config(props) {
     const { instanceKey, updateServiceList, onClose } = props;
     const { t } = useTranslation();
-    const [deepseekConfig, setOpenaiConfig] = useConfig(
+    const [deepseekConfig, setServiceConfig] = useConfig(
         instanceKey,
         {
             [INSTANCE_NAME_CONFIG_KEY]: t('services.translate.deepseek_cloud.title'),
@@ -56,7 +56,7 @@ export function Config(props) {
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
-                    setOpenaiConfig(deepseekConfig, true);
+                    setServiceConfig(deepseekConfig, true);
                     updateServiceList(instanceKey);
                     onClose();
                 }}
@@ -91,7 +91,7 @@ export function Config(props) {
                     <Switch
                         isSelected={deepseekConfig['stream']}
                         onValueChange={(value) => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...deepseekConfig,
                                 stream: value,
                             });
@@ -113,7 +113,7 @@ export function Config(props) {
                             autoFocus='first'
                             aria-label='model'
                             onAction={(key) => {
-                                setOpenaiConfig({
+                                setServiceConfig({
                                     ...deepseekConfig,
                                     model: key,
                                 });
@@ -142,7 +142,7 @@ export function Config(props) {
                                         value={prompt.content}
                                         placeholder={`Input Some ${prompt.role} Prompt`}
                                         onValueChange={(value) => {
-                                            setOpenaiConfig({
+                                            setServiceConfig({
                                                 ...deepseekConfig,
                                                 promptList: deepseekConfig.promptList.map((p, i) => {
                                                     if (i === index) {
@@ -170,7 +170,7 @@ export function Config(props) {
                                         className='my-auto mx-1'
                                         variant='flat'
                                         onPress={() => {
-                                            setOpenaiConfig({
+                                            setServiceConfig({
                                                 ...deepseekConfig,
                                                 promptList: deepseekConfig.promptList.filter((_, i) => i !== index),
                                             });
@@ -184,7 +184,7 @@ export function Config(props) {
                     <Button
                         fullWidth
                         onPress={() => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...deepseekConfig,
                                 promptList: [
                                     ...deepseekConfig.promptList,
@@ -215,7 +215,7 @@ export function Config(props) {
                         value={deepseekConfig['requestArguments']}
                         placeholder={`Input API Request Arguments`}
                         onValueChange={(value) => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...deepseekConfig,
                                 requestArguments: value,
                             });

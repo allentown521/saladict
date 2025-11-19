@@ -16,6 +16,7 @@ import { osType } from '../../utils/env';
 import { useConfig } from '../../hooks';
 import { store } from '../../utils/store';
 import { info } from 'tauri-plugin-log-api';
+import { default_translate_service_list } from '../../services/translate/constants';
 
 let blurTimeout = null;
 let resizeTimeout = null;
@@ -68,14 +69,10 @@ export default function Translate() {
     const [alwaysOnTop] = useConfig('translate_always_on_top', false);
     const [windowPosition] = useConfig('translate_window_position', 'mouse');
     const [rememberWindowSize] = useConfig('translate_remember_window_size', false);
-    const [translateServiceInstanceList, setTranslateServiceInstanceList] = useConfig('translate_service_list', [
-        'deepl',
-        'bing',
-        'lingva',
-        'yandex',
-        'google',
-        'ecdict',
-    ]);
+    const [translateServiceInstanceList, setTranslateServiceInstanceList] = useConfig(
+        'translate_service_list',
+        default_translate_service_list
+    );
     const [recognizeServiceInstanceList] = useConfig('recognize_service_list', ['system', 'tesseract']);
     const [ttsServiceInstanceList] = useConfig('tts_service_list', ['lingva_tts']);
     const [collectionServiceInstanceList] = useConfig('collection_service_list', []);

@@ -25,7 +25,7 @@ const availableModels = 'claude-4.5-haiku、claude-4.5-sonnet'.split('、').map(
 export function Config(props) {
     const { instanceKey, updateServiceList, onClose } = props;
     const { t } = useTranslation();
-    const [claudeConfig, setOpenaiConfig] = useConfig(
+    const [claudeConfig, setServiceConfig] = useConfig(
         instanceKey,
         {
             [INSTANCE_NAME_CONFIG_KEY]: t('services.translate.claude_cloud.title'),
@@ -56,7 +56,7 @@ export function Config(props) {
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
-                    setOpenaiConfig(claudeConfig, true);
+                    setServiceConfig(claudeConfig, true);
                     updateServiceList(instanceKey);
                     onClose();
                 }}
@@ -91,7 +91,7 @@ export function Config(props) {
                     <Switch
                         isSelected={claudeConfig['stream']}
                         onValueChange={(value) => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...claudeConfig,
                                 stream: value,
                             });
@@ -113,7 +113,7 @@ export function Config(props) {
                             autoFocus='first'
                             aria-label='model'
                             onAction={(key) => {
-                                setOpenaiConfig({
+                                setServiceConfig({
                                     ...claudeConfig,
                                     model: key,
                                 });
@@ -142,7 +142,7 @@ export function Config(props) {
                                         value={prompt.content}
                                         placeholder={`Input Some ${prompt.role} Prompt`}
                                         onValueChange={(value) => {
-                                            setOpenaiConfig({
+                                            setServiceConfig({
                                                 ...claudeConfig,
                                                 promptList: claudeConfig.promptList.map((p, i) => {
                                                     if (i === index) {
@@ -170,7 +170,7 @@ export function Config(props) {
                                         className='my-auto mx-1'
                                         variant='flat'
                                         onPress={() => {
-                                            setOpenaiConfig({
+                                            setServiceConfig({
                                                 ...claudeConfig,
                                                 promptList: claudeConfig.promptList.filter((_, i) => i !== index),
                                             });
@@ -184,7 +184,7 @@ export function Config(props) {
                     <Button
                         fullWidth
                         onPress={() => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...claudeConfig,
                                 promptList: [
                                     ...claudeConfig.promptList,
@@ -215,7 +215,7 @@ export function Config(props) {
                         value={claudeConfig['requestArguments']}
                         placeholder={`Input API Request Arguments`}
                         onValueChange={(value) => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...claudeConfig,
                                 requestArguments: value,
                             });

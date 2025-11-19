@@ -11,6 +11,7 @@ import { useConfig, deleteKey } from '../../../../../hooks';
 import ServiceItem from './ServiceItem';
 import SelectModal from './SelectModal';
 import ConfigModal from './ConfigModal';
+import { default_translate_service_list } from '../../../../../services/translate/constants';
 
 export default function Translate(props) {
     const { pluginList } = props;
@@ -23,14 +24,10 @@ export default function Translate(props) {
     const { isOpen: isConfigOpen, onOpen: onConfigOpen, onOpenChange: onConfigOpenChange } = useDisclosure();
     const [currentConfigKey, setCurrentConfigKey] = useState('deepl');
     // now it's service instance list
-    const [translateServiceInstanceList, setTranslateServiceInstanceList] = useConfig('translate_service_list', [
-        'deepl',
-        'bing',
-        'lingva',
-        'yandex',
-        'google',
-        'ecdict',
-    ]);
+    const [translateServiceInstanceList, setTranslateServiceInstanceList] = useConfig(
+        'translate_service_list',
+        default_translate_service_list
+    );
 
     const { t } = useTranslation();
     const toastStyle = useToastStyle();

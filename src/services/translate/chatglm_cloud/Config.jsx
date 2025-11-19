@@ -25,7 +25,7 @@ const availableModels = 'glm-4.5-flash、glm-4.6'.split('、').map((it) => it.tr
 export function Config(props) {
     const { instanceKey, updateServiceList, onClose } = props;
     const { t } = useTranslation();
-    const [chatglmConfig, setOpenaiConfig] = useConfig(
+    const [chatglmConfig, setServiceConfig] = useConfig(
         instanceKey,
         {
             [INSTANCE_NAME_CONFIG_KEY]: t('services.translate.chatglm_cloud.title'),
@@ -56,7 +56,7 @@ export function Config(props) {
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
-                    setOpenaiConfig(chatglmConfig, true);
+                    setServiceConfig(chatglmConfig, true);
                     updateServiceList(instanceKey);
                     onClose();
                 }}
@@ -91,7 +91,7 @@ export function Config(props) {
                     <Switch
                         isSelected={chatglmConfig['stream']}
                         onValueChange={(value) => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...chatglmConfig,
                                 stream: value,
                             });
@@ -113,7 +113,7 @@ export function Config(props) {
                             autoFocus='first'
                             aria-label='model'
                             onAction={(key) => {
-                                setOpenaiConfig({
+                                setServiceConfig({
                                     ...chatglmConfig,
                                     model: key,
                                 });
@@ -140,7 +140,7 @@ export function Config(props) {
                                         value={prompt.content}
                                         placeholder={`Input Some ${prompt.role} Prompt`}
                                         onValueChange={(value) => {
-                                            setOpenaiConfig({
+                                            setServiceConfig({
                                                 ...chatglmConfig,
                                                 promptList: chatglmConfig.promptList.map((p, i) => {
                                                     if (i === index) {
@@ -168,7 +168,7 @@ export function Config(props) {
                                         className='my-auto mx-1'
                                         variant='flat'
                                         onPress={() => {
-                                            setOpenaiConfig({
+                                            setServiceConfig({
                                                 ...chatglmConfig,
                                                 promptList: chatglmConfig.promptList.filter((_, i) => i !== index),
                                             });
@@ -182,7 +182,7 @@ export function Config(props) {
                     <Button
                         fullWidth
                         onPress={() => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...chatglmConfig,
                                 promptList: [
                                     ...chatglmConfig.promptList,
@@ -213,7 +213,7 @@ export function Config(props) {
                         value={chatglmConfig['requestArguments']}
                         placeholder={`Input API Request Arguments`}
                         onValueChange={(value) => {
-                            setOpenaiConfig({
+                            setServiceConfig({
                                 ...chatglmConfig,
                                 requestArguments: value,
                             });
