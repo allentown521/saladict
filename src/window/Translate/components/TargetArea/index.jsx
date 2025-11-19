@@ -233,6 +233,7 @@ export default function TargetArea(props) {
                     (e) => {
                         info(`[${currentTranslateServiceInstanceKey}]reject:` + e);
                         if (translateID[index] !== id) return;
+                        setHideOnce(false);
                         setError(e.toString());
                         setIsLoading(false);
                     }
@@ -306,6 +307,7 @@ export default function TargetArea(props) {
                         (e) => {
                             info(`[${currentTranslateServiceInstanceKey}]reject:` + e);
                             if (translateID[index] !== id) return;
+                            setHideOnce(false);
                             setError(e.toString());
                             setIsLoading(false);
                         }
