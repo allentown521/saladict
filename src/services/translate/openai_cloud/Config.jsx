@@ -21,7 +21,7 @@ export const defaultRequestArguments = JSON.stringify({
     frequency_penalty: 0,
     presence_penalty: 0,
 });
-const availableModels = 'gpt-4o-mini、gpt-5-mini、gpt-5'.split('、').map((it) => it.trim());
+const availableModels = 'gpt-4.1-nano、gpt-5-mini、gpt-5'.split('、').map((it) => it.trim());
 export function Config(props) {
     const { instanceKey, updateServiceList, onClose } = props;
     const { t } = useTranslation();
