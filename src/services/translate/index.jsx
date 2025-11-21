@@ -27,6 +27,7 @@ import * as _moonshot_cloud from './moonshot_cloud';
 import * as _minimax_cloud from './minimax_cloud';
 import * as _deepseek_cloud from './deepseek_cloud';
 import * as _tongyi_cloud from './tongyi_cloud';
+import * as _deepl_cloud from './deepl_cloud';
 
 export const deepl = _deepl;
 export const bing = _bing;
@@ -57,3 +58,4 @@ export const moonshot_cloud = _moonshot_cloud;
 export const minimax_cloud = _minimax_cloud;
 export const deepseek_cloud = _deepseek_cloud;
 export const tongyi_cloud = _tongyi_cloud;
+export const deepl_cloud = _deepl_cloud;

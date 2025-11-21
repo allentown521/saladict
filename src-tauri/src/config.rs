@@ -97,7 +97,8 @@ pub fn check_service_available() -> Result<(), Error> {
         "minimax_cloud",
         "deepseek_cloud",
         "tongyi_cloud",
-        "chatglm_cloud"
+        "chatglm_cloud",
+        "deepl_cloud"
     ];
     let builtin_tts_list: Vec<&str> = vec!["lingva_tts", "baidu_tts", "google_tts"];
     let builtin_collection_list: Vec<&str> = vec!["anki", "eudic"];
