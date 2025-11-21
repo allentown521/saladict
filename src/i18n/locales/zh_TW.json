@@ -310,6 +310,7 @@
                     "chatglm_std": "ChatGLM Std",
                     "chatglm_lite": "ChatGLM Lite",
                     "api_key": "API Key",
+                    "stream": "串流輸出",
                     "prompt_description": "透過自定義 Prompt，您可以自定義 AI 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",
                     "add": "新增 Prompt",
                     "chatglm_turbo": "ChatGLM Turbo"
@@ -437,7 +438,7 @@
                     "add": "添加 Prompt"
                 },
                 "tongyi_cloud": {
-                    "title": "Tongyi Cloud",
+                    "title": "通义千问 Cloud",
                     "model": "模型",
                     "stream": "串流輸出",
                     "prompt_description": "透過自定義 Prompt，您可以自定義 AI 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",

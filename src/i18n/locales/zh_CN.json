@@ -335,6 +335,7 @@
                     "chatglm_std": "ChatGLM Std",
                     "chatglm_lite": "ChatGLM Lite",
                     "api_key": "Api Key",
+                    "stream": "流式输出",
                     "prompt_description": "通过自定义Prompt自定义AI行为, $text $from $to $detect 将会被替换为 待翻译文本，源语言，目标语言和检测到的语言。",
                     "add": "添加 Prompt"
                 },
@@ -417,7 +418,7 @@
                     "add": "添加 Prompt"
                 },
                 "chatglm_cloud": {
-                    "title": "ChatGLM Cloud"
+                    "title": "智谱 Cloud"
                 },
                 "moonshot_cloud": {
                     "title": "Moonshot Cloud",
@@ -441,7 +442,7 @@
                     "add": "添加 Prompt"
                 },
                 "tongyi_cloud": {
-                    "title": "Tongyi Cloud",
+                    "title": "通义千问 Cloud",
                     "model": "模型",
                     "stream": "流式输出",
                     "prompt_description": "通过自定义Prompt自定义AI行为, $text $from $to $detect 将会被替换为 待翻译文本，源语言，目标语言和检测到的语言。",

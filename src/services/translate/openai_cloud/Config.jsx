@@ -73,18 +73,7 @@ export function Config(props) {
                             label: 'text-[length:--nextui-font-size-medium]',
                             mainWrapper: 'max-w-[50%]',
                         }}
-                        disabled
                     />
-                </div>
-                <div className='config-item'>
-                    <h3 className='my-auto'>{t('services.help')}</h3>
-                    <Button
-                        onPress={() => {
-                            open('https://app.saladict.net/docs/api/translate/openai.html');
-                        }}
-                    >
-                        {t('services.help')}
-                    </Button>
                 </div>
 
                 <div className='config-item'>

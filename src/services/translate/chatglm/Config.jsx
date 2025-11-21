@@ -1,5 +1,5 @@
 import { INSTANCE_NAME_CONFIG_KEY } from '../../../utils/service_instance';
-import { Input, Button, Textarea } from '@nextui-org/react';
+import { Input, Button, Textarea, Switch } from '@nextui-org/react';
 import { DropdownTrigger } from '@nextui-org/react';
 import { MdDeleteOutline } from 'react-icons/md';
 import { DropdownMenu } from '@nextui-org/react';
@@ -26,6 +26,7 @@ export function Config(props) {
             [INSTANCE_NAME_CONFIG_KEY]: t('services.translate.chatglm.title'),
             model: 'glm-4.5-flash',
             apiKey: '',
+            stream: true,
             promptList: [
                 {
                     role: 'user',
@@ -93,6 +94,22 @@ export function Config(props) {
                     >
                         {t('services.help')}
                     </Button>
+                </div>
+                <div className='config-item'>
+                    <Switch
+                        isSelected={serviceConfig['stream']}
+                        onValueChange={(value) => {
+                            setServiceConfig({
+                                ...serviceConfig,
+                                stream: value,
+                            });
+                        }}
+                        classNames={{
+                            base: 'flex flex-row-reverse justify-between w-full max-w-full',
+                        }}
+                    >
+                        {t('services.translate.chatglm.stream')}
+                    </Switch>
                 </div>
                 <div className='config-item'>
                     <Input

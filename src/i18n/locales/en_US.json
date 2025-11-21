@@ -335,6 +335,7 @@
                     "chatglm_std": "ChatGLM Std",
                     "chatglm_lite": "ChatGLM Lite",
                     "api_key": "Api Key",
+                    "stream": "Stream Mode",
                     "prompt_description": "By customizing the Prompt, you can customize the behavior of AI. $text $from $to $detect will be replaced with the text to be translated, source language, target language and detected language.",
                     "add": "Add Prompt"
                 },
