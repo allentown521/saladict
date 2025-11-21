@@ -42,6 +42,20 @@
 
 <div align="center">
 
+# Why is Saladict a better alternative to Pot Translate?
+
+</div>
+
+Saladict is a fork of Pot Translation. Since Pot Translation is already excellent, why choose Saladict instead? Here are the main reasons:
+
+-   More stable functionality: Many pull requests in Pot remain unmerged, including important bug fixes. Saladict regularly syncs bug-fix code from the upstream Pot repository and selectively integrates new features to ensure overall stability.
+
+-   Broader AI translation integration: Starting from version 4.0.0, Saladict offers built‑in online translation services. Users no longer need to apply for their own API keys, making it easier to use.
+
+-   Unified product ecosystem: Our long‑term vision is to maintain consistency and complementarity between the browser extension and desktop application, delivering the most complete text‑selection translation solution. Many users first encounter Saladict through the Chrome extension before downloading the desktop app.
+
+-   Longer support cycle: Pot’s maintenance frequency has been declining, and volunteer‑driven projects are difficult to sustain. Saladict generates revenue through ads and online translation services, giving us the motivation to continue maintaining the product while keeping the code open.
+
 # Usage
 
 </div>
