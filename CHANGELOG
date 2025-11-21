@@ -9,3 +9,4 @@
 ### Bugs fixed:
 
 -   fix lingva service not working
+-   fix glm undefined error
