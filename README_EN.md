@@ -46,10 +46,10 @@
 
 </div>
 
-| Translation by selection                        | Translate by input                                                    | External calls                                                                           |
-| ----------------------------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| Select text and press the shortcut to translate | Press shortcut to open translation window, translate by hitting Enter | More efficient workflow by integrating other apps, see [External Calls](#external-calls) |
-| <img src="asset/eg1.gif"/>                      | <img src="asset/eg2.gif"/>                                            | <img src="asset/eg3.gif"/>                                                               |
+| Translation by selection                                                  | Translate by input                                                    | External calls                                                                           |
+| ------------------------------------------------------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Select text and press the shortcut or click translation icon to translate | Press shortcut to open translation window, translate by hitting Enter | More efficient workflow by integrating other apps, see [External Calls](#external-calls) |
+| <img src="asset/eg1.gif"/>                                                | <img src="asset/eg2.gif"/>                                            | <img src="asset/eg3.gif"/>                                                               |
 
 | Clipboard Listening                                                                                                                       | Screenshot OCR                     | Screenshot Translation                   |
 | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ---------------------------------------- |
