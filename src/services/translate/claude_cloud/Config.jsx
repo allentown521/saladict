@@ -17,9 +17,7 @@ import { INSTANCE_NAME_CONFIG_KEY } from '../../../utils/service_instance';
 
 export const defaultRequestArguments = JSON.stringify({
     temperature: 0.1,
-    top_p: 0.99,
-    frequency_penalty: 0,
-    presence_penalty: 0,
+    // top_p: 0.99,
 });
 const availableModels = 'claude-4.5-haiku、claude-4.5-sonnet'.split('、').map((it) => it.trim());
 export function Config(props) {
