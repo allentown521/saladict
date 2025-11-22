@@ -1,5 +1,5 @@
 import { createAuthClient } from 'better-auth/react';
-import { fetch as tauriFetch, FetchOptions, HttpVerb, Body, Response as TauriResponse } from '@tauri-apps/api/http';
+import { fetch as tauriFetch, FetchOptions, HttpVerb, Body } from '@tauri-apps/api/http';
 import { readTextFile, writeTextFile, BaseDirectory, createDir, removeFile } from '@tauri-apps/api/fs';
 
 // Cookie file path
@@ -81,6 +81,10 @@ export const tauriFetchImpl = async (input: RequestInfo | URL, init?: RequestIni
 
     // If request URL contains current-plan, add stored cookie
     const headers = { ...((init?.headers as Record<string, string>) || {}) };
+
+    // Add real User-Agent header
+    headers['User-Agent'] = navigator.userAgent;
+
     if (needAppendCookies(url) && storedCookie) {
         headers['Cookie'] = storedCookie;
     }
