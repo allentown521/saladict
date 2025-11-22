@@ -121,7 +121,7 @@ export async function translate(text, from, to, options = {}) {
             let result = res.data;
             const { choices } = result;
             if (choices) {
-                let target = choices[0].content.parts[0].text.trim();
+                let target = choices[0].message.content.trim();
                 if (target) {
                     if (target.startsWith('"')) {
                         target = target.slice(1);
