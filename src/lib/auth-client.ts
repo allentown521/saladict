@@ -2,10 +2,10 @@ import { createAuthClient } from 'better-auth/react';
 import { fetch as tauriFetch, FetchOptions, HttpVerb, Body, Response as TauriResponse } from '@tauri-apps/api/http';
 import { readTextFile, writeTextFile, BaseDirectory, createDir, removeFile } from '@tauri-apps/api/fs';
 
-// Cookie文件路径
+// Cookie file path
 const COOKIE_FILE_PATH = 'auth-cookie.txt';
 
-// 从文件读取cookie
+// Load cookie from file
 const loadCookieFromFile = async (): Promise<string | null> => {
     try {
         const cookie = await readTextFile(COOKIE_FILE_PATH, { dir: BaseDirectory.AppConfig });
@@ -15,51 +15,71 @@ const loadCookieFromFile = async (): Promise<string | null> => {
     }
 };
 
-// 将cookie保存到文件
+// Save cookie to file
 const saveCookieToFile = async (cookie: string): Promise<void> => {
     try {
-        // 确保目录存在
+        // Ensure directory exists
         await createDir('', { dir: BaseDirectory.AppConfig, recursive: true }).catch(() => {
-            // 目录可能已存在，忽略错误
+            // Directory might already exist, ignore error
         });
 
-        // 保存cookie文件
+        // Save cookie file
         await writeTextFile(COOKIE_FILE_PATH, cookie, { dir: BaseDirectory.AppConfig });
         console.log('Cookie saved successfully to:', COOKIE_FILE_PATH);
     } catch (error) {
         console.error('Failed to save cookie:', error);
-        // 在开发环境中提供更详细的错误信息
+        // Provide more detailed error information in development environment
         if (typeof error === 'object' && error !== null) {
             console.error('Error details:', JSON.stringify(error, null, 2));
         }
     }
 };
 
-// 删除cookie文件
+// Delete cookie file
 const deleteCookieFile = async (): Promise<void> => {
     try {
         await removeFile(COOKIE_FILE_PATH, { dir: BaseDirectory.AppConfig });
         console.log('Cookie file deleted successfully');
     } catch (error) {
         console.error('Failed to delete cookie file:', error);
-        // 文件不存在时忽略错误
+        // Ignore error when file doesn't exist
         if (typeof error === 'object' && error !== null) {
             console.error('Error details:', JSON.stringify(error, null, 2));
         }
     }
 };
 
+/**
+ * Custom fetch implementation that handles Tauri-specific requirements and cookie management
+ *
+ * Cloud API requires cookies for authentication. For Tauri 2, you can simply replace customFetchImpl and all cloud API calls with Tauri HTTP plugin's fetch
+ * For Tauri 1, window.fetch works normally on Windows, but Mac's WKWebView doesn't include cookies when making API calls
+ * Therefore, we implemented this based on Tauri 1's fetch to automatically add cookies, usage should be like window.fetch rather than Tauri's fetch
+ *
+ * @param {RequestInfo | URL} input - The URL or Request object for the request
+ * @param {RequestInit} [init] - Optional request initialization options
+ * @returns {Promise<Response>} A promise that resolves to the Response object
+ * @throws {Error} If the fetch operation fails
+ *
+ * @description
+ * This function provides a custom fetch implementation that:
+ * - Converts standard fetch parameters to Tauri-compatible format
+ * - Manages cookie storage and retrieval from file
+ * - Handles different body types (JSON, FormData, ArrayBuffer, Blob)
+ * - Supports streaming responses with proper content type detection
+ * - Converts Tauri Response to standard Response object
+ */
 export const tauriFetchImpl = async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
-    // 将标准 fetch 参数转换为 Tauri fetch 参数
+    // Convert standard fetch parameters to Tauri fetch parameters
     const url = typeof input === 'string' ? input : input.toString();
 
-    // 将 HTTP 方法转换为 Tauri 的 HttpVerb 类型
+    // Convert HTTP method to Tauri's HttpVerb type
     const method = (init?.method?.toUpperCase() || 'GET') as HttpVerb;
 
-    // 从文件加载cookie
+    // Load cookie from file
     const storedCookie = await loadCookieFromFile();
 
-    // 如果请求地址包含 current-plan，则添加存储的cookie
+    // If request URL contains current-plan, add stored cookie
     const headers = { ...((init?.headers as Record<string, string>) || {}) };
     if (needAppendCookies(url) && storedCookie) {
         headers['Cookie'] = storedCookie;
@@ -69,29 +89,29 @@ export const tauriFetchImpl = async (input: RequestInfo | URL, init?: RequestIni
         await deleteCookieFile();
     }
 
-    // 正确处理 body 字段
+    // Handle body field correctly
     let body: Body | undefined = undefined;
     if (init?.body) {
         if (typeof init.body === 'string') {
             try {
-                // 如果是 JSON 字符串，使用 Json body
+                // If it's a JSON string, use Json body
                 const parsedBody = JSON.parse(init.body);
                 body = Body.json(parsedBody);
             } catch {
-                // 如果不是 JSON，使用 Text body
+                // If not JSON, use Text body
                 body = Body.text(init.body);
             }
         } else if (init.body instanceof FormData) {
-            // 处理 FormData
+            // Handle FormData
             body = Body.form(init.body);
         } else if (init.body instanceof ArrayBuffer) {
-            // 处理 ArrayBuffer
+            // Handle ArrayBuffer
             body = Body.bytes(new Uint8Array(init.body));
         } else if (init.body instanceof Blob) {
-            // 处理 Blob
+            // Handle Blob
             body = Body.bytes(await init.body.arrayBuffer());
         } else {
-            // 其他情况使用 Json body
+            // Other cases use Json body
             body = Body.json(init.body);
         }
     }
@@ -101,7 +121,7 @@ export const tauriFetchImpl = async (input: RequestInfo | URL, init?: RequestIni
         headers: headers,
         body: body,
         timeout: 30000,
-        // 启用响应类型为二进制以支持流
+        // Enable binary response type to support streaming
         responseType: 2, // 2 = ResponseType.Binary
     };
 
@@ -109,18 +129,18 @@ export const tauriFetchImpl = async (input: RequestInfo | URL, init?: RequestIni
         throw new Error(error);
     });
 
-    // 如果响应包含 api/auth/sign-in/，则存储cookie
+    // If response contains api/auth/sign-in/, store cookie
     if (needSaveCookies(url) && response.rawHeaders) {
         const setCookieHeader = response.rawHeaders['set-cookie'] || response.rawHeaders['Set-Cookie'];
         if (setCookieHeader) {
-            // 遍历所有cookie并合并存储
+            // Iterate through all cookies and merge for storage
             const cookies = Array.isArray(setCookieHeader) ? setCookieHeader : [setCookieHeader];
             const cookieValues = cookies.map((cookie) => cookie.split(';')[0]).join('; ');
             await saveCookieToFile(cookieValues);
         }
     }
 
-    // 检查是否为流响应
+    // Check if it's a stream response
     const contentType = response.headers['content-type'] || '';
     const isStreamResponse =
         contentType.includes('text/event-stream') ||
@@ -132,7 +152,7 @@ export const tauriFetchImpl = async (input: RequestInfo | URL, init?: RequestIni
             response.data.byteLength > 1024) ||
         (init && 'body' in init && init.body instanceof ReadableStream);
 
-    // 调试信息
+    // Debug information
     if (isStreamResponse) {
         console.log('Stream response detected:', {
             contentType,
@@ -147,24 +167,24 @@ export const tauriFetchImpl = async (input: RequestInfo | URL, init?: RequestIni
 
     let resBody;
     if (isStreamResponse) {
-        // 对于流响应，处理不同类型的数据
+        // For stream responses, handle different data types
         if (response.data instanceof ArrayBuffer) {
-            // 如果是 ArrayBuffer，使用专门的流处理函数
+            // If it's ArrayBuffer, use dedicated stream handling function
             resBody = createStreamResponse(response.data, contentType);
         } else if (typeof response.data === 'string') {
-            // 如果是字符串，转换为 Uint8Array 后创建流
+            // If it's a string, convert to Uint8Array then create stream
             const uint8Array = new TextEncoder().encode(response.data);
             const arrayBuffer = uint8Array.buffer;
             resBody = createStreamResponse(arrayBuffer, contentType);
         } else if (response.data instanceof Blob) {
-            // 如果是 Blob，创建异步流
+            // If it's Blob, create async stream
             resBody = new ReadableStream({
                 async start(controller) {
                     try {
                         const arrayBuffer = await response.data.arrayBuffer();
                         const streamResponse = createStreamResponse(arrayBuffer, contentType);
                         const reader = streamResponse.getReader();
-                        
+
                         while (true) {
                             const { done, value } = await reader.read();
                             if (done) break;
@@ -174,25 +194,25 @@ export const tauriFetchImpl = async (input: RequestInfo | URL, init?: RequestIni
                     } catch (error) {
                         controller.error(error);
                     }
-                }
+                },
             });
         } else if (typeof response.data === 'object' && response.data !== null) {
-            // 如果是对象，转换为字符串后再处理
+            // If it's an object, convert to string then process
             const jsonString = JSON.stringify(response.data);
             const uint8Array = new TextEncoder().encode(jsonString);
             const arrayBuffer = uint8Array.buffer;
             resBody = createStreamResponse(arrayBuffer, contentType);
         } else {
-            // 其他情况，创建空流
+            // Other cases, create empty stream
             resBody = new ReadableStream({
                 start(controller) {
                     controller.close();
-                }
+                },
             });
         }
     } else {
-        // 将 Tauri 的 Response 转换为标准的 Response 对象
-        // 处理 response.data 的类型转换
+        // Convert Tauri Response to standard Response object
+        // Handle type conversion of response.data
         if (response.data !== null && response.data !== undefined) {
             if (typeof response.data === 'string') {
                 resBody = response.data;
@@ -206,7 +226,7 @@ export const tauriFetchImpl = async (input: RequestInfo | URL, init?: RequestIni
         }
     }
 
-    // Tauri Response 可能没有 statusText 属性，使用空字符串
+    // Tauri Response might not have statusText property, use empty string
     const statusText = '';
 
     return new Response(resBody, {
@@ -231,15 +251,15 @@ const needDeleteCookies = (url: string): boolean => {
 const needSaveCookies = (url: string): boolean => {
     return url.includes(import.meta.env.VITE_API_BASE_URL) && !url.includes('api/auth/sign-up/');
 };
-// 创建流式响应的辅助函数
+// Helper function to create streaming response
 const createStreamResponse = (data: ArrayBuffer, contentType: string): ReadableStream<Uint8Array> => {
     return new ReadableStream({
         start(controller) {
             const uint8Array = new Uint8Array(data);
 
-            // 根据内容类型决定分块策略
+            // Decide chunking strategy based on content type
             if (contentType.includes('text/event-stream')) {
-                // Server-Sent Events: 按行分割
+                // Server-Sent Events: split by lines
                 const text = new TextDecoder().decode(uint8Array);
                 const lines = text.split('\n');
 
@@ -248,13 +268,13 @@ const createStreamResponse = (data: ArrayBuffer, contentType: string): ReadableS
                         const lineData = new TextEncoder().encode(line + '\n');
                         setTimeout(() => {
                             controller.enqueue(lineData);
-                        }, index * 10); // 模拟延迟
+                        }, index * 10); // Simulate delay
                     }
                 });
 
                 setTimeout(() => controller.close(), lines.length * 10);
             } else {
-                // 其他流类型: 按固定大小分块
+                // Other stream types: chunk by fixed size
                 const chunkSize = 1024; // 1KB chunks
                 let offset = 0;
 
@@ -268,7 +288,7 @@ const createStreamResponse = (data: ArrayBuffer, contentType: string): ReadableS
                     controller.enqueue(chunk);
                     offset += chunkSize;
 
-                    // 使用 setImmediate 或 setTimeout 来避免阻塞
+                    // Use setImmediate or setTimeout to avoid blocking
                     setTimeout(pushChunk, 0);
                 };
 
@@ -281,10 +301,10 @@ const createStreamResponse = (data: ArrayBuffer, contentType: string): ReadableS
     });
 };
 
-// 导出删除cookie的函数供外部使用
+// Export cookie deletion function for external use
 export const clearStoredCookie = deleteCookieFile;
 
-// 导出流式请求的辅助函数
+// Export helper function for streaming requests
 export const streamRequest = async (url: string, options?: RequestInit): Promise<Response> => {
     const streamOptions = {
         ...options,
