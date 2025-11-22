@@ -1,3 +1,4 @@
+import { tauriFetchImpl } from '../../lib/auth-client';
 export async function translate(text, from, to, options, defaultRequestArguments, supportLanguage) {
     const { config, setResult, detect } = options;
 
@@ -33,7 +34,7 @@ export async function translate(text, from, to, options, defaultRequestArguments
     if (stream) {
         let res;
         try {
-            res = await window.fetch(apiUrl.href, {
+            res = await tauriFetchImpl(apiUrl.href, {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify(body),
@@ -60,7 +61,7 @@ export async function translate(text, from, to, options, defaultRequestArguments
                                 if (temp !== '') {
                                     data = temp + data.trim();
                                     let result = JSON.parse(data.trim());
-                                    if (result.choices[0].delta.content) {
+                                    if (result?.choices[0]?.delta?.content) {
                                         target += result.choices[0].delta.content;
                                         if (setResult) {
                                             setResult(target + '_');
@@ -71,7 +72,7 @@ export async function translate(text, from, to, options, defaultRequestArguments
                                     temp = '';
                                 } else {
                                     let result = JSON.parse(data.trim());
-                                    if (result.choices[0].delta.content) {
+                                    if (result?.choices[0]?.delta?.content) {
                                         target += result.choices[0].delta.content;
                                         if (setResult) {
                                             setResult(target + '_');
@@ -80,7 +81,8 @@ export async function translate(text, from, to, options, defaultRequestArguments
                                         }
                                     }
                                 }
-                            } catch {
+                            } catch (e) {
+                                console.log('error data', e);
                                 temp = data.trim();
                             }
                         }
@@ -96,7 +98,7 @@ export async function translate(text, from, to, options, defaultRequestArguments
     } else {
         let res;
         try {
-            res = await window.fetch(apiUrl.href, {
+            res = await tauriFetchImpl(apiUrl.href, {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify(body),
