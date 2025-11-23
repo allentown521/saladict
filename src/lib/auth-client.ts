@@ -140,7 +140,14 @@ export const tauriFetchImpl = async (input: RequestInfo | URL, init?: RequestIni
             // Iterate through all cookies and merge for storage
             const cookies = Array.isArray(setCookieHeader) ? setCookieHeader : [setCookieHeader];
             const cookieValues = cookies.map((cookie) => cookie.split(';')[0]).join('; ');
-            await saveCookieToFile(cookieValues);
+            
+            // Check if session_token exists and is not empty
+            const sessionTokenMatch = cookieValues.match(/session_token=([^;]+)/);
+            if (sessionTokenMatch && sessionTokenMatch[1] && sessionTokenMatch[1].trim() !== '') {
+                await saveCookieToFile(cookieValues);
+            } else {
+                console.log('Session token is empty or not found, skipping cookie save');
+            }
         }
     }
 
