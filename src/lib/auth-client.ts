@@ -140,7 +140,7 @@ export const tauriFetchImpl = async (input: RequestInfo | URL, init?: RequestIni
             // Iterate through all cookies and merge for storage
             const cookies = Array.isArray(setCookieHeader) ? setCookieHeader : [setCookieHeader];
             const cookieValues = cookies.map((cookie) => cookie.split(';')[0]).join('; ');
-            
+
             // Check if session_token exists and is not empty
             const sessionTokenMatch = cookieValues.match(/session_token=([^;]+)/);
             if (sessionTokenMatch && sessionTokenMatch[1] && sessionTokenMatch[1].trim() !== '') {
@@ -310,22 +310,6 @@ const createStreamResponse = (data: ArrayBuffer, contentType: string): ReadableS
             console.log('Stream response cancelled');
         },
     });
-};
-
-// Export cookie deletion function for external use
-export const clearStoredCookie = deleteCookieFile;
-
-// Export helper function for streaming requests
-export const streamRequest = async (url: string, options?: RequestInit): Promise<Response> => {
-    const streamOptions = {
-        ...options,
-        headers: {
-            Accept: 'text/event-stream, application/octet-stream, application/x-ndjson',
-            ...options?.headers,
-        },
-    };
-
-    return tauriFetchImpl(url, streamOptions);
 };
 
 export const authClient = createAuthClient({
