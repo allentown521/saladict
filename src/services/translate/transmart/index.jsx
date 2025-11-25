@@ -18,6 +18,7 @@ export async function translate(text, from, to, options = {}) {
         body: Body.json({
             header: {
                 fn: 'auto_translation',
+                client_key: 'browser-chrome-110.0.0-Mac OS-df4bd4c5-a65d-44b2-a40f-42f34f3535f2-1677486696487',
                 ...header,
             },
             type: 'plain',
