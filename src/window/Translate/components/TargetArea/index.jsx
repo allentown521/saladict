@@ -52,7 +52,15 @@ import {
 let translateID = [];
 
 export default function TargetArea(props) {
-    const { index, name, translateServiceInstanceList, pluginList, serviceInstanceConfigMap, ...drag } = props;
+    const {
+        index,
+        name,
+        translateServiceInstanceList,
+        pluginList,
+        serviceInstanceConfigMap,
+        isFirstEnabledTransService,
+        ...drag
+    } = props;
 
     const [currentTranslateServiceInstanceKey, setCurrentTranslateServiceInstanceKey] = useState(name);
     function getInstanceName(instanceKey, serviceNameSupplier) {
@@ -206,7 +214,7 @@ export default function TargetArea(props) {
                                 typeof v === 'string' ? v.trim() : v
                             );
                         }
-                        if (index === 0 && !clipboardMonitor) {
+                        if (isFirstEnabledTransService && !clipboardMonitor) {
                             switch (autoCopy) {
                                 case 'target':
                                     writeText(v).then(() => {
@@ -280,7 +288,7 @@ export default function TargetArea(props) {
                                     typeof v === 'string' ? v.trim() : v
                                 );
                             }
-                            if (index === 0 && !clipboardMonitor) {
+                            if (isFirstEnabledTransService && !clipboardMonitor) {
                                 switch (autoCopy) {
                                     case 'target':
                                         writeText(v).then(() => {
