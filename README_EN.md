@@ -42,19 +42,33 @@
 
 <div align="center">
 
+# Why is Saladict a better alternative to Pot Translate?
+
+</div>
+
+Saladict is a fork of Pot Translation. Since Pot Translation is already excellent, why choose Saladict instead? Here are the main reasons:
+
+-   More stable functionality: Many pull requests in Pot remain unmerged, including important bug fixes. Saladict regularly syncs bug-fix code from the upstream Pot repository and selectively integrates new features to ensure overall stability.
+
+-   Broader AI translation integration: Starting from version 4.0.0, Saladict offers built‑in online translation services. Users no longer need to apply for their own API keys, making it easier to use.
+
+-   Unified product ecosystem: Our long‑term vision is to maintain consistency and complementarity between the browser extension and desktop application, delivering the most complete text‑selection translation solution. Many users first encounter Saladict through the Chrome extension before downloading the desktop app.
+
+-   Longer support cycle: Pot’s maintenance frequency has been declining, and volunteer‑driven projects are difficult to sustain. Saladict generates revenue through ads and online translation services, giving us the motivation to continue maintaining the product while keeping the code open.
+
 # Usage
 
 </div>
 
-| Translation by selection                        | Translate by input                                                    | External calls                                                                           |
-| ----------------------------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| Select text and press the shortcut to translate | Press shortcut to open translation window, translate by hitting Enter | More efficient workflow by integrating other apps, see [External Calls](#external-calls) |
-| <img src="asset/eg1.gif"/>                      | <img src="asset/eg2.gif"/>                                            | <img src="asset/eg3.gif"/>                                                               |
+| Translation by selection                                                  | Translate by input                                                    | External calls                                                                           |
+| ------------------------------------------------------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Select text and press the shortcut or click translation icon to translate | Press shortcut to open translation window, translate by hitting Enter | More efficient workflow by integrating other apps, see [External Calls](#external-calls) |
+| <img src="asset/eg1.gif"/>                                                | <img src="asset/eg2.gif"/>                                            | <img src="asset/eg3.gif"/>                                                               |
 
-| Clipboard Listening                                                                                                          | Screenshot OCR                     | Screenshot Translation                   |
-| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ---------------------------------------- |
+| Clipboard Listening                                                                                                                       | Screenshot OCR                     | Screenshot Translation                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ---------------------------------------- |
 | Right click the menu bar icon to select `Clipboard Listening` to start clipboard listening. Copied text will be translated automatically. | Press shortcut, select area to OCR | Press shortcut, select area to translate |
-| <img src="asset/eg4.gif"/>                                                                                                   | <img src="asset/eg5.gif"/>         | <img src="asset/eg6.gif"/>               |
+| <img src="asset/eg4.gif"/>                                                                                                                | <img src="asset/eg5.gif"/>         | <img src="asset/eg6.gif"/>               |
 
 <div align="center">
 
@@ -82,7 +96,7 @@
 
 -   [x] [OpenAI](https://platform.openai.com/)
 -   [x] [ChatGLM](https://www.zhipuai.cn/)
--   [x] [Gemini Pro](https://gemini.google.com/)
+-   [x] [Gemini](https://gemini.google.com/)
 -   [x] [Ollama](https://www.ollama.com/) (Offline)
 -   [x] [Ali Translate](https://www.aliyun.com/product/ai/alimt)
 -   [x] [Baidu Translate](https://fanyi.baidu.com/)
@@ -149,7 +163,7 @@ The built-in services are limited. But you can expand the app's functionality th
 
 ## Install Plugin
 
-You can find plugins you need in the [Plugin List](https://saladict-app.aichatone.com/plugin.html), and then go to the plugin repo to download it.
+You can find plugins you need in the [Plugin List](https://app.saladict.net/plugin.html), and then go to the plugin repo to download it.
 
 The file extension of Saladict plugin is `.potext`. After downloading the `.potext` file, go to Preferences - Service Settings - Add External Plugin - Install External Plugin to select the corresponding `.potext` to install it. It will then be added to the service list and can be used like a built-in service.
 
@@ -165,7 +179,7 @@ The file extension of Saladict plugin is `.potext`. After downloading the `.pote
 
 ## Develop Plugin
 
-The [Template](https://saladict-app.aichatone.com/en/plugin.html#template) section in the [Plugin List](https://saladict-app.aichatone.com/en/plugin.html) provides plugin development templates for various plugins. Please check the corresponding template repo for specific documentation.
+The [Template](https://app.saladict.net/en/plugin.html#template) section in the [Plugin List](https://app.saladict.net/en/plugin.html) provides plugin development templates for various plugins. Please check the corresponding template repo for specific documentation.
 
 <div align="center">
 
@@ -179,7 +193,7 @@ The [Template](https://saladict-app.aichatone.com/en/plugin.html#template) secti
 
  <a href="https://apps.microsoft.com/detail/9pfzvl2bqx1s" target="_blank">
   <img src="asset/download_on_microsoft_store.png" alt="Download on the Microsoft Store" style="width: 156px;" />
- </a> 
+ </a>
 
 ### Install via Winget
 
@@ -208,13 +222,14 @@ winget install allentown521.Saladict
     If the issue persists, please try starting in Windows 7 compatibility mode.
 
 ## MacOS
+
 ### Mac App Store Installation
 
 For M-series Macs, you can install it from Mac App Store
 
  <a href="https://apps.apple.com/app/6740262076" target="_blank">
   <img src="asset/download_on_mac_app_store.svg" alt="Download on the Mac App Store" style="width: 156px;" />
- </a> 
+ </a>
 
 > Due to technical limitations, the Mac App Store version does not support `Selection Translation` and `Translation Using Shortcuts After Selection`.
 
@@ -254,7 +269,6 @@ brew upgrade --cask saladict
 We provide `deb` packages for Linux.
 
 Please note that: There are two deb package, `universal` is based on `glibc2.28` and `openssl-1.1`, If the regular deb package can't run on your machine due to dependency problems, please download the `universal` package, Due to its low version dependency, it can run on most systems.
-
 
 <div align="center">
 

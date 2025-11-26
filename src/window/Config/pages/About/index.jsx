@@ -40,7 +40,7 @@ export default function About() {
                         className='my-[5px]'
                         size='sm'
                         onPress={() => {
-                            open('https://saladict-app.aichatone.com');
+                            open('https://app.saladict.net');
                         }}
                     >
                         {t('config.about.website')}
@@ -50,7 +50,7 @@ export default function About() {
                         className='my-[5px]'
                         size='sm'
                         onPress={() => {
-                            open('https://saladict-app.aichatone.com/docs');
+                            open('https://app.saladict.net/docs');
                         }}
                     >
                         {t('config.about.faq')}
@@ -130,38 +130,44 @@ export default function About() {
             </div>
             <div className='content-center px-[40px]'>
                 <div className='flex justify-center'>
-                    {!isAppStore && <Button
-                        variant='light'
-                        className='my-[5px]'
-                        size='sm'
-                        onPress={() => {
-                            invoke('updater_window');
-                        }}
-                    >
-                        {t('config.about.check_update')}
-                    </Button>}
-                    {devMode && <Button
-                        variant='light'
-                        className='my-[5px]'
-                        size='sm'
-                        onPress={async () => {
-                            const dir = await appLogDir();
-                            open(dir);
-                        }}
-                    >
-                        {t('config.about.view_log')}
-                    </Button>}
-                    {devMode && <Button
-                        variant='light'
-                        className='my-[5px]'
-                        size='sm'
-                        onPress={async () => {
-                            const dir = await appConfigDir();
-                            open(dir);
-                        }}
-                    >
-                        {t('config.about.view_config')}
-                    </Button>}
+                    {!isAppStore && (
+                        <Button
+                            variant='light'
+                            className='my-[5px]'
+                            size='sm'
+                            onPress={() => {
+                                invoke('updater_window');
+                            }}
+                        >
+                            {t('config.about.check_update')}
+                        </Button>
+                    )}
+                    {devMode && (
+                        <Button
+                            variant='light'
+                            className='my-[5px]'
+                            size='sm'
+                            onPress={async () => {
+                                const dir = await appLogDir();
+                                open(dir);
+                            }}
+                        >
+                            {t('config.about.view_log')}
+                        </Button>
+                    )}
+                    {devMode && (
+                        <Button
+                            variant='light'
+                            className='my-[5px]'
+                            size='sm'
+                            onPress={async () => {
+                                const dir = await appConfigDir();
+                                open(dir);
+                            }}
+                        >
+                            {t('config.about.view_config')}
+                        </Button>
+                    )}
                 </div>
 
                 <Divider />

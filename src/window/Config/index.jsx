@@ -9,6 +9,10 @@ import SideBar from './components/SideBar';
 import { osType } from '../../utils/env';
 import { useConfig } from '../../hooks';
 import routes from './routes';
+import { UserButton } from '@daveyplate/better-auth-ui';
+import { HiOutlineQuestionMarkCircle } from 'react-icons/hi';
+import { MdCreditCard, MdSettingsSuggest } from 'react-icons/md';
+import { AiFillCloud } from 'react-icons/ai';
 import './style.css';
 
 export default function Config() {
@@ -33,21 +37,48 @@ export default function Config() {
                     osType === 'Linux' && 'rounded-l-[10px] border-1'
                 } border-r-1 border-default-100 select-none cursor-default`}
             >
-                <div className='h-[35px] p-[5px]'>
+                <div className='h-[45px] p-[5px] flex justify-between items-center'>
                     <div
-                        className='w-full h-full'
+                        className='h-full w-full'
                         data-tauri-drag-region='true'
                     />
+                    <UserButton
+                        size='icon'
+                        additionalLinks={[
+                            {
+                                href: `${import.meta.env.VITE_BASE_URL}/docs/faq/howtosociallogin.html`,
+                                label: t('config.account.how_to_social_login'),
+                                icon: <HiOutlineQuestionMarkCircle />,
+                                signedIn: false,
+                            },
+                            {
+                                href: `${import.meta.env.VITE_API_BASE_URL}/pricing`,
+                                label: t('config.account.view_credits_plans'),
+                                icon: <MdCreditCard />,
+                                signedIn: true,
+                            },
+                            {
+                                href: `${import.meta.env.VITE_API_BASE_URL}/settings/billing`,
+                                label: t('config.account.manager_subscriptions'),
+                                icon: <MdSettingsSuggest />,
+                                signedIn: true,
+                            },
+                            {
+                                href: `${import.meta.env.VITE_API_BASE_URL}/settings/credits`,
+                                label: t('config.account.manager_credits'),
+                                icon: <AiFillCloud />,
+                                signedIn: true,
+                            },
+                        ]}
+                    />
                 </div>
-                <div className='p-[5px]'>
-                    <div data-tauri-drag-region='true'>
-                        <img
-                            alt='pot logo'
-                            src='icon.svg'
-                            className='h-[60px] w-[60px] m-auto mb-[30px]'
-                            draggable={false}
-                        />
-                    </div>
+                <div data-tauri-drag-region='true'>
+                    <img
+                        alt='pot logo'
+                        src='/icon.svg'
+                        className='h-[60px] w-[60px] m-auto mb-[20px]'
+                        draggable={false}
+                    />
                 </div>
                 <SideBar />
             </Card>

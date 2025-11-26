@@ -70,7 +70,7 @@ export function Config(props) {
                     <h3 className='my-auto'>{t('services.help')}</h3>
                     <Button
                         onPress={() => {
-                            open('https://saladict-app.aichatone.com/docs/api/translate/alibaba.html');
+                            open('https://github.com/thedaviddelta/lingva-translate');
                         }}
                     >
                         {t('services.help')}

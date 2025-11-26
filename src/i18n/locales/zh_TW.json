@@ -226,6 +226,32 @@
             "advance": {
                 "label": "進階設定",
                 "title": "進階設定"
+            },
+            "auth/sign-in": {
+                "label": "登錄",
+                "title": "登錄"
+            },
+            "auth/sign-up": {
+                "label": "註冊",
+                "title": "註冊"
+            },
+            "auth/forgot-password": {
+                "label": "忘記密碼",
+                "title": "忘記密碼"
+            },
+            "account/settings": {
+                "label": "帳號設定",
+                "title": "帳號設定"
+            },
+            "account/security": {
+                "label": "安全設定",
+                "title": "安全設定"
+            },
+            "account": {
+                "how_to_social_login": "如何使用社交帳號登錄?",
+                "manager_credits": "管理积分",
+                "manager_subscriptions": "管理訂閱",
+                "view_credits_plans": "查看积分计划"
             }
         },
         "updater": {
@@ -284,6 +310,7 @@
                     "chatglm_std": "ChatGLM Std",
                     "chatglm_lite": "ChatGLM Lite",
                     "api_key": "API Key",
+                    "stream": "串流輸出",
                     "prompt_description": "透過自定義 Prompt，您可以自定義 AI 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",
                     "add": "新增 Prompt",
                     "chatglm_turbo": "ChatGLM Turbo"
@@ -365,12 +392,60 @@
                     "prompt_description": "透過自定義 Prompt，您可以自定義 AI 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。"
                 },
                 "geminipro": {
-                    "title": "Gemini Pro",
+                    "title": "Gemini",
+                    "model": "模型",
                     "request_path": "請求路徑",
                     "api_key": "API Key",
-                    "prompt_description": "透過自定義 Prompt，您可以自定義 Gemini Pro 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",
+                    "prompt_description": "透過自定義 Prompt，您可以自定義 Gemini 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",
                     "stream": "串流輸出",
                     "add": "新增 Prompt"
+                },
+                "openai_cloud": {
+                    "title": "OpenAI Cloud"
+                },
+                "gemini_cloud": {
+                    "title": "Gemini Cloud"
+                },
+                "claude_cloud": {
+                    "title": "Claude Cloud",
+                    "model": "模型",
+                    "stream": "串流輸出",
+                    "prompt_description": "透過自定義 Prompt，您可以自定義 AI 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",
+                    "add": "添加 Prompt"
+                },
+                "chatglm_cloud": {
+                    "title": "ChatGLM Cloud"
+                },
+                "moonshot_cloud": {
+                    "title": "Moonshot Cloud",
+                    "model": "模型",
+                    "stream": "串流輸出",
+                    "prompt_description": "透過自定義 Prompt，您可以自定義 AI 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",
+                    "add": "添加 Prompt"
+                },
+                "minimax_cloud": {
+                    "title": "MiniMax Cloud",
+                    "model": "模型",
+                    "stream": "串流輸出",
+                    "prompt_description": "透過自定義 Prompt，您可以自定義 AI 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",
+                    "add": "添加 Prompt"
+                },
+                "deepseek_cloud": {
+                    "title": "DeepSeek Cloud",
+                    "model": "模型",
+                    "stream": "串流輸出",
+                    "prompt_description": "透過自定義 Prompt，您可以自定義 AI 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",
+                    "add": "添加 Prompt"
+                },
+                "tongyi_cloud": {
+                    "title": "通义千问 Cloud",
+                    "model": "模型",
+                    "stream": "串流輸出",
+                    "prompt_description": "透過自定義 Prompt，您可以自定義 AI 的行為。$text $from $to $detect 將被替換為待翻譯的文字、來源語言、目標語言和偵測到的語言。",
+                    "add": "添加 Prompt"
+                },
+                "deepl_cloud": {
+                    "title": "DeepL Cloud"
                 }
             },
             "recognize": {

@@ -42,14 +42,28 @@
 
 <div align="center">
 
+# 왜 샐라딕트(Saladict)가 Pot Translate보다 더 나은 선택인가?
+
+</div>
+
+샐라딕트는 Pot Translation의 포크(Fork) 버전입니다. Pot Translation 자체도 훌륭하지만, 왜 샐라딕트를 선택해야 할까요? 주요 이유는 다음과 같습니다:
+
+-   더 안정적인 기능: Pot에는 아직 병합되지 않은 많은 pull request가 있으며, 그중에는 중요한 버그 수정도 포함되어 있습니다. 샐라딕트는 정기적으로 Pot 원본 저장소의 버그 수정 코드를 동기화하고, 새로운 기능은 선택적으로 통합하여 전체적인 안정성을 보장합니다.
+
+-   더 넓은 AI 번역 통합: 4.0.0 버전부터 샐라딕트는 내장된 온라인 번역 서비스를 제공합니다. 사용자는 더 이상 직접 API 키를 신청할 필요 없이 바로 사용할 수 있습니다.
+
+-   통합된 제품 생태계: 우리의 장기적인 비전은 브라우저 확장 프로그램과 데스크톱 애플리케이션 간의 일관성과 상호 보완성을 유지하여 가장 완벽한 텍스트 선택 번역 솔루션을 제공하는 것입니다. 많은 사용자가 먼저 크롬 확장 프로그램을 통해 샐라딕트를 접한 후 데스크톱 앱을 다운로드합니다.
+
+-   더 긴 지원 주기: Pot의 유지 관리 빈도는 점점 줄어들고 있으며, 자발적인 프로젝트는 장기간 지속되기 어렵습니다. 샐라딕트는 광고와 온라인 번역 서비스를 통해 수익을 창출하여 제품을 지속적으로 유지·관리할 동기를 부여받고 있으며, 동시에 코드의 개방성을 유지합니다.
+
 # 사용법
 
 </div>
 
-| 선택영역 자동번역                       | 입력단어 번역                           | 외부호출                                                                                   |
-| --------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------ |
-| 문장을 선택하고 *번역단축키*를 누릅니다 | 번역창을 열고, 번역할 문장을 입력합니다 | 다른 프로그램과 연동하여 효율적으로 사용가능합니다, [External Calls](#external-calls) 참고 |
-| <img src="asset/eg1.gif"/>              | <img src="asset/eg2.gif"/>              | <img src="asset/eg3.gif"/>                                                                 |
+| 선택영역 자동번역                                                                            | 입력단어 번역                           | 외부호출                                                                                   |
+| -------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------ |
+| 마우스로 번역할 텍스트를 선택하고, 단어 번역 단축키를 누르거나 빠른 번역 아이콘을 클릭하세요 | 번역창을 열고, 번역할 문장을 입력합니다 | 다른 프로그램과 연동하여 효율적으로 사용가능합니다, [External Calls](#external-calls) 참고 |
+| <img src="asset/eg1.gif"/>                                                                   | <img src="asset/eg2.gif"/>              | <img src="asset/eg3.gif"/>                                                                 |
 
 | 클립보드 자동인식                                                    | 스크린샷 OCR언어인식              | 스크린샷 자동번역                        |
 | -------------------------------------------------------------------- | --------------------------------- | ---------------------------------------- |
@@ -82,7 +96,7 @@
 
 -   [x] [OpenAI](https://platform.openai.com/)
 -   [x] [ChatGLM](https://www.zhipuai.cn/)
--   [x] [Gemini Pro](https://gemini.google.com/)
+-   [x] [Gemini](https://gemini.google.com/)
 -   [x] [Ollama](https://www.ollama.com/) (Offline)
 -   [x] [Ali Translate](https://www.aliyun.com/product/ai/alimt)
 -   [x] [Baidu Translate](https://fanyi.baidu.com/)
@@ -149,7 +163,7 @@
 
 ## -플러그인-의 설치
 
-설치가능한 플러그인 항목은 다음을 참고하세요 [Plugin List](https://saladict-app.aichatone.com/plugin.html). 그리고 필요한 항목을 다운받으십시오.
+설치가능한 플러그인 항목은 다음을 참고하세요 [Plugin List](https://app.saladict.net/plugin.html). 그리고 필요한 항목을 다운받으십시오.
 
 플러그인의 확장자는 `.potext` 입니다. 다운받은 `.potext` 확장자 파일을 프로그램 설정메뉴 - 서비스 - Add External Plugin - Install External Plugin 메뉴에서 등록하여 설치합니다. 파일을 등록하면 해당 항목을 프로그램의 사용목록에 표시가 되어 사용이 가능해 집니다.
 
@@ -165,7 +179,7 @@
 
 ## -플러그인-의 개발
 
-템플릿 [Template](https://saladict-app.aichatone.com/en/plugin.html#template) 항목에서 다양한 항목을 플러그인들을 찾을 수 있습니다 [Plugin List](https://saladict-app.aichatone.com/en/plugin.html). 이 곳에서 필요한 문서를 참고하십시오.
+템플릿 [Template](https://app.saladict.net/en/plugin.html#template) 항목에서 다양한 항목을 플러그인들을 찾을 수 있습니다 [Plugin List](https://app.saladict.net/en/plugin.html). 이 곳에서 필요한 문서를 참고하십시오.
 
 <div align="center">
 
@@ -179,7 +193,7 @@
 
  <a href="https://apps.microsoft.com/detail/9pfzvl2bqx1s" target="_blank">
   <img src="asset/download_on_microsoft_store.png" alt="Download on the Microsoft Store" style="width: 156px;" />
- </a> 
+ </a>
 
 ### Winget 을 이용한 설치
 
@@ -215,7 +229,7 @@ M-series Macs 사용자는 Mac App Store에서 설치할 수 있습니다.
 
  <a href="https://apps.apple.com/app/6740262076" target="_blank">
   <img src="asset/download_on_mac_app_store.svg" alt="Download on the Mac App Store" style="width: 156px;" />
- </a> 
+ </a>
 
 > 기술적 제한으로, Mac App Store 버전은 `Selection Translation` 및 `Translation Using Shortcuts After Selection`을 지원하지 않습니다.
 
@@ -255,7 +269,6 @@ brew upgrade --cask saladict
 리눅스 환경을 위해 `deb` 파일이 제공됩니다
 
 참고 : 두 가지 버전이 제공됩니다. `glibc2.28`기반의 `universal`과 `openssl-1.1` 버전입니다. 프로그램이 당신의 컴퓨터에서 정상적으로 실행되지 않는다면 dependency와 관련된 문제일 경우가 많습니다. `universal`버전을 사용하면 이전 버전의 dependency를 사용하여 실행하면 대부분 실행이 가능합니다.
-
 
 <div align="center">
 

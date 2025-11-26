@@ -1,11 +1,12 @@
-## 3.0.8 (2025-01-23)
+## 4.0.0 (2025-11-24)
 
 ### New feature:
 
--   add text selection translation
--   add hide dock icon option
--   add ctrl + enter key to translate option
+-   Providing online translation services. You can directly access major AI providers and DeepL translation services through our platform
+-   Add Claude Cloud、DeepSeek Cloud、Minimax Cloud、Moonshot Cloud、Tongyi Cloud、ChatGLM Cloud
+-   Custom ChatGLM model name
 
 ### Bugs fixed:
 
 -   fix lingva service not working
+-   fix glm undefined error

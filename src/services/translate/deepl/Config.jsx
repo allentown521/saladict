@@ -24,11 +24,7 @@ export function Config(props) {
         customUrl: '',
     };
 
-    const [deeplConfig, setDeeplConfig] = useConfig(
-        instanceKey,
-        defaultConfig,
-        { sync: false }
-    );
+    const [deeplConfig, setDeeplConfig] = useConfig(instanceKey, defaultConfig, { sync: false });
 
     // when disable deepl before user set config, then config is not null, but other fields are empty
     const config = deeplConfig ? { ...defaultConfig, ...deeplConfig } : defaultConfig;
@@ -81,7 +77,7 @@ export function Config(props) {
                         onPress={() => {
                             const url =
                                 config.type === 'api'
-                                    ? 'https://saladict-app.aichatone.com/docs/api/translate/deepl.html'
+                                    ? 'https://app.saladict.net/docs/api/translate/deepl.html'
                                     : 'https://github.com/OwO-Network/DeepLX';
                             open(url);
                         }}

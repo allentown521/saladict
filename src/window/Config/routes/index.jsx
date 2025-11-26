@@ -9,6 +9,8 @@ import Hotkey from '../pages/Hotkey';
 import Backup from '../pages/Backup';
 import About from '../pages/About';
 import Advance from '../pages/Advance';
+import AuthPage from '../pages/Auth';
+import AccountPage from '../pages/Account';
 
 const routes = [
     {
@@ -50,6 +52,14 @@ const routes = [
     {
         path: '/',
         element: <Navigate to='/general' />,
+    },
+    {
+        path: '/auth/:pathname',
+        element: <AuthPage />,
+    },
+    {
+        path: '/account/:pathname',
+        element: <AccountPage />,
     },
 ];
 

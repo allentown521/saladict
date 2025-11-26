@@ -41,17 +41,31 @@
 
 <div align="center">
 
+# 为什么沙拉翻译是Pot翻译更好的替代品？
+
+</div>
+
+沙拉翻译是 Pot 翻译的一个 Fork 分支。既然 Pot 翻译本身已经很优秀，为什么还要选择沙拉翻译呢？原因主要有以下几点：
+
+-   功能更稳定：Pot 的许多 pull request 尚未合并，其中不乏重要的 bug 修复。沙拉翻译会定期同步 Pot 上游仓库的修复代码，并有选择性地引入新功能，确保整体稳定性。
+
+-   集成更多 AI 翻译平台：从 V4.0.0 版本开始，沙拉翻译提供了在线翻译服务，用户无需自行申请 API Key，即可直接使用。
+
+-   统一的产品生态：我们的长期目标是保持扩展与桌面应用的一致性和互补性，打造最完善的划词翻译解决方案。许多用户最初接触的是沙拉翻译的 Chrome 扩展，随后才下载桌面版应用。
+
+-   更长的维护周期：Pot 的更新频率逐渐降低，“为爱发电”难以长期持续。沙拉翻译通过广告和在线翻译服务获得收入，从而具备持续维护的动力，同时依然保持代码的开放性。
+
 # 使用说明
 
-| 划词翻译                                             | 输入翻译                                                       | 外部调用                                                             |
-| ---------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------------- |
-| 鼠标选中需要翻译的文本，按下设置的划词翻译快捷键即可 | 按下输入翻译快捷键呼出翻译窗口，输入待翻译文本后按下 回车 翻译 | 通过被其他软件调用实现更加方便高效的功能, 详见 [外部调用](#外部调用) |
-| <img src="asset/eg1.gif"/>                           | <img src="asset/eg2.gif"/>                                     | <img src="asset/eg3.gif"/>                                           |
+| 划词翻译                                                                 | 输入翻译                                                       | 外部调用                                                             |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------- | -------------------------------------------------------------------- |
+| 鼠标选中需要翻译的文本，按下设置的划词翻译快捷键或者点击快捷翻译图标即可 | 按下输入翻译快捷键呼出翻译窗口，输入待翻译文本后按下 回车 翻译 | 通过被其他软件调用实现更加方便高效的功能, 详见 [外部调用](#外部调用) |
+| <img src="asset/eg1.gif"/>                                               | <img src="asset/eg2.gif"/>                                     | <img src="asset/eg3.gif"/>                                           |
 
-| 剪切板监听模式                                                         | 截图 OCR                                          | 截图翻译                                         |
-| ---------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------ |
+| 剪切板监听模式                                                             | 截图 OCR                                          | 截图翻译                                         |
+| -------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------ |
 | 右键点击菜单栏图标，选择 `监听剪切板` 启动剪切板监听，复制文字即可完成翻译 | 按下截图 OCR 快捷键后框选需要识别区域即可完成识别 | 按下截图翻译快捷键后框选需要识别区域即可完成翻译 |
-| <img src="asset/eg4.gif"/>                                             | <img src="asset/eg5.gif"/>                        | <img src="asset/eg6.gif"/>                       |
+| <img src="asset/eg4.gif"/>                                                 | <img src="asset/eg5.gif"/>                        | <img src="asset/eg6.gif"/>                       |
 
 </div>
 
@@ -81,7 +95,7 @@
 
 -   [x] [OpenAI](https://platform.openai.com/)
 -   [x] [智谱 AI](https://www.zhipuai.cn/)
--   [x] [Gemini Pro](https://gemini.google.com/)
+-   [x] [Gemini](https://gemini.google.com/)
 -   [x] [Ollama](https://www.ollama.com/) (离线)
 -   [x] [阿里翻译](https://www.aliyun.com/product/ai/alimt)
 -   [x] [百度翻译](https://fanyi.baidu.com/)
@@ -148,7 +162,7 @@
 
 ## 插件安装
 
-你可以在 [Plugin List](https://saladict-app.aichatone.com/plugin.html) 查找你需要的插件，然后前往插件仓库下载插件。
+你可以在 [Plugin List](https://app.saladict.net/plugin.html) 查找你需要的插件，然后前往插件仓库下载插件。
 
 沙拉翻译 插件的扩展名为 `.potext`, 下载得到`.potext`文件之后， 在 偏好设置-服务设置-添加外部插件-安装外部插件 选择对应的 `.potext` 即可安装成功，添加到服务列表中即可像内置服务一样正常使用了。
 
@@ -164,7 +178,7 @@
 
 ## 插件开发
 
-在 [Plugin List](https://saladict-app.aichatone.com/plugin.html) 中的 [模板](https://saladict-app.aichatone.com/plugin.html#%E6%A8%A1%E6%9D%BF) 章节提供了各种插件的开发模板，具体的开发文档请查看对应的模板仓库。
+在 [Plugin List](https://app.saladict.net/plugin.html) 中的 [模板](https://app.saladict.net/plugin.html#%E6%A8%A1%E6%9D%BF) 章节提供了各种插件的开发模板，具体的开发文档请查看对应的模板仓库。
 
 <div align="center">
 
@@ -178,7 +192,7 @@
 
  <a href="https://apps.microsoft.com/detail/9pfzvl2bqx1s" target="_blank">
   <img src="asset/download_on_microsoft_store.png" alt="Download on the Microsoft Store" style="width: 156px;" />
- </a> 
+ </a>
 
 ### 通过 Winget 安装
 
@@ -214,10 +228,9 @@ M-series Macs 用户可以从 Mac App Store 安装。
 
  <a href="https://apps.apple.com/app/6740262076" target="_blank">
   <img src="asset/download_on_mac_app_store.svg" alt="Download on the Mac App Store" style="width: 156px;" />
- </a> 
+ </a>
 
 > 由于技术限制，Mac App Store 版本不支持 `划词翻译` 和 `快捷键划词翻译`。
-
 
 ### 手动安装
 
@@ -321,7 +334,7 @@ rm ~/.cache/allen.town.focus.saladict/pot_screenshot_cut.png && flameshot gui -s
 
 1. 从 [官网](https://www.popclip.app/) 下载安装 PopClip
 
-- 软件是收费的，国内用户可以从 [Mac应用软件分享](https://xclient.info/s/popclip.html) 下载免费版，有能力还是请支持正版。
+-   软件是收费的，国内用户可以从 [Mac应用软件分享](https://xclient.info/s/popclip.html) 下载免费版，有能力还是请支持正版。
 
 2. 从 [Release](https://github.com/allentown521/saladict/releases/latest) 下载 沙拉翻译 的 PopClip 扩展 (Saladict.popclipextz)
 3. 双击下载的扩展文件完成安装。

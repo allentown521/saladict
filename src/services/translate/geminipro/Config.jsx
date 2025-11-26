@@ -85,7 +85,7 @@ export function Config(props) {
                         },
                         (e) => {
                             setIsLoading(false);
-                            toast.error(t('config.service.test_failed') + e.toString(), { style: toastStyle });
+                            toast.error(t('config.service.test_failed') + ' : ' + e.toString(), { style: toastStyle });
                         }
                     );
                 }}
@@ -114,7 +114,7 @@ export function Config(props) {
                     <h3 className='my-auto'>{t('services.help')}</h3>
                     <Button
                         onPress={() => {
-                            open('https://saladict-app.aichatone.com/docs/api/translate/geminipro.html');
+                            open('https://app.saladict.net/docs/api/translate/geminipro.html');
                         }}
                     >
                         {t('services.help')}

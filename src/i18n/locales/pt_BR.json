@@ -337,8 +337,8 @@
                     "add": "Adicionar Prompt",
                     "api_key": "Chave Api",
                     "stream": "Modo Stream",
-                    "prompt_description": "Ao personalizar o Prompt, você pode personalizar o comportamento do Gemini Pro. $text $from $to $detect será substituído pelo texto a ser traduzido, idioma de origem, idioma de destino e idioma detectado.",
-                    "title": "Gemini Pro",
+                    "prompt_description": "Ao personalizar o Prompt, você pode personalizar o comportamento do Gemini. $text $from $to $detect será substituído pelo texto a ser traduzido, idioma de origem, idioma de destino e idioma detectado.",
+                    "title": "Gemini",
                     "request_path": "Caminho de Solicitação"
                 },
                 "ollama": {

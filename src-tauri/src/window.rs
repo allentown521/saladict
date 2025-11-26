@@ -471,7 +471,7 @@ pub fn get_thumb_window(x: i32, y: i32) -> Window {
                 let mut builder = WindowBuilder::new(
                     handle,
                     THUMB_WIN_NAME,
-                    tauri::WindowUrl::App("src/tauri/index.html".into()),
+                    tauri::WindowUrl::App("index.html".into()),
                 )
                 .fullscreen(false)
                 .focused(false)
@@ -481,8 +481,6 @@ pub fn get_thumb_window(x: i32, y: i32) -> Window {
                 .visible(false)
                 .resizable(false)
                 .skip_taskbar(true)
-                .minimizable(false)
-                .maximizable(false)
                 .closable(false)
                 .decorations(false);
 

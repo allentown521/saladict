@@ -1,7 +1,7 @@
 export const info = {
     name: 'lingva',
     icon: 'logo/lingva.svg',
-    defaultEndpoint: 'lingva.thedaviddelta.com',
+    defaultEndpoint: 'translate.plausibility.cloud',
 };
 
 // https://cloud.google.com/translate/docs/languages?hl=zh-cn
