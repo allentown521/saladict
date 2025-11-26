@@ -6,8 +6,10 @@ on:
 permissions: write-all
 
 env:
-  VITE_UMAMI_SCRIPT_URL: ${{ secrets.VITE_UMAMI_SCRIPT_URL }}
-  VITE_UMAMI_DATA_WEBSITE_ID: ${{ secrets.VITE_UMAMI_DATA_WEBSITE_ID }}
+    VITE_UMAMI_SCRIPT_URL: ${{ secrets.VITE_UMAMI_SCRIPT_URL }}
+    VITE_UMAMI_DATA_WEBSITE_ID: ${{ secrets.VITE_UMAMI_DATA_WEBSITE_ID }}
+    VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+    VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
 
 jobs:
     change-version:
@@ -176,7 +178,7 @@ jobs:
                   echo "Submitting app for notarization..."
                   # First compress the app
                   ditto -c -k --keepParent "${app_path}" "app.zip"
-                  
+
                   # Submit for notarization
                   xcrun notarytool submit "app.zip" \
                       --apple-id "$APPLE_ID" \
@@ -246,14 +248,14 @@ jobs:
                   name: macos_${{ matrix.target }}_dmg
                   path: src-tauri/target/${{ matrix.target }}/release/bundle/dmg/*.dmg
                   if-no-files-found: error
-            
+
             - name: Upload Artifacts
               uses: actions/upload-artifact@v4
               with:
                   name: macos_${{ matrix.target }}_updater
                   path: src-tauri/target/${{ matrix.target }}/release/bundle/macos/*.app*
                   if-no-files-found: error
-            
+
             - name: Upload Release
               if: startsWith(github.ref, 'refs/tags')
               uses: softprops/action-gh-release@v1
@@ -261,7 +263,7 @@ jobs:
                   body_path: CHANGELOG
                   token: ${{ secrets.GITHUB_TOKEN }}
                   files: src-tauri/target/${{ matrix.target }}/release/bundle/dmg/*.dmg
-            
+
             - name: Upload Release
               if: startsWith(github.ref, 'refs/tags')
               uses: softprops/action-gh-release@v1
