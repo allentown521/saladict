@@ -1,0 +1,82 @@
+name: Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      trigger_docs_update:
+        description: 'Trigger docs update'
+        required: false
+        default: false
+        type: boolean
+      release_update:
+        description: 'Release update files'
+        required: false
+        default: false
+        type: boolean
+      version:
+        description: 'Version tag (for release update)'
+        required: false
+        type: string
+
+permissions: write-all
+
+env:
+    VITE_UMAMI_SCRIPT_URL: ${{ secrets.VITE_UMAMI_SCRIPT_URL }}
+    VITE_UMAMI_DATA_WEBSITE_ID: ${{ secrets.VITE_UMAMI_DATA_WEBSITE_ID }}
+    VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+    VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
+
+jobs:
+    trigger-docs-update:
+        runs-on: ubuntu-latest
+        if: github.event.inputs.trigger_docs_update == 'true'
+        steps:
+            - name: Trigger update
+              run: |
+                  curl -X POST https://api.github.com/repos/allentown521/saladict-desktop-docs/dispatches \
+                    -H "Accept: application/vnd.github.everest-preview+json" \
+                    -H "Authorization: token ${{ secrets.TOKEN }}" \
+                    -d '{"event_type": "plugins-updated"}'
+
+    release-update:
+        runs-on: ubuntu-latest
+        if: github.event.inputs.release_update == 'true'
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+            - name: Install git
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y git curl
+            - name: Get Tag Name
+              run: |
+                  if [ -n "${{ github.event.inputs.version }}" ]; then
+                    echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+                    echo "VERSION=${{ github.event.inputs.version }}"
+                  else
+                    echo "VERSION=$(git describe --tags | sed 's/-[0-9]*-.*//g')" >> $GITHUB_ENV
+                    echo "VERSION=$(git describe --tags | sed 's/-[0-9]*-.*//g')"
+                  fi
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
+            - name: pnpm install
+              run: pnpm install
+            - name: Release updater file
+              run: |
+                  pnpm run updater
+                  pnpm run updater:fixRuntime
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Upload Release
+              uses: softprops/action-gh-release@v1
+              with:
+                  body: ${{env.VERSION}}
+                  tag_name: updater
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  files: |
+                      update.json
+                      update-fix-runtime.json
