@@ -1,22 +1,22 @@
 name: Update
 
 on:
-  workflow_dispatch:
-    inputs:
-      trigger_docs_update:
-        description: 'Trigger docs update'
-        required: false
-        default: false
-        type: boolean
-      release_update:
-        description: 'Release update files'
-        required: false
-        default: false
-        type: boolean
-      version:
-        description: 'Version tag (for release update)'
-        required: false
-        type: string
+    workflow_dispatch:
+        inputs:
+            trigger_docs_update:
+                description: 'Trigger docs update'
+                required: false
+                default: false
+                type: boolean
+            release_update:
+                description: 'Release update files'
+                required: false
+                default: false
+                type: boolean
+            version:
+                description: 'Version tag (for release update)'
+                required: false
+                type: string
 
 permissions: write-all
 
@@ -71,6 +71,7 @@ jobs:
                   pnpm run updater:fixRuntime
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  PROXY_GITHUB_URL: ${{ secrets.PROXY_GITHUB_URL }}
             - name: Upload Release
               uses: softprops/action-gh-release@v1
               with:
