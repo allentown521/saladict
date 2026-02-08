@@ -1,7 +1,7 @@
 export const info = {
     name: 'lingva',
     icon: 'logo/lingva.svg',
-    defaultEndpoint: 'translate.plausibility.cloud',
+    defaultEndpoint: 'lingva.ml',
 };
 
 // https://cloud.google.com/translate/docs/languages?hl=zh-cn
