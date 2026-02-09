@@ -1,0 +1,12 @@
+{
+    "package": {
+        "productName": "沙拉翻译"
+    },
+    "tauri": {
+        "bundle": {
+            "longDescription": "一款跨平台文本翻译和OCR软件",
+            "shortDescription": "沙拉翻译",
+            "targets": ["nsis"]
+        }
+    }
+}

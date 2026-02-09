@@ -11,7 +11,8 @@
         "updater": "node updater/updater.mjs",
         "updater:fixRuntime": "node updater/updater-for-fix-runtime.mjs",
         "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-        "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix"
+        "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+        "build:360": "pnpm tauri build --config src-tauri/tauri.360.conf.json"
     },
     "dependencies": {
         "@daveyplate/better-auth-ui": "^3.2.9",
