@@ -1,12 +1,6 @@
-## 4.0.0 (2025-11-24)
-
-### New feature:
-
--   Providing online translation services. You can directly access major AI providers and DeepL translation services through our platform
--   Add Claude Cloud、DeepSeek Cloud、Minimax Cloud、Moonshot Cloud、Tongyi Cloud、ChatGLM Cloud
--   Custom ChatGLM model name
+## 4.0.1 (2026-03-10)
 
 ### Bugs fixed:
 
--   fix lingva service not working
--   fix glm undefined error
+- fix lingva service not working
+- fix gemini
