@@ -74,7 +74,7 @@
                 "depends": ["libxdo-dev", "libxcb1", "libxrandr2", "tesseract-ocr"]
             },
             "rpm": {
-                "depends": ["libxdo-dev", "libxcb1", "libxrandr2", "tesseract-ocr"]
+                "depends": ["libXdo-devel", "libxcb", "libXrandr", "tesseract"]
             },
             "macOS": {
                 "exceptionDomain": "",
